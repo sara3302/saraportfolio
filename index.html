@@ -581,7 +581,9 @@
       </div>
 
       <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-        <form id="contactForm" class="row g-3">
+        <form action="https://formsubmit.co/sarajoshi33@gmail.com" method="POST" id="contactForm" class="row g-3">
+          <input type="hidden" name="_subject" value="New Portfolio Contact Message from SaraJoshi.com.np">
+          <input type="hidden" name="_captcha" value="false">
           <div class="col-md-6">
             <input type="text" class="form-control" placeholder="Your Name" name="name" required>
           </div>
@@ -589,11 +591,14 @@
             <input type="email" class="form-control" placeholder="Your Email" name="email" required>
           </div>
           <div class="col-12">
-            <textarea class="form-control" rows="6" placeholder="Your Message" name="message" required></textarea>
+            <input type="text" class="form-control" placeholder="Subject" name="subject" required>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn-accent">Send Message</button>
-            <div id="form-status"></div>
+            <textarea class="form-control" rows="5" placeholder="Your Message" name="message" required></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn-accent" id="submitBtn"><i class="bi bi-send me-1"></i> Send Message</button>
+            <div id="form-status" style="margin-top:1rem;display:none;font-weight:500;"></div>
           </div>
         </form>
       </div>
@@ -688,15 +693,46 @@
     });
   });
 
-  // contact form (front-end only placeholder)
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const status = document.getElementById('form-status');
-    status.style.display = 'block';
-    status.style.color = '#F2A93B';
-    status.textContent = 'Message ready — connect this form to your backend or a service like Formspree to send it.';
-    this.reset();
-  });
+  // contact form (FormSubmit integration with live AJAX feedback)
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+      status.style.display = 'block';
+      status.style.color = 'var(--accent)';
+      status.textContent = 'Sending your message...';
+
+      const formData = new FormData(this);
+      
+      fetch('https://formsubmit.co/ajax/sarajoshi33@gmail.com', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      })
+      .then(response => response.json())
+      .then(data => {
+        status.style.color = '#10B981';
+        status.textContent = 'Thank you! Your message has been sent successfully to Sara Joshi.';
+        contactForm.reset();
+      })
+      .catch(error => {
+        status.style.color = '#EF4444';
+        status.textContent = 'Oops! There was an issue sending your message. Please try emailing directly at sarajoshi33@gmail.com.';
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="bi bi-send me-1"></i> Send Message';
+      });
+    });
+  }
 
 
   
