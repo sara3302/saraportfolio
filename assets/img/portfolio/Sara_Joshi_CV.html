@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara Joshi — Curriculum Vitae</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f4f5f7;
+    color: #111;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.45;
+    padding: 2rem 1rem;
+  }
+  .cv-paper {
+    background: #fff;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 2.8rem 3.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: 4px;
+  }
+  .cv-header { text-align: center; margin-bottom: 1.8rem; border-bottom: 2px solid #111; padding-bottom: 1rem; }
+  .cv-name { font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 700; letter-spacing: 0.05em; color: #000; }
+  .cv-location { font-size: 1rem; color: #444; margin-top: 0.2rem; }
+  .cv-contact { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #333; margin-top: 0.5rem; display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap; }
+  .cv-contact a { color: #111; text-decoration: none; }
+  .cv-contact a:hover { text-decoration: underline; }
+  
+  .cv-section { margin-bottom: 1.5rem; }
+  .cv-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .cv-item { margin-bottom: 1rem; }
+  .cv-item-header { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 1.02rem; }
+  .cv-item-sub { font-style: italic; color: #444; display: flex; justify-content: space-between; margin-bottom: 0.3rem; }
+  
+  ul { padding-left: 1.2rem; margin-top: 0.3rem; }
+  li { margin-bottom: 0.25rem; text-align: justify; }
+  
+  .skills-group { margin-bottom: 0.3rem; font-size: 0.95rem; }
+  .skills-group strong { font-family: 'Inter', sans-serif; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.03em; }
+
+  .no-print-bar {
+    max-width: 820px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn-print {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-print:hover { background: #333; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .cv-paper { box-shadow: none; padding: 0; max-width: 100%; }
+    .no-print-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print-bar">
+  <a href="../../index.html" class="btn-print" style="background:#555;">&larr; Back to Portfolio</a>
+  <button onclick="window.print()" class="btn-print">&check; Print / Download PDF</button>
+</div>
+
+<div class="cv-paper">
+  <header class="cv-header">
+    <h1 class="cv-name">Sara Joshi</h1>
+    <div class="cv-location">Kathmandu, Nepal</div>
+    <div class="cv-contact">
+      <span>&#128222; +977 9844161220</span>
+      <span>&#9993; <a href="mailto:sarajoshi33@gmail.com">sarajoshi33@gmail.com</a></span>
+      <span>&#128279; <a href="https://linkedin.com" target="_blank">LinkedIn</a></span>
+    </div>
+  </header>
+
+  <section class="cv-section">
+    <h2 class="cv-section-title">Education</h2>
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Bachelor of Information Technology (BIT)</span>
+        <span>Expected Feb 2027</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Tribhuvan University</span>
+        <span>GPA: 3.54</span>
+      </div>
+      <ul>
+        <li>Merit Scholarship Recipient &ndash; 5th Semester Topper</li>
+        <li>Merit Scholarship Recipient &ndash; 6th Semester Topper</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <h2 class="cv-section-title">Technical Skills</h2>
+    <div class="skills-group"><strong>Languages:</strong> Python, SQL</div>
+    <div class="skills-group"><strong>Frameworks:</strong> Django, Django REST Framework, Next.js, Tailwind CSS</div>
+    <div class="skills-group"><strong>AI/ML:</strong> Scikit-learn, Pandas, NLP, Decision Trees, Recommendation Systems, LLM APIs</div>
+    <div class="skills-group"><strong>Databases:</strong> PostgreSQL, SQLite</div>
+    <div class="skills-group"><strong>Tools:</strong> Git, GitHub, Docker, Celery, Redis, VS Code, Vercel</div>
+  </section>
+
+  <section class="cv-section">
+    <h2 class="cv-section-title">Projects</h2>
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Medi: AI-Powered Hospital Management System</span>
+        <span>2025</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Django, DRF, Next.js, Scikit-learn, Celery</span>
+      </div>
+      <ul>
+        <li>Developed patient and doctor management modules supporting appointment scheduling, medical records, and role-based access control using Django REST Framework.</li>
+        <li>Built a Decision Tree based Heart Disease Prediction Model using healthcare datasets.</li>
+        <li>Implemented AI-powered medical report analysis using LLM API integration.</li>
+        <li>Integrated Celery for asynchronous backend processing.</li>
+        <li>Performed UML design, testing, documentation, and Git-based collaboration.</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Readkin: AI-Powered Social Book Tracker</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Python, Django, PostgreSQL, Scikit-learn, Gemini API</span>
+      </div>
+      <ul>
+        <li>Developing a social reading platform with AI-powered recommendation systems.</li>
+        <li>Building hybrid recommendation engines using collaborative filtering and LLM APIs.</li>
+        <li>Integrating Google Books API and personalized recommendation algorithms.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <h2 class="cv-section-title">Leadership &amp; Community</h2>
+    
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Microsoft Learn Student Ambassador</span>
+        <span>October 2024 &ndash; Present</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Student Ambassador</span>
+      </div>
+      <ul>
+        <li>Promoted technical education through workshops and community initiatives.</li>
+        <li>Collaborated directly with Github to conduct Github Copilot Dev days event.</li>
+        <li>Facilitated community events focused on AI and machine learning technologies as mlsa.</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Illuminati Organization</span>
+        <span>2026 &ndash; Present</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Full stack developer &amp; Researcher (sudurpaschim Province Handler)</span>
+        <span>Remote</span>
+      </div>
+      <ul>
+        <li>Served as the Gandaki Province Handler, coordinating regional research activities, participant engagement, and data collection for nationwide projects.</li>
+        <li>Developed, tested, and validated web application features, identifying bugs and verifying fixes to ensure functionality and reliability.</li>
+        <li>Designed, managed, and reviewed research questionnaires, maintaining data accuracy and consistency throughout the research process.</li>
+        <li>Collaborated with cross-functional teams at Illuminati on the development, testing, and research operations of projects such as Question Nepal.</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Youth Advisory Leadership Council (YALC) Lead &ndash; YUWA</span>
+        <span>March 2024 &ndash; April 2025</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Facilitator and Event Lead</span>
+      </div>
+      <ul>
+        <li>Facilitated Comprehensive Sexuality Education (CSE) programs in local schools for 8 months.</li>
+        <li>Organized local youth leadership and awareness events in Bhairahawa.</li>
+        <li>Collaborated with organizations such as American Corner, Neptech, Shree Shanti Namuna Secondary School, and Belahiya School.</li>
+        <li>Managed social media platforms, blogs, and digital outreach activities to boost community engagement.</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Country Ambassador &ndash; Youth Opportunities</span>
+        <span>Jan 2024 &ndash; Jan 2025</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Student Ambassador</span>
+      </div>
+      <ul>
+        <li>Promoted educational and professional development opportunities to students via regional digital platforms.</li>
+        <li>Created targeted digital content and graphic designs for the Youth Opportunities Facebook group to boost organic reach.</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>Code for Change &ndash; Tech Conclave Organizing Team</span>
+        <span>2023 &ndash; 2024</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Member</span>
+      </div>
+      <ul>
+        <li>Collaborated in organizing a national tech conclave featuring prominent industry speakers from eSewa and other ecosystem partners.</li>
+        <li>Managed participant engagement, logistical workflows, and event operations.</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <div class="cv-item-header">
+        <span>AI Language Data Contributor</span>
+        <span>2024</span>
+      </div>
+      <div class="cv-item-sub">
+        <span>Freelance Proofreader &amp; Transcription Specialist</span>
+      </div>
+      <ul>
+        <li>Completed 50+ language data tasks involving audio recording, transcription, and proofreading for AI and speech recognition projects.</li>
+        <li>Reviewed and corrected transcripts by comparing audio recordings with text, ensuring high accuracy in grammar, punctuation, formatting, and speaker intent.</li>
+        <li>Recorded high-quality voice samples from assigned scripts while adhering to pronunciation, recording, and quality guidelines.</li>
+        <li>Performed transcription, translation, and typing tasks with consistent attention to detail and on-time project delivery.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

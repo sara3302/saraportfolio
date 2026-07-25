@@ -1,0 +1,3 @@
+# Requirements for Sara Portfolio project
+# Python dependencies: rewrite.py requires Python 3.6+ (uses standard libraries sys, os)
+# No external pip packages needed for rewrite.py
