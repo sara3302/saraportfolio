@@ -236,6 +236,39 @@
   footer .logo{font-size:1.15rem;}
   footer p.copy{color:var(--muted);font-size:.85rem;margin:.6rem 0 0;}
 
+  /* ---- DEMO MODAL ---- */
+  .modal-content.theme-modal {
+    background: #1F152E;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--text);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(16px);
+  }
+  .theme-modal .modal-header {
+    border-bottom: 1px solid var(--line);
+    padding: 1.2rem 1.6rem;
+  }
+  .theme-modal .modal-title {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .theme-modal .btn-close-theme {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 1.3rem;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  .theme-modal .btn-close-theme:hover {
+    color: var(--accent);
+  }
+  .theme-modal .modal-body {
+    padding: 1.6rem;
+  }
+
   /* scroll top */
   #scroll-top{
     position:fixed;bottom:1.8rem;right:1.8rem;width:44px;height:44px;border-radius:50%;
@@ -464,6 +497,9 @@
             <a href="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" target="_blank" class="btn-ghost-gh">
               <i class="bi bi-github"></i> View on GitHub
             </a>
+            <button type="button" class="btn-ghost-gh btn-demo" data-bs-toggle="modal" data-bs-target="#demoModal" data-title="Medi: AI-Powered Hospital Management System" data-video="" data-github="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" style="border-color:var(--accent);color:var(--accent);">
+              <i class="bi bi-play-circle me-1"></i> Live Demo
+            </button>
           </div>
         </div>
       </div>
@@ -488,6 +524,9 @@
             <a href="https://github.com/sara3302/readkin" target="_blank" class="btn-ghost-gh">
               <i class="bi bi-github"></i> View on GitHub
             </a>
+            <button type="button" class="btn-ghost-gh btn-demo" data-bs-toggle="modal" data-bs-target="#demoModal" data-title="Readkin: AI-Powered Social Book Tracker" data-video="" data-github="https://github.com/sara3302/readkin" style="border-color:var(--accent);color:var(--accent);">
+              <i class="bi bi-play-circle me-1"></i> Live Demo
+            </button>
           </div>
         </div>
       </div>
@@ -630,6 +669,31 @@
 
 <a href="#hero" id="scroll-top"><i class="bi bi-arrow-up"></i></a>
 
+<!-- VIDEO DEMO MODAL -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content theme-modal">
+      <div class="modal-header d-flex align-items-center justify-content-between">
+        <h5 class="modal-title d-flex align-items-center gap-2" id="demoModalLabel">
+          <i class="bi bi-play-circle-fill accent"></i> <span id="modalProjectTitle">Project Video Demo</span>
+        </h5>
+        <button type="button" class="btn-close-theme" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body">
+        <div id="modalVideoContainer" class="ratio ratio-16x9 rounded overflow-hidden shadow-lg mb-3" style="background:#0F0B18;border:1px solid var(--line);">
+          <!-- Dynamic video embed or staging demo placeholder injected via JS -->
+        </div>
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2" style="border-top:1px solid var(--line);">
+          <span class="mono accent" style="font-size:.85rem;">Project Showcase &amp; Demo</span>
+          <a href="#" id="modalGithubBtn" target="_blank" class="btn-ghost-gh">
+            <i class="bi bi-github"></i> View Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Vendor JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -746,8 +810,54 @@
 
 
   
-  // Initialize Vanilla Tilt explicitly if needed, but the data-tilt attribute should handle it automatically.
+  // Demo Modal dynamic video / demo handler
+  const demoModal = document.getElementById('demoModal');
+  if (demoModal) {
+    demoModal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+      const title = button.getAttribute('data-title') || 'Project Showcase';
+      const videoSrc = button.getAttribute('data-video') || '';
+      const liveUrl = button.getAttribute('data-live-url') || '';
+      const githubUrl = button.getAttribute('data-github') || '#';
 
+      document.getElementById('modalProjectTitle').textContent = title;
+      document.getElementById('modalGithubBtn').setAttribute('href', githubUrl);
+
+      const videoContainer = document.getElementById('modalVideoContainer');
+      
+      if (liveUrl) {
+        // Mode A: Render live URL target inside responsive viewport or iframe
+        videoContainer.innerHTML = `<iframe src="${liveUrl}" title="${title}" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>`;
+      } else if (videoSrc) {
+        // Mode B: Render video player (YouTube or direct MP4)
+        if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
+          videoContainer.innerHTML = `<iframe src="${videoSrc}?autoplay=1" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>`;
+        } else {
+          videoContainer.innerHTML = `<video controls autoplay style="width:100%;height:100%;object-fit:cover;"><source src="${videoSrc}" type="video/mp4">Your browser does not support video playback.</video>`;
+        }
+      } else {
+        // Theme-consistent Interactive Showcase Preview
+        videoContainer.innerHTML = `
+          <div class="d-flex flex-column align-items-center justify-content-center p-4 text-center" style="background:var(--surface);height:100%;">
+            <div class="project-icon mb-3" style="width:58px;height:58px;font-size:1.7rem;border-radius:12px;margin:0 auto;"><i class="bi bi-play-btn accent"></i></div>
+            <h4 class="mb-2" style="font-size:1.15rem;font-weight:700;color:var(--text);">${title}</h4>
+            <p class="text-muted mb-3" style="max-width:460px;font-size:.88rem;color:var(--muted);">
+              Interactive video walkthrough &amp; live staging preview. You can also review the full architecture and source code directly on GitHub.
+            </p>
+            <div class="d-flex gap-2 justify-content-center flex-wrap">
+              <a href="${githubUrl}" target="_blank" class="btn-accent" style="padding:.55rem 1.3rem;font-size:.85rem;">
+                <i class="bi bi-github me-1"></i> View Repository on GitHub
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    });
+
+    demoModal.addEventListener('hidden.bs.modal', function () {
+      document.getElementById('modalVideoContainer').innerHTML = '';
+    });
+  }
 </script>
 </body>
 </html>
