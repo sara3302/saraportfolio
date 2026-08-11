@@ -695,6 +695,108 @@
       font-weight: 500;
     }
 
+    /* Experience Section Styling (Left Coral Accent Card Stack) */
+    .experience-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      max-width: 56rem;
+      margin: 1.5rem auto 0 auto;
+    }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.1);
+    }
+
+    .exp-header-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-logo-circle {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent-color);
+      font-size: 1.25rem;
+    }
+
+    .exp-header-meta {
+      flex-grow: 1;
+    }
+
+    .exp-role-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 0.2rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    .exp-company-name {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .exp-timeline {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .exp-bullets {
+      margin: 0 0 1.25rem 0;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .exp-skills-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .exp-skills-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-right: 0.25rem;
+    }
+
     .stack-card h3 {
       display: flex;
       align-items: center;
@@ -1009,11 +1111,82 @@
             </div>
           </div>
         </div>
+      <!-- Section 02: Work Experience -->
+      <section id="experience" class="section">
+        <div class="container">
+          <span class="section-subtitle">02 / Work Experience</span>
+          <h2 class="section-title">Professional Experience</h2>
+          <p class="section-description">Software engineering, full-stack development, data processing, and technical research roles.</p>
+
+          <div class="experience-stack">
+
+            <!-- Experience Item 1 -->
+            <div class="exp-card">
+              <div class="exp-header-row">
+                <div class="exp-logo-circle">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <div class="exp-header-meta">
+                  <h3 class="exp-role-title">
+                    Full Stack Developer &amp; Researcher <span style="font-weight: 400; font-size: 0.92rem; color: var(--text-muted);">(Sudurpaschim Province Handler)</span>
+                  </h3>
+                  <span class="exp-company-name">Illuminati Organization</span>
+                </div>
+              </div>
+
+              <span class="exp-timeline">2026 | Remote</span>
+
+              <ul class="exp-bullets">
+                <li>Engineered interactive UI features using React and built Python scripts for backend data processing for web applications like Question Nepal.</li>
+                <li>Tested, validated, and debugged web application features to ensure performance, reliability, and data consistency.</li>
+                <li>Coordinated regional research operations, survey design, and participant data collection across Sudurpaschim Province.</li>
+              </ul>
+
+              <div class="exp-skills-row">
+                <span class="exp-skills-label">Skills:</span>
+                <span class="pill-tag">React</span>
+                <span class="pill-tag">Python</span>
+                <span class="pill-tag">Full Stack Development</span>
+                <span class="pill-tag">Data Processing</span>
+                <span class="pill-tag">Research</span>
+              </div>
+            </div>
+
+            <!-- Experience Item 2 -->
+            <div class="exp-card">
+              <div class="exp-header-row">
+                <div class="exp-logo-circle">
+                  <i class="bi bi-cpu"></i>
+                </div>
+                <div class="exp-header-meta">
+                  <h3 class="exp-role-title">AI Language Data Contributor &amp; Proofreader</h3>
+                  <span class="exp-company-name">Freelance</span>
+                </div>
+              </div>
+
+              <span class="exp-timeline">2024 | Remote</span>
+
+              <ul class="exp-bullets">
+                <li>Completed 50+ language data tasks in Nepali and English involving audio recording, transcription, and proofreading with a 98% accuracy rate.</li>
+                <li>Reviewed and corrected transcripts against audio recordings, ensuring high accuracy in grammar, punctuation, and speaker intent.</li>
+              </ul>
+
+              <div class="exp-skills-row">
+                <span class="exp-skills-label">Skills:</span>
+                <span class="pill-tag">NLP Data</span>
+                <span class="pill-tag">Transcription</span>
+                <span class="pill-tag">Proofreading</span>
+                <span class="pill-tag">Quality Assurance</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </section>
 
-      <!-- Section 02: Tech Stack -->
+      <!-- Section 03: Tech Stack -->
       <section id="stack" class="section">
-        <span class="section-subtitle">02 / Technical Stack</span>
+        <span class="section-subtitle">03 / Technical Stack</span>
         <h2 class="section-title">Engineering Stack &amp; Infrastructure</h2>
         <p class="section-description">Core technologies utilized for backend architecture, data pipelines, and AI systems.</p>
 
@@ -1299,12 +1472,12 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
         </div>
       </section>
 
-      <!-- Sections 04 & 05: Education & Experience -->
-      <section id="experience" class="section">
+      <!-- Section 06: Education & Academic Credentials -->
+      <section id="education" class="section">
         <div class="timeline-grid">
           <!-- Education -->
           <div>
-            <span class="section-subtitle">04 / Education</span>
+            <span class="section-subtitle">06 / Education</span>
             <h2 class="section-title">Academic Credentials</h2>
             
             <div class="timeline-item" style="margin-top: 1.5rem;">
