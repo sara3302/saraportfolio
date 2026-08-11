@@ -226,20 +226,37 @@
       margin: 0;
     }
 
+    .hero-stack-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    .hero-stack-pills span {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
     .hero-image-wrapper {
       flex: 1;
       display: flex;
       justify-content: flex-end;
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
     .hero-cutout-img {
       max-width: 380px;
-      max-height: 480px;
       height: auto;
-      object-fit: cover;
-      object-position: center 18%;
-      border-radius: 8px;
-      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08));
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.12));
     }
 
     /* Responsive Scaling */
@@ -762,11 +779,16 @@
             <span class="greeting">Hello,</span>
             <h1 class="hero-name">I'm Sara Joshi</h1>
             <p class="hero-role">Backend &amp; Applied AI/ML Engineer</p>
-            <p class="hero-location"><i class="bi bi-geo-alt-fill" style="color: var(--accent-primary);"></i> From Kathmandu, Nepal</p>
-            
-            <p class="hero-description" style="margin-top: 1rem;">
-              Building distributed backend systems, async queues, and ML pipelines using Django REST Framework, Celery worker architecture, and PostgreSQL. Experienced in real-time model inference with Scikit-learn and structured LLM parsing via OpenAI and Gemini APIs.
-            </p>
+            <p class="hero-location">From Kathmandu, Nepal</p>
+
+            <!-- Clean, minimal tech tags -->
+            <div class="hero-stack-pills">
+              <span>Python</span>
+              <span>Django REST</span>
+              <span>PostgreSQL</span>
+              <span>Celery</span>
+              <span>Scikit-learn</span>
+            </div>
 
             <div class="hero-cta-group" style="margin-top: 1.5rem;">
               <a href="#projects" class="btn btn-primary"><i class="bi bi-terminal"></i> Case Studies</a>
@@ -774,8 +796,8 @@
             </div>
           </div>
 
+          <!-- Clean Cutout Image (No frame, background, or card footer) -->
           <div class="hero-image-wrapper">
-            <!-- Use a transparent PNG cutout photo here -->
             <img src="assets/sara-cutout.png" alt="Sara Joshi" class="hero-cutout-img" />
           </div>
         </div>
