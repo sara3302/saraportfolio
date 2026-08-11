@@ -244,37 +244,63 @@
       border-radius: 4px;
     }
 
-    /* Pure Cutout Image Alignment */
+    /* Force all main sections to stack vertically */
+    section, 
+    .section, 
+    .hero-section {
+      display: block !important;
+      width: 100% !important;
+      clear: both !important;
+      float: none !important;
+      margin-bottom: 3rem;
+    }
+
+    /* Fix Hero Layout Alignment & Image Containment */
+    .hero-container {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 2rem !important;
+      max-width: 980px !important;
+      margin: 0 auto !important;
+    }
+
+    .hero-content {
+      flex: 1 !important;
+      max-width: 500px !important;
+    }
+
     .hero-image-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
+      flex: 0 0 320px !important;
+      max-width: 320px !important;
     }
 
-    .hero-cutout-img {
-      max-width: 360px;
-      height: auto;
-      object-fit: contain;
-      /* Kills box borders or background cards behind photo */
-      border: none !important;
-      background: transparent !important;
-      box-shadow: none !important;
+    .hero-cutout-img, 
+    .hero-image-wrapper img {
+      width: 100% !important;
+      max-width: 320px !important;
+      height: auto !important;
+      border-radius: 8px !important;
+      object-fit: cover !important;
     }
 
-    /* Responsive Scaling */
+    /* Ensure About Me and Stack sections take full container width below Hero */
+    #about, #stack, #projects, #experience, #contact {
+      max-width: 980px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
     @media (max-width: 768px) {
       .nav-menu { display: none; }
       .hero-container {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 2rem;
+        flex-direction: column-reverse !important;
+        text-align: center !important;
       }
-      .hero-image-wrapper {
-        justify-content: center;
-      }
-      .hero-cutout-img {
-        max-width: 260px;
+      
+      .hero-content, .hero-image-wrapper {
+        max-width: 100% !important;
       }
     }
 
