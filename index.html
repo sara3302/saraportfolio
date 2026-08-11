@@ -546,7 +546,7 @@
       gap: 1.25rem;
     }
 
-    .stack-card, .project-card, .code-block, .contact-box {
+    .about-card, .stack-card, .project-card, .code-block, .contact-box {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 4px;
@@ -555,7 +555,7 @@
       transition: border-color 0.15s ease;
     }
 
-    .stack-card:hover, .project-card:hover {
+    .about-card:hover, .stack-card:hover, .project-card:hover {
       border-color: var(--border-active);
     }
 
@@ -806,21 +806,37 @@
         </div>
       <!-- Section 01: About Me -->
       <section id="about" class="section">
-        <span class="section-subtitle">01 / Background</span>
-        <h2 class="section-title">About Me</h2>
-        
-        <div class="about-content" style="max-width: 720px; color: var(--text-muted); line-height: 1.7; font-size: 1rem;">
-          <p style="margin-bottom: 1.25rem;">
-            I am currently pursuing my Bachelor of Information Technology (BIT) at Bhairahawa Multiple Campus (Tribhuvan University). My technical interests center on Python, backend infrastructure, and exploring applied Machine Learning by building production-ready projects from scratch.
-          </p>
+        <div class="container">
+          <span class="section-subtitle">01 / Background</span>
+          <h2 class="section-title">About Me</h2>
           
-          <p style="margin-bottom: 1.25rem;">
-            Outside of my coursework, I stay heavily active in student clubs, tech workshops, and community events. I enjoy bringing people together, organizing developer sessions, and taking on leadership roles within regional tech initiatives.
-          </p>
-          
-          <p>
-            When I’m away from the terminal, I’m usually reading books (which inspired my project, <em>Readkin</em>), unwinding with dramas, or organizing my space—because a clean environment keeps my brain decluttered for solving complex systems problems.
-          </p>
+          <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+            
+            <!-- Card 1: Academic & Focus -->
+            <div class="about-card">
+              <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.75rem;"><i class="bi bi-mortarboard" style="color: var(--accent-primary);"></i> Academia &amp; Tech Focus</h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                BIT student at Bhairahawa Multiple Campus (Tribhuvan University). Exploring Machine Learning models, Python architecture, and asynchronous backend integration.
+              </p>
+            </div>
+
+            <!-- Card 2: Community & Leadership -->
+            <div class="about-card">
+              <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.75rem;"><i class="bi bi-people" style="color: var(--accent-primary);"></i> Community &amp; Leadership</h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                Active in student ambassador programs, tech clubs, and developer event coordination across Sudurpaschim and Lumbini provinces.
+              </p>
+            </div>
+
+            <!-- Card 3: Personal & Off-Duty -->
+            <div class="about-card">
+              <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.75rem;"><i class="bi bi-book" style="color: var(--accent-primary);"></i> Off-Duty Interests</h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                Avid reader, drama enthusiast, and a firm believer in organizing physical and digital spaces to keep mental clarity high.
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 
