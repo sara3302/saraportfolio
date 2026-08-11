@@ -137,28 +137,74 @@
   .hero-bio { font-size: 1.02rem; color: var(--text-muted); max-width: 620px; margin-bottom: 2rem; line-height: 1.65; }
 
   /* TECH STACK TABLE GRID */
+  .section-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .section-description { color: var(--text-muted); font-size: 0.95rem; }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
   .stack-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.5rem; height: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stack-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
   }
   .stack-card h3 {
-    font-size: 1rem; font-weight: 600; margin-bottom: 1.2rem;
-    display: flex; align-items: center; gap: 0.5rem; color: var(--text);
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
   }
   .stack-card h3 i { color: var(--accent); }
-  .stack-list { list-style: none; padding: 0; margin: 0; }
-  .stack-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.55rem 0; border-bottom: 1px dashed var(--border-subtle);
+
+  .stack-tags { display: flex; flex-direction: column; gap: 0.55rem; }
+  .tag-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.8rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
     font-size: 0.88rem;
   }
-  .stack-item:last-child { border-bottom: none; }
-  .stack-name { font-weight: 500; color: var(--text); }
-  .stack-badge {
-    font-family: var(--font-mono); font-size: 0.74rem;
-    color: var(--text-muted); background: var(--code-bg);
-    border: 1px solid var(--border-subtle); padding: 0.15rem 0.55rem; border-radius: 4px;
+  .tag-name { font-weight: 500; color: var(--text); }
+  .tag-desc {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--text-muted);
   }
+
+  .secondary-stack-banner {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-muted) !important;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .secondary-stack-banner strong { color: var(--text); }
 
   /* PROJECT CARDS */
   .project-card {
@@ -349,99 +395,107 @@
 <section id="stack" class="section">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <span class="eyebrow">01 / Technical Stack</span>
-      <h2>Engineering Stack &amp; Infrastructure</h2>
-      <p>Categorized technology stack used in production applications.</p>
+      <span class="section-subtitle">01 / Technical Stack</span>
+      <h2 class="section-title">Engineering Stack &amp; Infrastructure</h2>
+      <p class="section-description">Core technologies utilized for backend architecture, data pipelines, and AI systems.</p>
     </div>
 
-    <div class="row g-4">
-      <!-- Column 1: Systems & Backend -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="stack-card">
-          <h3><i class="bi bi-cpu"></i> Systems &amp; Backend</h3>
-          <div class="stack-list">
-            <div class="stack-item">
-              <span class="stack-name">Django REST Framework</span>
-              <span class="stack-badge">Python</span>
+    <div class="stack-grid" data-aos="fade-up">
+      
+      <!-- Card 1: Core Backend -->
+      <div class="stack-card">
+        <div class="stack-card-inner">
+          <h3><i class="bi bi-server"></i> Core Backend &amp; APIs</h3>
+          <div class="stack-tags">
+            <div class="tag-item">
+              <span class="tag-name">Python 3.11+</span>
+              <span class="tag-desc">Core Engine</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">Next.js / React</span>
-              <span class="stack-badge">TypeScript</span>
+            <div class="tag-item">
+              <span class="tag-name">Django REST Framework</span>
+              <span class="tag-desc">Backend APIs</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">Python 3.11+</span>
-              <span class="stack-badge">Core Engine</span>
+            <div class="tag-item">
+              <span class="tag-name">FastAPI</span>
+              <span class="tag-desc">High-Performance APIs</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">TypeScript / JS</span>
-              <span class="stack-badge">Frontend</span>
+            <div class="tag-item">
+              <span class="tag-name">Async Task Architecture</span>
+              <span class="tag-desc">Event-Driven</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">RESTful API Design</span>
-              <span class="stack-badge">Schema Specs</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Column 2: ML & Integrations -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-        <div class="stack-card">
-          <h3><i class="bi bi-diagram-3"></i> ML &amp; Integrations</h3>
-          <div class="stack-list">
-            <div class="stack-item">
-              <span class="stack-name">Scikit-learn</span>
-              <span class="stack-badge">Classification</span>
-            </div>
-            <div class="stack-item">
-              <span class="stack-name">Gemini LLM API</span>
-              <span class="stack-badge">JSON Parsing</span>
-            </div>
-            <div class="stack-item">
-              <span class="stack-name">Pandas / NumPy</span>
-              <span class="stack-badge">Data Processing</span>
-            </div>
-            <div class="stack-item">
-              <span class="stack-name">Collaborative Filtering</span>
-              <span class="stack-badge">Recommendations</span>
-            </div>
-            <div class="stack-item">
-              <span class="stack-name">Vector Embeddings</span>
-              <span class="stack-badge">Similarity Search</span>
+            <div class="tag-item">
+              <span class="tag-name">Auth &amp; RBAC</span>
+              <span class="tag-desc">API Security</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Column 3: Infrastructure -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="stack-card">
-          <h3><i class="bi bi-server"></i> Infrastructure &amp; Data</h3>
-          <div class="stack-list">
-            <div class="stack-item">
-              <span class="stack-name">Celery</span>
-              <span class="stack-badge">Task Queue</span>
+      <!-- Card 2: AI / ML & Data -->
+      <div class="stack-card">
+        <div class="stack-card-inner">
+          <h3><i class="bi bi-cpu"></i> AI / ML &amp; Data Pipelines</h3>
+          <div class="stack-tags">
+            <div class="tag-item">
+              <span class="tag-name">Scikit-learn</span>
+              <span class="tag-desc">Machine Learning</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">Redis</span>
-              <span class="stack-badge">Broker &amp; Cache</span>
+            <div class="tag-item">
+              <span class="tag-name">PyTorch &amp; TensorFlow</span>
+              <span class="tag-desc">Deep Learning (Learning)</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">PostgreSQL</span>
-              <span class="stack-badge">Relational DB</span>
+            <div class="tag-item">
+              <span class="tag-name">Gemini LLM API</span>
+              <span class="tag-desc">Structured Extraction</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">Docker</span>
-              <span class="stack-badge">Containerization</span>
+            <div class="tag-item">
+              <span class="tag-name">Vector Embeddings</span>
+              <span class="tag-desc">Similarity Search</span>
             </div>
-            <div class="stack-item">
-              <span class="stack-name">Git / Vercel</span>
-              <span class="stack-badge">CI / Deployment</span>
+            <div class="tag-item">
+              <span class="tag-name">Pandas / NumPy</span>
+              <span class="tag-desc">Data Processing</span>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Card 3: Infrastructure -->
+      <div class="stack-card">
+        <div class="stack-card-inner">
+          <h3><i class="bi bi-database"></i> Data &amp; Infrastructure</h3>
+          <div class="stack-tags">
+            <div class="tag-item">
+              <span class="tag-name">PostgreSQL</span>
+              <span class="tag-desc">Relational DB</span>
+            </div>
+            <div class="tag-item">
+              <span class="tag-name">Celery &amp; Redis</span>
+              <span class="tag-desc">Broker &amp; Caching</span>
+            </div>
+            <div class="tag-item">
+              <span class="tag-name">Docker</span>
+              <span class="tag-desc">Containerization</span>
+            </div>
+            <div class="tag-item">
+              <span class="tag-name">RESTful Schema Design</span>
+              <span class="tag-desc">API Specs</span>
+            </div>
+            <div class="tag-item">
+              <span class="tag-name">Git / Vercel</span>
+              <span class="tag-desc">CI / Deployment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Secondary Capabilities Banner -->
+    <div class="secondary-stack-banner" style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; text-align: center; font-size: 0.9rem; color: #94a3b8;" data-aos="fade-up">
+      <span><strong>Secondary Capabilities:</strong> Next.js, React, TypeScript, and HTML5/CSS3 for end-to-end feature prototyping.</span>
+    </div>
+
   </div>
 </section>
 
