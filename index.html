@@ -8,22 +8,32 @@
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
     :root {
-      --bg-dark: #020617;
-      --bg-main: #0f172a;
-      --bg-card: #1e293b;
-      --bg-card-hover: #24334d;
-      --accent-blue: #3b82f6;
+      /* High-Contrast Neutral Palette */
+      --bg-dark: #09090b;
+      --bg-main: #09090b;
+      --bg-card: #121215;
+      --bg-card-hover: #18181b;
+      
+      /* Primary Text & Accents */
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-subtle: #71717a;
+      
+      /* Muted Engineering Accent (Warm Amber / Terminal Copper) */
+      --accent-primary: #f59e0b;
+      --accent-muted: rgba(245, 158, 11, 0.12);
+      --accent-blue: #f59e0b;
       --accent-green: #22c55e;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-      --font-mono: 'Fira Code', monospace;
+      --border-color: #27272a;
+      --border-active: #3f3f46;
+      
+      --font-sans: 'Geist', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     }
 
     * {
@@ -96,7 +106,7 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(9, 9, 11, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       z-index: 100;
