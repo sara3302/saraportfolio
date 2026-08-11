@@ -833,35 +833,69 @@
       <!-- Section 01: About Me -->
       <section id="about" class="section">
         <div class="container">
-          <span class="section-subtitle">01 / Background</span>
-          <h2 class="section-title">About Me</h2>
-          
-          <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-            
-            <!-- Card 1: Academic & Focus -->
-            <div class="about-card">
-              <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.75rem;"><i class="bi bi-mortarboard" style="color: var(--accent-primary);"></i> Academia &amp; Tech Focus</h3>
-              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
-                BIT student at Bhairahawa Multiple Campus (Tribhuvan University). Exploring Machine Learning models, Python architecture, and asynchronous backend integration.
+
+          <!-- Section Header -->
+          <div style="margin-bottom: 2.5rem;">
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-subtle); margin-bottom: 0.5rem;">
+              // about_me
+            </p>
+
+            <h2 style="font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em;">
+              A little about me.
+            </h2>
+          </div>
+
+          <div class="about-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+
+            <!-- Main Introduction -->
+            <div class="about-main-text">
+              <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.5rem;">
+                Hi, I’m <strong>Sara Joshi</strong>, a Bachelor of Information Technology (BIT) student at <strong>Bhairahawa Multiple Campus</strong>, affiliated with Tribhuvan University.
+              </p>
+
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+                I’m interested in <strong>Python, machine learning, and software development</strong>. I enjoy exploring new technologies, experimenting with ideas, and turning what I learn into practical projects.
+              </p>
+
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+                Beyond technology, I enjoy participating in <strong>clubs, events, and workshops</strong>. I like meeting new people, sharing ideas, and being involved in communities where I can learn and grow.
+              </p>
+
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
+                When I’m away from my laptop, I’m usually reading books, watching dramas, or cleaning and organizing things — apparently, organizing my surroundings is also my way of <strong>organizing my brain.</strong> :)
               </p>
             </div>
 
-            <!-- Card 2: Community & Leadership -->
-            <div class="about-card">
-              <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.75rem;"><i class="bi bi-people" style="color: var(--accent-primary);"></i> Community &amp; Leadership</h3>
-              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
-                Active in student ambassador programs, tech clubs, and developer event coordination across Sudurpaschim and Lumbini provinces.
-              </p>
-            </div>
+            <!-- Quick Info -->
+            <div class="about-sidebar" style="display: flex; flex-direction: column; gap: 1.5rem;">
 
-            <!-- Card 3: Personal & Off-Duty -->
-            <div class="about-card">
-              <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.75rem;"><i class="bi bi-book" style="color: var(--accent-primary);"></i> Off-Duty Interests</h3>
-              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
-                Avid reader, drama enthusiast, and a firm believer in organizing physical and digital spaces to keep mental clarity high.
-              </p>
-            </div>
+              <div class="about-card">
+                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1rem;">
+                  currently_exploring
+                </p>
 
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                  <span class="tag">Python</span>
+                  <span class="tag">Machine Learning</span>
+                  <span class="tag">AI</span>
+                  <span class="tag">Software Development</span>
+                </div>
+              </div>
+
+              <div class="about-card">
+                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1rem;">
+                  beyond_code
+                </p>
+
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">
+                  <li>📚 Reading books</li>
+                  <li>🎬 Watching dramas</li>
+                  <li>🎪 Clubs &amp; events</li>
+                  <li>🧹 Organizing things</li>
+                </ul>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
