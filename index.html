@@ -84,16 +84,74 @@
       margin-top: 0.5rem;
     }
 
-    /* Main Container */
-    #main-content {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+    /* 1. Sharp, Flat Card Styling (No Glows) */
+    .stack-card, .project-card, .code-block, .contact-box {
+      background-color: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 4px !important; /* Crisp 4px corners */
+      box-shadow: none !important; /* Removes AI ambient glows */
+      transition: border-color 0.2s ease, background-color 0.2s ease;
     }
 
-    #main-content.visible {
+    .stack-card:hover, .project-card:hover {
+      border-color: var(--border-active) !important;
+      background-color: var(--bg-card-hover) !important;
+    }
+
+    /* 2. Tight, Technical Headings */
+    h1, h2, h3 {
+      font-family: var(--font-sans);
+      letter-spacing: -0.03em; /* Tight letter spacing for editorial feel */
+      color: var(--text-main);
+    }
+
+    /* 3. Tech Badges as Minimal Outline Tags */
+    .tag, .role-badge {
+      background: transparent !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-muted) !important;
+      font-family: var(--font-mono);
+      font-size: 0.75rem !important;
+      border-radius: 3px !important;
+      padding: 0.2rem 0.5rem !important;
+      font-weight: 400;
+    }
+
+    /* 4. Terminal-Style Code Blocks */
+    .code-block {
+      background-color: #000000 !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 4px !important;
+    }
+
+    .code-header {
+      color: var(--accent-primary) !important;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* 5. Clean Bullet Indicators */
+    .project-bullets li::before {
+      content: "→" !important;
+      color: var(--accent-primary) !important;
+      font-family: var(--font-mono);
+    }
+
+    /* 6. Instant Load (Disable Intro Splash Overlay) */
+    #intro-screen {
+      display: none !important; /* Disables artificial loading delay */
+    }
+
+    #main-content {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* Main Container */
+    #main-content {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     .container {
