@@ -226,37 +226,40 @@
       margin: 0;
     }
 
+    /* Minimal Hero Stack Pills */
     .hero-stack-pills {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-top: 1.25rem;
+      margin-top: 1.5rem;
     }
 
     .hero-stack-pills span {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      padding: 0.25rem 0.65rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.8rem;
+      color: var(--text-muted, #71717a);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.2rem 0.6rem;
       border-radius: 4px;
     }
 
+    /* Pure Cutout Image Alignment */
     .hero-image-wrapper {
       flex: 1;
       display: flex;
       justify-content: flex-end;
-      background: transparent;
-      border: none;
-      box-shadow: none;
+      align-items: flex-end;
     }
 
     .hero-cutout-img {
-      max-width: 380px;
+      max-width: 360px;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.12));
+      /* Kills box borders or background cards behind photo */
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
     }
 
     /* Responsive Scaling */
