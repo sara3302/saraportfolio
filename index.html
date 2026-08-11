@@ -47,14 +47,51 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Disable Artificial Intro Overlay for Zero Latency */
+    /* Intro Splash Overlay */
     #intro-screen {
-      display: none !important;
+      position: fixed;
+      inset: 0;
+      background-color: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    #intro-screen.slide-up {
+      transform: translateY(-100%);
+    }
+
+    .greeting-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      letter-spacing: -0.03em;
+    }
+
+    .greeting-title span {
+      color: var(--accent-primary);
+    }
+
+    .greeting-sub {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
     }
 
     #main-content {
-      opacity: 1 !important;
-      transform: none !important;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+    }
+
+    #main-content.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .container {
@@ -455,6 +492,12 @@
 </head>
 <body>
 
+  <!-- Intro Screen -->
+  <div id="intro-screen">
+    <h1 class="greeting-title">Hello<span>.</span></h1>
+    <div class="greeting-sub">Sara Joshi &mdash; Backend &amp; Applied AI/ML Engineer</div>
+  </div>
+
   <!-- Main Website Content -->
   <div id="main-content">
     
@@ -783,5 +826,37 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
     </footer>
 
   </div>
+
+  <!-- Script for Intro Overlay -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const introScreen = document.getElementById('intro-screen');
+      const mainContent = document.getElementById('main-content');
+      const greetingTitle = document.querySelector('.greeting-title');
+
+      const greetings = ["Hello.", "नमस्ते.", "Namaste.", "Sara Joshi."];
+      let gIndex = 0;
+
+      const interval = setInterval(() => {
+        gIndex++;
+        if (gIndex < greetings.length) {
+          if (greetingTitle) {
+            greetingTitle.innerHTML = greetings[gIndex].replace('.', '<span>.</span>');
+          }
+        } else {
+          clearInterval(interval);
+        }
+      }, 700);
+
+      // Hold the intro overlay longer so visitors can read each greeting fully
+      setTimeout(() => {
+        if (introScreen) introScreen.classList.add('slide-up');
+        if (mainContent) mainContent.classList.add('visible');
+        setTimeout(() => {
+          if (introScreen) introScreen.style.display = 'none';
+        }, 800);
+      }, 3400);
+    });
+  </script>
 </body>
 </html>
