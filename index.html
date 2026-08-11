@@ -13,22 +13,18 @@
 
   <style>
     :root {
-      /* High-Contrast Neutral Palette */
+      /* Bespoke Neutral Palette */
       --bg-dark: #09090b;
       --bg-main: #09090b;
       --bg-card: #121215;
       --bg-card-hover: #18181b;
       
-      /* Primary Text & Accents */
+      /* High-Contrast Typography & Accents */
       --text-main: #f4f4f5;
       --text-muted: #a1a1aa;
       --text-subtle: #71717a;
       
-      /* Muted Engineering Accent (Warm Amber / Terminal Copper) */
-      --accent-primary: #f59e0b;
-      --accent-muted: rgba(245, 158, 11, 0.12);
-      --accent-blue: #f59e0b;
-      --accent-green: #22c55e;
+      --accent-primary: #f59e0b; /* Warm amber / terminal accent */
       --border-color: #27272a;
       --border-active: #3f3f46;
       
@@ -48,136 +44,31 @@
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Intro Overlay */
+    /* Disable Artificial Intro Overlay for Zero Latency */
     #intro-screen {
-      position: fixed;
-      inset: 0;
-      background-color: var(--bg-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    #intro-screen.slide-up {
-      transform: translateY(-100%);
-    }
-
-    .greeting-title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .greeting-title span {
-      color: var(--accent-blue);
-    }
-
-    .greeting-sub {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-
-    /* 1. Sharp, Flat Card Styling (No Glows) */
-    .stack-card, .project-card, .code-block, .contact-box {
-      background-color: var(--bg-card) !important;
-      border: 1px solid var(--border-color) !important;
-      border-radius: 4px !important; /* Crisp 4px corners */
-      box-shadow: none !important; /* Removes AI ambient glows */
-      transition: border-color 0.2s ease, background-color 0.2s ease;
-    }
-
-    .stack-card:hover, .project-card:hover {
-      border-color: var(--border-active) !important;
-      background-color: var(--bg-card-hover) !important;
-    }
-
-    /* 2. Tight, Technical Headings */
-    h1, h2, h3 {
-      font-family: var(--font-sans);
-      letter-spacing: -0.03em; /* Tight letter spacing for editorial feel */
-      color: var(--text-main);
-    }
-
-    /* 3. Tech Badges as Minimal Outline Tags */
-    .tag, .role-badge {
-      background: transparent !important;
-      border: 1px solid var(--border-color) !important;
-      color: var(--text-muted) !important;
-      font-family: var(--font-mono);
-      font-size: 0.75rem !important;
-      border-radius: 3px !important;
-      padding: 0.2rem 0.5rem !important;
-      font-weight: 400;
-    }
-
-    /* 4. Terminal-Style Code Blocks */
-    .code-block {
-      background-color: #000000 !important;
-      border: 1px solid var(--border-color) !important;
-      border-radius: 4px !important;
-    }
-
-    .code-header {
-      color: var(--accent-primary) !important;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    /* 5. Clean Bullet Indicators */
-    .project-bullets li::before {
-      content: "→" !important;
-      color: var(--accent-primary) !important;
-      font-family: var(--font-mono);
-    }
-
-    /* 6. Intro Splash Overlay */
-    #intro-screen {
-      position: fixed;
-      inset: 0;
-      background-color: var(--bg-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    #intro-screen.slide-up {
-      transform: translateY(-100%);
+      display: none !important;
     }
 
     #main-content {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
-    }
-
-    #main-content.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1 !important;
+      transform: none !important;
     }
 
     .container {
-      max-width: 1050px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    /* Navigation */
+    /* Header & Navigation */
     header {
       position: sticky;
       top: 0;
-      background: rgba(9, 9, 11, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(9, 9, 11, 0.9);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-color);
       z-index: 100;
     }
@@ -186,7 +77,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      height: 60px;
     }
 
     .brand-logo {
@@ -194,69 +85,59 @@
       font-weight: 600;
       color: var(--text-main);
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
     }
 
     .brand-logo span {
-      color: var(--accent-blue);
+      color: var(--accent-primary);
     }
 
     nav ul {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       list-style: none;
     }
 
     nav a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      transition: color 0.15s ease;
     }
 
     nav a:hover {
-      color: var(--accent-blue);
+      color: var(--text-main);
     }
 
     /* Hero Section */
     .hero {
-      padding: 6rem 0 4rem;
+      padding: 5rem 0 3.5rem;
     }
 
     .hero-header {
       display: flex;
       align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 1.75rem;
+      margin-bottom: 1.75rem;
       flex-wrap: wrap;
     }
 
     .avatar-container {
       position: relative;
-      width: 110px;
-      height: 110px;
+      width: 96px;
+      height: 96px;
       flex-shrink: 0;
     }
 
     .profile-avatar {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+      border-radius: 4px; /* Sharp 4px avatar frame instead of soft round/glowing ring */
       object-fit: cover;
-      object-position: center 18%; /* Focus on face from full-body photo */
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
-    }
-
-    .status-indicator {
-      position: absolute;
-      bottom: 4px;
-      right: 4px;
-      width: 14px;
-      height: 14px;
-      background-color: var(--accent-green);
-      border: 2px solid var(--bg-main);
-      border-radius: 50%;
+      object-position: center 18%;
+      border: 1px solid var(--border-color);
     }
 
     .role-badge {
@@ -264,34 +145,39 @@
       align-items: center;
       gap: 0.5rem;
       font-family: var(--font-mono);
-      color: var(--accent-green);
-      font-size: 0.85rem;
-      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      border: 1px solid var(--border-color);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: 700;
-      line-height: 1.2;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
     }
 
     .hero-subtitle {
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
     }
 
     .hero-bio {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      max-width: 800px;
-      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #d4d4d8;
+      max-width: 780px;
+      line-height: 1.65;
       margin-bottom: 2rem;
     }
 
+    /* Buttons & Links */
     .cta-group {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
 
@@ -299,288 +185,275 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+      border-radius: 4px; /* Sharp 4px geometry */
+      font-size: 0.85rem;
       font-weight: 500;
       text-decoration: none;
-      transition: all 0.2s;
+      font-family: var(--font-mono);
+      transition: all 0.15s ease;
     }
 
     .btn-primary {
-      background-color: var(--accent-blue);
-      color: #fff;
+      background-color: var(--text-main);
+      color: var(--bg-dark);
     }
 
     .btn-primary:hover {
-      background-color: #2563eb;
+      background-color: #e4e4e7;
     }
 
     .btn-secondary {
-      background-color: var(--bg-card);
+      background-color: transparent;
       color: var(--text-main);
       border: 1px solid var(--border-color);
     }
 
     .btn-secondary:hover {
       background-color: var(--bg-card-hover);
+      border-color: var(--border-active);
     }
 
     .btn-youtube {
-      background-color: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      background-color: transparent;
+      color: #f87171;
+      border: 1px solid rgba(248, 113, 113, 0.3);
     }
 
     .btn-youtube:hover {
-      background-color: rgba(239, 68, 68, 0.2);
+      background-color: rgba(248, 113, 113, 0.08);
     }
 
-    /* Section Global */
+    /* Sections */
     .section {
-      padding: 4rem 0;
+      padding: 3.5rem 0;
       border-top: 1px solid var(--border-color);
     }
 
     .section-subtitle {
       font-family: var(--font-mono);
-      color: var(--accent-blue);
-      font-size: 0.85rem;
+      color: var(--text-subtle);
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.05em;
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      margin-top: 0.25rem;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      margin-top: 0.2rem;
+      margin-bottom: 0.4rem;
     }
 
     .section-description {
       color: var(--text-muted);
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
     }
 
-    /* Section 01: Tech Stack */
+    /* Cards (No Glows, Sharp Borders) */
     .stack-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
     }
 
-    .stack-card {
+    .stack-card, .project-card, .code-block, .contact-box {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border-radius: 4px;
+      box-shadow: none !important; /* Kills AI ambient glows */
       padding: 1.5rem;
+      transition: border-color 0.15s ease;
+    }
+
+    .stack-card:hover, .project-card:hover {
+      border-color: var(--border-active);
     }
 
     .stack-card h3 {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 1.1rem;
-      margin-bottom: 1.25rem;
-      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
 
     .stack-tags {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
 
     .tag-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .tag-name {
       font-weight: 500;
+      color: var(--text-main);
     }
 
     .tag-desc {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--text-subtle);
     }
 
     .secondary-stack-banner {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.02);
+      margin-top: 1.25rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
-      text-align: center;
-      font-size: 0.88rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
-    /* Section 02: Featured Projects */
+    /* Projects Section */
     .projects-grid {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 2rem;
+      gap: 1.5rem;
     }
 
     .project-header h3 {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     .project-category {
       font-family: var(--font-mono);
-      color: var(--accent-blue);
-      font-size: 0.85rem;
+      color: var(--text-subtle);
+      font-size: 0.8rem;
     }
 
     .project-tags {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
-      margin: 1rem 0 1.25rem;
+      margin: 0.85rem 0 1.1rem;
     }
 
     .tag {
-      background: rgba(59, 130, 246, 0.1);
-      color: var(--accent-blue);
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
     }
 
     .project-bullets {
       list-style-type: none;
-      color: #cbd5e1;
-      font-size: 0.95rem;
+      color: #d4d4d8;
+      font-size: 0.92rem;
     }
 
     .project-bullets li {
       position: relative;
-      padding-left: 1.25rem;
-      margin-bottom: 0.5rem;
+      padding-left: 1.15rem;
+      margin-bottom: 0.45rem;
     }
 
     .project-bullets li::before {
-      content: "▹";
+      content: "→";
       position: absolute;
       left: 0;
-      color: var(--accent-blue);
+      color: var(--accent-primary);
+      font-family: var(--font-mono);
     }
 
     .project-links {
       display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
     }
 
-    /* Section 03: Engineering Proofs */
+    /* Code Blocks */
     .code-block {
-      background: var(--bg-dark);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
+      background: #000000;
       padding: 1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       overflow-x: auto;
     }
 
     .code-header {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--accent-blue);
+      font-size: 0.78rem;
+      color: var(--accent-primary);
       margin-bottom: 0.75rem;
       display: block;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
     }
 
     pre code {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: #e2e8f0;
+      font-size: 0.82rem;
+      color: #e4e4e7;
       line-height: 1.5;
     }
 
-    /* Sections 04 & 05: Academic & Leadership */
+    /* Timeline / Education */
     .timeline-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-    }
-
-    .timeline-item {
-      margin-bottom: 1.5rem;
     }
 
     .timeline-meta {
       display: flex;
       justify-content: space-between;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+      margin-bottom: 0.2rem;
     }
 
     .timeline-title {
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
     .timeline-desc {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      margin-top: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
     }
 
     /* Contact & Footer */
     .contact-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     footer {
       padding: 2rem 0;
       text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--text-subtle);
       border-top: 1px solid var(--border-color);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 1.9rem; }
       .contact-box { flex-direction: column; align-items: flex-start; }
-      nav { display: none; } /* Simplified for single-page preview */
+      nav { display: none; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Intro Screen -->
-  <div id="intro-screen">
-    <h1 class="greeting-title">Hello<span>.</span></h1>
-    <div class="greeting-sub">Sara Joshi &mdash; Backend &amp; Applied AI/ML Engineer</div>
-  </div>
 
   <!-- Main Website Content -->
   <div id="main-content">
@@ -609,7 +482,6 @@
         <div class="hero-header">
           <div class="avatar-container">
             <img src="assets/img/profile.png" alt="Sara Joshi" class="profile-avatar" />
-            <span class="status-indicator" title="Available for Backend &amp; AI Roles"></span>
           </div>
           <div>
             <div class="role-badge">
@@ -643,7 +515,7 @@
         <div class="stack-grid">
           <!-- Card 1: Core Backend -->
           <div class="stack-card">
-            <h3><i class="bi bi-server" style="color: var(--accent-blue);"></i> Core Backend &amp; APIs</h3>
+            <h3><i class="bi bi-server" style="color: var(--accent-primary);"></i> Core Backend &amp; APIs</h3>
             <div class="stack-tags">
               <div class="tag-item"><span class="tag-name">Python 3.11+</span><span class="tag-desc">Core Engine</span></div>
               <div class="tag-item"><span class="tag-name">Django REST Framework</span><span class="tag-desc">Backend APIs</span></div>
@@ -655,7 +527,7 @@
 
           <!-- Card 2: AI / ML -->
           <div class="stack-card">
-            <h3><i class="bi bi-cpu" style="color: var(--accent-blue);"></i> AI / ML &amp; Data Pipelines</h3>
+            <h3><i class="bi bi-cpu" style="color: var(--accent-primary);"></i> AI / ML &amp; Data Pipelines</h3>
             <div class="stack-tags">
               <div class="tag-item"><span class="tag-name">Scikit-learn</span><span class="tag-desc">Machine Learning</span></div>
               <div class="tag-item"><span class="tag-name">PyTorch &amp; TensorFlow</span><span class="tag-desc">Deep Learning (Learning)</span></div>
@@ -667,7 +539,7 @@
 
           <!-- Card 3: Infrastructure -->
           <div class="stack-card">
-            <h3><i class="bi bi-database" style="color: var(--accent-blue);"></i> Data &amp; Infrastructure</h3>
+            <h3><i class="bi bi-database" style="color: var(--accent-primary);"></i> Data &amp; Infrastructure</h3>
             <div class="stack-tags">
               <div class="tag-item"><span class="tag-name">PostgreSQL</span><span class="tag-desc">Relational DB</span></div>
               <div class="tag-item"><span class="tag-name">Celery &amp; Redis</span><span class="tag-desc">Broker &amp; Caching</span></div>
@@ -911,37 +783,5 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
     </footer>
 
   </div>
-
-  <!-- Script for Intro Overlay -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const introScreen = document.getElementById('intro-screen');
-      const mainContent = document.getElementById('main-content');
-      const greetingTitle = document.querySelector('.greeting-title');
-
-      const greetings = ["Hello.", "नमस्ते.", "Namaste.", "Sara Joshi."];
-      let gIndex = 0;
-
-      const interval = setInterval(() => {
-        gIndex++;
-        if (gIndex < greetings.length) {
-          if (greetingTitle) {
-            greetingTitle.innerHTML = greetings[gIndex].replace('.', '<span>.</span>');
-          }
-        } else {
-          clearInterval(interval);
-        }
-      }, 700);
-
-      // Hold the intro overlay longer so visitors can read each greeting fully
-      setTimeout(() => {
-        if (introScreen) introScreen.classList.add('slide-up');
-        if (mainContent) mainContent.classList.add('visible');
-        setTimeout(() => {
-          if (introScreen) introScreen.style.display = 'none';
-        }, 800);
-      }, 3400);
-    });
-  </script>
 </body>
 </html>
