@@ -138,20 +138,32 @@
       font-family: var(--font-mono);
     }
 
-    /* 6. Instant Load (Disable Intro Splash Overlay) */
+    /* 6. Intro Splash Overlay */
     #intro-screen {
-      display: none !important; /* Disables artificial loading delay */
+      position: fixed;
+      inset: 0;
+      background-color: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    #intro-screen.slide-up {
+      transform: translateY(-100%);
     }
 
     #main-content {
-      opacity: 1 !important;
-      transform: none !important;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
     }
 
-    /* Main Container */
-    #main-content {
+    #main-content.visible {
       opacity: 1;
-      transform: none;
+      transform: translateY(0);
     }
 
     .container {
@@ -903,10 +915,31 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
   <!-- Script for Intro Overlay -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
+      const introScreen = document.getElementById('intro-screen');
+      const mainContent = document.getElementById('main-content');
+      const greetingTitle = document.querySelector('.greeting-title');
+
+      const greetings = ["Hello.", "नमस्ते.", "Namaste.", "Sara Joshi."];
+      let gIndex = 0;
+
+      const interval = setInterval(() => {
+        gIndex++;
+        if (gIndex < greetings.length) {
+          if (greetingTitle) {
+            greetingTitle.innerHTML = greetings[gIndex].replace('.', '<span>.</span>');
+          }
+        } else {
+          clearInterval(interval);
+        }
+      }, 420);
+
       setTimeout(() => {
-        document.getElementById('intro-screen').classList.add('slide-up');
-        document.getElementById('main-content').classList.add('visible');
-      }, 1800);
+        if (introScreen) introScreen.classList.add('slide-up');
+        if (mainContent) mainContent.classList.add('visible');
+        setTimeout(() => {
+          if (introScreen) introScreen.style.display = 'none';
+        }, 800);
+      }, 2000);
     });
   </script>
 </body>
