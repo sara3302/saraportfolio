@@ -1,1015 +1,842 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sara Joshi — Full-Stack &amp; Systems Engineer</title>
-<meta name="description" content="Production web applications using Next.js and Django REST Framework, connected to asynchronous Celery queue pipelines, PostgreSQL databases, and Scikit-learn / Gemini LLM API integrations.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sara Joshi — Backend &amp; Applied AI/ML Engineer</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- Vendor CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
-
-<style>
-  :root {
-    --bg: #0B0C10;
-    --surface: #12141C;
-    --surface-hover: #181B26;
-    --border: #222634;
-    --border-subtle: #1A1D27;
-    --text: #EDEDED;
-    --text-muted: #949BA8;
-    --text-subtle: #616775;
-    --accent: #3B82F6;
-    --accent-hover: #2563EB;
-    --accent-subtle: rgba(59, 130, 246, 0.1);
-    --code-bg: #0A0C12;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-  }
-
-  ::selection { background: var(--accent); color: #FFFFFF; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--text);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  .mono { font-family: var(--font-mono); }
-
-  a { text-decoration: none; color: inherit; transition: color 0.2s, border-color 0.2s; }
-
-  /* SECTION STYLING */
-  .section { padding: 5rem 0; border-bottom: 1px solid var(--border-subtle); }
-  .section-header { margin-bottom: 2.5rem; }
-  .section-header .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.4rem;
-    display: block;
-  }
-  .section-header h2 { font-size: 1.75rem; font-weight: 700; }
-  .section-header p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem; }
-
-  /* NAVIGATION */
-  #header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-    background: rgba(11, 12, 16, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 0.85rem 0;
-  }
-  .logo { font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem; color: var(--text); }
-  .logo span { color: var(--accent); }
-  .navmenu ul { display: flex; gap: 1.8rem; list-style: none; margin: 0; padding: 0; }
-  .navmenu a {
-    font-size: 0.88rem; font-weight: 500; color: var(--text-muted); transition: 0.2s;
-  }
-  .navmenu a:hover, .navmenu a.active { color: var(--text); }
-  .mobile-nav-toggle { display: none; font-size: 1.4rem; color: var(--text); cursor: pointer; }
-
-  @media(max-width: 991px) {
-    .navmenu {
-      position: fixed; inset: 0 0 0 auto; width: 280px; height: 100vh;
-      background: var(--surface); padding: 5rem 1.8rem 2rem;
-      transform: translateX(100%); transition: 0.3s ease; z-index: 998;
-      border-left: 1px solid var(--border);
+  <style>
+    :root {
+      --bg-dark: #020617;
+      --bg-main: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #24334d;
+      --accent-blue: #3b82f6;
+      --accent-green: #22c55e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', monospace;
     }
-    .navmenu.show { transform: translateX(0); }
-    .navmenu ul { flex-direction: column; gap: 1.2rem; }
-    .mobile-nav-toggle { display: block; }
-  }
 
-  /* BUTTONS */
-  .btn-primary-v {
-    background: var(--text); color: var(--bg);
-    font-weight: 600; font-size: 0.88rem;
-    padding: 0.6rem 1.4rem; border-radius: 6px;
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    border: 1px solid var(--text); transition: 0.2s;
-  }
-  .btn-primary-v:hover { background: #FFFFFF; color: var(--bg); transform: translateY(-1px); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-sans);
+    }
 
-  .btn-secondary-v {
-    background: var(--surface); color: var(--text);
-    font-weight: 500; font-size: 0.88rem;
-    padding: 0.6rem 1.3rem; border-radius: 6px;
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    border: 1px solid var(--border); transition: 0.2s;
-  }
-  .btn-secondary-v:hover { background: var(--surface-hover); border-color: var(--text-muted); color: var(--text); }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* AVATAR CONTAINER & STATUS INDICATOR */
-  .avatar-container {
-    position: relative;
-    display: inline-block;
-    width: 120px;
-    height: 120px;
-  }
-  .profile-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 18%;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(59, 130, 246, 0.15);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-  .profile-avatar:hover {
-    transform: scale(1.04);
-    border-color: rgba(59, 130, 246, 0.6);
-  }
-  .status-indicator {
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    width: 14px;
-    height: 14px;
-    background-color: #22c55e;
-    border: 2px solid var(--bg);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-    animation: statusPulse 2s infinite;
-  }
+    /* Intro Overlay */
+    #intro-screen {
+      position: fixed;
+      inset: 0;
+      background-color: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
 
-  @keyframes statusPulse {
-    0%, 100% { box-shadow: 0 0 6px rgba(34, 197, 94, 0.6); }
-    50% { box-shadow: 0 0 14px rgba(34, 197, 94, 0.9); }
-  }
+    #intro-screen.slide-up {
+      transform: translateY(-100%);
+    }
 
-  /* TECH STACK TABLE GRID */
-  .section-subtitle {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.4rem;
-    display: block;
-  }
-  .section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .section-description { color: var(--text-muted); font-size: 0.95rem; }
+    .greeting-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .stack-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.5rem;
-    height: 100%;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .stack-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .stack-card h3 {
-    font-size: 1.02rem;
-    font-weight: 600;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text);
-  }
-  .stack-card h3 i { color: var(--accent); }
+    .greeting-title span {
+      color: var(--accent-blue);
+    }
 
-  .stack-tags { display: flex; flex-direction: column; gap: 0.55rem; }
-  .tag-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.55rem 0.8rem;
-    background: var(--code-bg);
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
-    font-size: 0.88rem;
-  }
-  .tag-name { font-weight: 500; color: var(--text); }
-  .tag-desc {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--text-muted);
-  }
+    .greeting-sub {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
 
-  .secondary-stack-banner {
-    background: var(--surface) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--text-muted) !important;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-  .secondary-stack-banner strong { color: var(--text); }
+    /* Main Container */
+    #main-content {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+    }
 
-  /* PROJECT CARDS */
-  .project-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.8rem; height: 100%;
-    display: flex; flex-direction: column; justify-content: space-between;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .project-card:hover { border-color: var(--accent); }
-  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-  .project-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-  .project-tag {
-    font-family: var(--font-mono); font-size: 0.74rem;
-    background: var(--accent-subtle); color: var(--accent);
-    border: 1px solid rgba(59, 130, 246, 0.25);
-    padding: 0.2rem 0.6rem; border-radius: 4px;
-  }
-  .project-bullets { list-style: none; padding: 0; margin: 0 0 1.5rem; color: var(--text-muted); font-size: 0.9rem; }
-  .project-bullets li { position: relative; padding-left: 1.2rem; margin-bottom: 0.6rem; }
-  .project-bullets li::before {
-    content: '—'; position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono);
-  }
-  .project-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto; }
+    #main-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  /* ARCHITECTURE & CODE PROOFS */
-  .arch-tab-nav { display: flex; gap: 0.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; overflow-x: auto; }
-  .arch-tab-btn {
-    background: transparent; border: none; border-bottom: 2px solid transparent;
-    color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;
-    padding: 0.6rem 1rem; cursor: pointer; transition: 0.2s; white-space: nowrap;
-  }
-  .arch-tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
-  .code-block {
-    background: var(--code-bg); border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono);
-    font-size: 0.84rem; color: #D4D4D4; overflow-x: auto;
-  }
-  .code-block .kw { color: #569CD6; }
-  .code-block .str { color: #CE9178; }
-  .code-block .cm { color: #6A9955; }
-  .code-block .fn { color: #DCDCAA; }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-  /* LEADERSHIP & EDUCATION */
-  .entry-row {
-    padding: 1.2rem 0; border-bottom: 1px solid var(--border-subtle);
-    display: flex; flex-direction: column; gap: 0.3rem;
-  }
-  .entry-row:last-child { border-bottom: none; }
-  .entry-meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; }
-  .entry-title { font-weight: 600; font-size: 1rem; color: var(--text); }
-  .entry-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-subtle); }
-  .entry-sub { font-size: 0.88rem; color: var(--accent); font-weight: 500; }
-  .entry-desc { font-size: 0.88rem; color: var(--text-muted); margin: 0.2rem 0 0; }
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+    }
 
-  /* CONTACT FORM */
-  .form-control-v {
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--text); padding: 0.75rem 1rem; border-radius: 6px;
-    font-size: 0.9rem; transition: 0.2s;
-  }
-  .form-control-v:focus {
-    background: var(--surface); border-color: var(--accent);
-    box-shadow: 0 0 0 2px var(--accent-subtle); color: var(--text); outline: none;
-  }
-  .form-control-v::placeholder { color: var(--text-subtle); }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
 
-  /* MODAL THEME */
-  .modal-content.v-modal {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; color: var(--text);
-  }
-  .v-modal .modal-header { border-bottom: 1px solid var(--border); padding: 1.2rem 1.5rem; }
-  .v-modal .btn-close-v { background: transparent; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; }
-  .v-modal .btn-close-v:hover { color: var(--text); }
+    .brand-logo {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
 
-  /* FOOTER */
-  footer { padding: 3rem 0; background: var(--bg); font-size: 0.85rem; color: var(--text-subtle); }
+    .brand-logo span {
+      color: var(--accent-blue);
+    }
 
-  #scroll-top {
-    position: fixed; bottom: 1.8rem; right: 1.8rem; width: 40px; height: 40px;
-    border-radius: 6px; background: var(--surface); border: 1px solid var(--border);
-    color: var(--text); display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden; transition: 0.2s; z-index: 997;
-  }
-  /* INTRO OVERLAY SCREEN */
-  #intro-screen {
-    position: fixed;
-    inset: 0;
-    background-color: var(--bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
 
-  .greeting-wrap { text-align: center; }
-  .greeting {
-    font-family: var(--font-mono);
-    font-size: clamp(2.5rem, 6vw, 3.8rem);
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.03em;
-    animation: fadeIn 1s ease-in-out;
-  }
-  .greeting span { color: var(--accent); }
-  .greeting-sub {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--text-subtle);
-    margin-top: 0.5rem;
-    animation: fadeIn 1.2s ease-in-out;
-  }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
 
-  #intro-screen.slide-up {
-    transform: translateY(-100%);
-  }
+    nav a:hover {
+      color: var(--accent-blue);
+    }
 
-  /* MAIN CONTENT WRAPPER */
-  #main-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
-  }
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem;
+    }
 
-  #main-content.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    .hero-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
+    .avatar-container {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+    }
+
+    .profile-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 18%; /* Focus on face from full-body photo */
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
+    }
+
+    .status-indicator {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 14px;
+      height: 14px;
+      background-color: var(--accent-green);
+      border: 2px solid var(--bg-main);
+      border-radius: 50%;
+    }
+
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .hero-bio {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-blue);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-card-hover);
+    }
+
+    .btn-youtube {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-youtube:hover {
+      background-color: rgba(239, 68, 68, 0.2);
+    }
+
+    /* Section Global */
+    .section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .section-subtitle {
+      font-family: var(--font-mono);
+      color: var(--accent-blue);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Section 01: Tech Stack */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stack-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .stack-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .tag-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .tag-name {
+      font-weight: 500;
+    }
+
+    .tag-desc {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .secondary-stack-banner {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Section 02: Featured Projects */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .project-header h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .project-category {
+      font-family: var(--font-mono);
+      color: var(--accent-blue);
+      font-size: 0.85rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .project-bullets {
+      list-style-type: none;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .project-bullets li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Section 03: Engineering Proofs */
+    .code-block {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .code-header {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    pre code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* Sections 04 & 05: Academic & Leadership */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-top: 0.5rem;
+    }
+
+    /* Contact & Footer */
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .contact-box { flex-direction: column; align-items: flex-start; }
+      nav { display: none; } /* Simplified for single-page preview */
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- INTRO OVERLAY SCREEN -->
-<div id="intro-screen">
-  <div class="greeting-wrap">
-    <h1 class="greeting" id="greetingText">Hello<span>.</span></h1>
-    <div class="greeting-sub">Sara Joshi &mdash; Full-Stack &amp; Systems Engineer</div>
+  <!-- Intro Screen -->
+  <div id="intro-screen">
+    <h1 class="greeting-title">Hello<span>.</span></h1>
+    <div class="greeting-sub">Sara Joshi &mdash; Backend &amp; Applied AI/ML Engineer</div>
   </div>
-</div>
 
-<!-- MAIN PORTFOLIO DETAILS -->
-<main id="main-content">
-<header id="header">
-  <div class="container d-flex align-items-center justify-content-between">
-    <a href="#hero" class="logo">sara_joshi<span>.dev</span></a>
-    <nav class="navmenu" id="navmenu">
-      <ul>
-        <li><a href="#hero" class="nav-link active">About</a></li>
-        <li><a href="#stack" class="nav-link">Stack</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#architecture" class="nav-link">Architecture</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-    <i class="bi bi-list mobile-nav-toggle" id="navToggle"></i>
-  </div>
-</header>
-
-<!-- HERO -->
-<section id="hero" class="section">
-  <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-8" data-aos="fade-up">
-        <div class="hero-eyebrow">
-          <span class="indicator"></span> Full-Stack &amp; Systems Engineer
-        </div>
-        <h1 class="hero-name">Sara Joshi</h1>
-        <div class="hero-title">Django REST, Next.js &amp; Applied Machine Learning</div>
-        <p class="hero-bio">
-          I build production web applications engineered with Next.js and Django REST Framework backends, backed by asynchronous Celery processing queues and PostgreSQL databases. My technical focus centers on integrating Scikit-learn predictive models and Gemini LLM APIs for automated diagnostic report parsing and personalized recommendation systems.
-        </p>
-        <div class="d-flex gap-3 flex-wrap align-items-center">
-          <a href="#projects" class="btn-primary-v"><i class="bi bi-code-square me-1"></i> View Live Demos</a>
-          <a href="https://github.com/sara3302" target="_blank" class="btn-secondary-v"><i class="bi bi-github me-1"></i> GitHub</a>
-          <a href="assets/img/portfolio/Sara_Joshi_CV.pdf" target="_blank" class="btn-secondary-v"><i class="bi bi-file-earmark-pdf me-1"></i> Resume PDF</a>
-        </div>
+  <!-- Main Website Content -->
+  <div id="main-content">
+    
+    <!-- Navigation Header -->
+    <header>
+      <div class="container nav-container">
+        <a href="#hero" class="brand-logo">sara_joshi<span>.dev</span></a>
+        <nav>
+          <ul>
+            <li><a href="#hero">About</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#proofs">Architecture</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="col-lg-4 text-center text-lg-end" data-aos="fade-up" data-aos-delay="100">
-        <div class="avatar-container">
-          <img 
-            src="assets/img/profile.png" 
-            alt="Sara Joshi" 
-            class="profile-avatar"
-          />
-          <span class="status-indicator" title="Available for roles"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- TECHNICAL STACK -->
-<section id="stack" class="section">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-subtitle">01 / Technical Stack</span>
-      <h2 class="section-title">Engineering Stack &amp; Infrastructure</h2>
-      <p class="section-description">Core technologies utilized for backend architecture, data pipelines, and AI systems.</p>
-    </div>
-
-    <div class="stack-grid" data-aos="fade-up">
+    <main class="container">
       
-      <!-- Card 1: Core Backend -->
-      <div class="stack-card">
-        <div class="stack-card-inner">
-          <h3><i class="bi bi-server"></i> Core Backend &amp; APIs</h3>
-          <div class="stack-tags">
-            <div class="tag-item">
-              <span class="tag-name">Python 3.11+</span>
-              <span class="tag-desc">Core Engine</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Django REST Framework</span>
-              <span class="tag-desc">Backend APIs</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">FastAPI</span>
-              <span class="tag-desc">High-Performance APIs</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Async Task Architecture</span>
-              <span class="tag-desc">Event-Driven</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Auth &amp; RBAC</span>
-              <span class="tag-desc">API Security</span>
-            </div>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-header">
+          <div class="avatar-container">
+            <img src="assets/img/profile.png" alt="Sara Joshi" class="profile-avatar" />
+            <span class="status-indicator" title="Available for Backend &amp; AI Roles"></span>
           </div>
-        </div>
-      </div>
-
-      <!-- Card 2: AI / ML & Data -->
-      <div class="stack-card">
-        <div class="stack-card-inner">
-          <h3><i class="bi bi-cpu"></i> AI / ML &amp; Data Pipelines</h3>
-          <div class="stack-tags">
-            <div class="tag-item">
-              <span class="tag-name">Scikit-learn</span>
-              <span class="tag-desc">Machine Learning</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">PyTorch &amp; TensorFlow</span>
-              <span class="tag-desc">Deep Learning (Learning)</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Gemini LLM API</span>
-              <span class="tag-desc">Structured Extraction</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Vector Embeddings</span>
-              <span class="tag-desc">Similarity Search</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Pandas / NumPy</span>
-              <span class="tag-desc">Data Processing</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Infrastructure -->
-      <div class="stack-card">
-        <div class="stack-card-inner">
-          <h3><i class="bi bi-database"></i> Data &amp; Infrastructure</h3>
-          <div class="stack-tags">
-            <div class="tag-item">
-              <span class="tag-name">PostgreSQL</span>
-              <span class="tag-desc">Relational DB</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Celery &amp; Redis</span>
-              <span class="tag-desc">Broker &amp; Caching</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Docker</span>
-              <span class="tag-desc">Containerization</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">RESTful Schema Design</span>
-              <span class="tag-desc">API Specs</span>
-            </div>
-            <div class="tag-item">
-              <span class="tag-name">Git / Vercel</span>
-              <span class="tag-desc">CI / Deployment</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Secondary Capabilities Banner -->
-    <div class="secondary-stack-banner" style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; text-align: center; font-size: 0.9rem; color: #94a3b8;" data-aos="fade-up">
-      <span><strong>Secondary Capabilities:</strong> Next.js, React, TypeScript, and HTML5/CSS3 for end-to-end feature prototyping.</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- FEATURED PROJECTS -->
-<section id="projects" class="section">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="eyebrow">02 / Featured Projects</span>
-      <h2>Production Systems &amp; Case Studies</h2>
-      <p>Technical architecture details and repository proofs for core applications.</p>
-    </div>
-
-    <div class="row g-4">
-      <!-- Project 1: Medi -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="project-card">
           <div>
-            <div class="project-header">
-              <div>
-                <h3 class="project-title">Medi — Hospital OS &amp; AI Diagnostic System</h3>
-                <span class="mono" style="font-size:0.8rem;color:var(--text-subtle);">Healthcare Operations &amp; ML Pipeline</span>
-              </div>
+            <div class="role-badge">
+              <span>●</span> Available for Backend &amp; AI Roles
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Next.js</span>
-              <span class="project-tag">Django REST</span>
-              <span class="project-tag">Celery</span>
-              <span class="project-tag">Scikit-learn</span>
-              <span class="project-tag">Gemini API</span>
-            </div>
-            <ul class="project-bullets">
-              <li>Integrated a Scikit-learn Decision Tree classification model trained on clinical parameters for real-time heart disease risk assessments.</li>
-              <li>Engineered an automated report parser using Gemini API to transform unstructured medical diagnostic reports into validated JSON schemas.</li>
-              <li>Developed patient &amp; doctor management modules supporting appointment scheduling, medical records, and role-based access control (RBAC).</li>
-              <li>Integrated Celery and Redis worker queues for asynchronous background report parsing and notification handling.</li>
-            </ul>
-          </div>
-          <div class="project-actions">
-            <button type="button" class="btn-secondary-v btn-demo" data-bs-toggle="modal" data-bs-target="#demoModal" data-title="Medi: AI Hospital Management System" data-video="" data-github="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System">
-              <i class="bi bi-play-circle me-1"></i> Live Demo
-            </button>
-            <a href="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" target="_blank" class="btn-secondary-v">
-              <i class="bi bi-github me-1"></i> GitHub Repo
-            </a>
+            <h1>Sara Joshi</h1>
+            <div class="hero-subtitle">Backend &amp; Applied AI/ML Engineer</div>
           </div>
         </div>
-      </div>
 
-      <!-- Project 2: Readkin -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <div>
-                <h3 class="project-title">Readkin — AI Social Book Tracker</h3>
-                <span class="mono" style="font-size:0.8rem;color:var(--text-subtle);">Recommendation Engine &amp; Social Platform</span>
-              </div>
+        <p class="hero-bio">
+          I build distributed backend systems, asynchronous worker pipelines, and applied machine learning integrations using Django REST Framework, Celery, and PostgreSQL. My technical focus centers on real-time ML model inference (Scikit-learn) and structured LLM output extraction (OpenAI &amp; Gemini APIs) for scalable production APIs.
+        </p>
+
+        <div class="cta-group">
+          <a href="#projects" class="btn btn-primary"><i class="bi bi-code-slash"></i> View Case Studies</a>
+          <a href="https://github.com/sara3302" target="_blank" class="btn btn-secondary"><i class="bi bi-github"></i> GitHub</a>
+          <a href="https://www.youtube.com/watch?v=EpMJcw9_01Q&amp;list=PLdBjxZNtD5YE" target="_blank" class="btn btn-youtube"><i class="bi bi-youtube"></i> Video Demos</a>
+        </div>
+      </section>
+
+      <!-- Section 01: Tech Stack -->
+      <section id="stack" class="section">
+        <span class="section-subtitle">01 / Technical Stack</span>
+        <h2 class="section-title">Engineering Stack &amp; Infrastructure</h2>
+        <p class="section-description">Core technologies utilized for backend architecture, data pipelines, and AI systems.</p>
+
+        <div class="stack-grid">
+          <!-- Card 1: Core Backend -->
+          <div class="stack-card">
+            <h3><i class="bi bi-server" style="color: var(--accent-blue);"></i> Core Backend &amp; APIs</h3>
+            <div class="stack-tags">
+              <div class="tag-item"><span class="tag-name">Python 3.11+</span><span class="tag-desc">Core Engine</span></div>
+              <div class="tag-item"><span class="tag-name">Django REST Framework</span><span class="tag-desc">Backend APIs</span></div>
+              <div class="tag-item"><span class="tag-name">FastAPI</span><span class="tag-desc">High-Performance APIs</span></div>
+              <div class="tag-item"><span class="tag-name">Async Task Architecture</span><span class="tag-desc">Event-Driven</span></div>
+              <div class="tag-item"><span class="tag-name">Auth &amp; RBAC</span><span class="tag-desc">API Security</span></div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Django</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">Scikit-learn</span>
-              <span class="project-tag">Gemini API</span>
-            </div>
-            <ul class="project-bullets">
-              <li>Architected a hybrid recommendation engine combining collaborative filtering with Gemini API vector embeddings for personalized book discovery.</li>
-              <li>Integrated Google Books API for automated metadata ingestion, reading progress tracking, and user review analytics.</li>
-              <li>Constructed relational PostgreSQL schemas optimized for social activity feeds, reading lists, and high-throughput recommendation queries.</li>
-            </ul>
           </div>
-          <div class="project-actions">
-            <button type="button" class="btn-secondary-v btn-demo" data-bs-toggle="modal" data-bs-target="#demoModal" data-title="Readkin: AI Social Book Tracker" data-video="" data-github="https://github.com/sara3302/readkin">
-              <i class="bi bi-play-circle me-1"></i> Live Demo
-            </button>
-            <a href="https://github.com/sara3302/readkin" target="_blank" class="btn-secondary-v">
-              <i class="bi bi-github me-1"></i> GitHub Repo
-            </a>
+
+          <!-- Card 2: AI / ML -->
+          <div class="stack-card">
+            <h3><i class="bi bi-cpu" style="color: var(--accent-blue);"></i> AI / ML &amp; Data Pipelines</h3>
+            <div class="stack-tags">
+              <div class="tag-item"><span class="tag-name">Scikit-learn</span><span class="tag-desc">Machine Learning</span></div>
+              <div class="tag-item"><span class="tag-name">PyTorch &amp; TensorFlow</span><span class="tag-desc">Deep Learning (Learning)</span></div>
+              <div class="tag-item"><span class="tag-name">Gemini &amp; OpenAI APIs</span><span class="tag-desc">Structured Extraction</span></div>
+              <div class="tag-item"><span class="tag-name">Vector Embeddings</span><span class="tag-desc">Similarity Search</span></div>
+              <div class="tag-item"><span class="tag-name">Pandas / NumPy</span><span class="tag-desc">Data Processing</span></div>
+            </div>
+          </div>
+
+          <!-- Card 3: Infrastructure -->
+          <div class="stack-card">
+            <h3><i class="bi bi-database" style="color: var(--accent-blue);"></i> Data &amp; Infrastructure</h3>
+            <div class="stack-tags">
+              <div class="tag-item"><span class="tag-name">PostgreSQL</span><span class="tag-desc">Relational DB</span></div>
+              <div class="tag-item"><span class="tag-name">Celery &amp; Redis</span><span class="tag-desc">Broker &amp; Caching</span></div>
+              <div class="tag-item"><span class="tag-name">Docker</span><span class="tag-desc">Containerization</span></div>
+              <div class="tag-item"><span class="tag-name">RESTful Schema Design</span><span class="tag-desc">API Specs</span></div>
+              <div class="tag-item"><span class="tag-name">Git / Vercel</span><span class="tag-desc">CI / Deployment</span></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ARCHITECTURE & ENGINEERING PROOFS -->
-<section id="architecture" class="section">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="eyebrow">03 / Engineering Proofs</span>
-      <h2>System Architecture &amp; Pipeline Specs</h2>
-      <p>Implementation snippets illustrating asynchronous processing and schema validation.</p>
-    </div>
+        <div class="secondary-stack-banner">
+          <span><strong>Secondary Capabilities:</strong> Next.js, React, TypeScript, and HTML5/CSS3 for end-to-end feature prototyping.</span>
+        </div>
+      </section>
 
-    <div class="arch-tab-nav" data-aos="fade-up">
-      <button class="arch-tab-btn active" data-tab="tab-celery">1. Async Queue (Celery + Redis)</button>
-      <button class="arch-tab-btn" data-tab="tab-gemini">2. Medical Report Parser (Gemini API)</button>
-      <button class="arch-tab-btn" data-tab="tab-recommendation">3. Hybrid Recommendation Engine</button>
-    </div>
+      <!-- Section 02: Featured Projects -->
+      <section id="projects" class="section">
+        <span class="section-subtitle">02 / Featured Projects</span>
+        <h2 class="section-title">Production Systems &amp; Case Studies</h2>
+        <p class="section-description">Technical architecture details, asynchronous pipelines, and repository proofs for core applications.</p>
 
-    <!-- Tab 1: Celery Queue -->
-    <div class="tab-content" id="tab-celery" data-aos="fade-up">
-      <div class="code-block">
-<span class="cm"># celery_tasks.py — Asynchronous Task Queue for Medi Backend</span>
-<span class="kw">from</span> celery <span class="kw">import</span> shared_task
-<span class="kw">from</span> .ml_models <span class="kw">import</span> predict_heart_disease
-<span class="kw">from</span> .report_parser <span class="kw">import</span> parse_clinical_report
+        <div class="projects-grid">
+          <!-- Medi -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Medi — Hospital OS &amp; AI Diagnostic System</h3>
+              <span class="project-category">Async Healthcare Pipeline &amp; ML Diagnostic Engine</span>
+            </div>
 
-<span class="kw">@shared_task</span>(bind=<span class="kw">True</span>, max_retries=<span class="kw">3</span>)
-<span class="kw">def</span> <span class="fn">process_patient_lab_report</span>(self, report_id: <span class="kw">int</span>, raw_text: <span class="kw">str</span>):
-    <span class="str">"""
-    Dispatches asynchronous diagnostic parsing via Gemini API 
+            <div class="project-tags">
+              <span class="tag">Django REST</span>
+              <span class="tag">Celery &amp; Redis</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">OpenAI API</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+
+            <ul class="project-bullets">
+              <li>Integrated a Scikit-learn Decision Tree classification pipeline into Django REST APIs to evaluate clinical parameters and calculate real-time heart disease risk vectors.</li>
+              <li>Engineered an automated diagnostic report parser using OpenAI API, enforcing strict JSON schema parsing to extract structured medical markers from raw unstructured text.</li>
+              <li>Implemented Celery worker queues with Redis as a broker to handle asynchronous background report parsing, document processing, and system notifications without blocking HTTP threads.</li>
+              <li>Built RESTful endpoints with custom Role-Based Access Control (RBAC) middleware, enforcing multi-role permissions for patients, doctors, and lab technicians.</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" target="_blank" class="btn btn-secondary"><i class="bi bi-github"></i> GitHub Repo</a>
+              <a href="https://www.youtube.com/watch?v=EpMJcw9_01Q&amp;list=PLdBjxZNtD5YE" target="_blank" class="btn btn-youtube"><i class="bi bi-youtube"></i> Watch Video Demo</a>
+            </div>
+          </div>
+
+          <!-- Readkin -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Readkin — AI Social Book Tracker</h3>
+              <span class="project-category">Hybrid Recommendation Engine &amp; High-Throughput API</span>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django REST</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Gemini Vector Embeddings</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+
+            <ul class="project-bullets">
+              <li>Architected a dual-stage recommendation engine combining collaborative filtering (user interaction matrices) with Gemini API vector embeddings for semantic similarity scoring.</li>
+              <li>Integrated Google Books API for batch metadata retrieval, automated data normalization, and user reading progress analytics.</li>
+              <li>Constructed and indexed relational PostgreSQL schemas optimized for social activity feeds, reading lists, and high-concurrency recommendation queries.</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="https://github.com/sara3302/readkin" target="_blank" class="btn btn-secondary"><i class="bi bi-github"></i> GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 03: Engineering Proofs -->
+      <section id="proofs" class="section">
+        <span class="section-subtitle">03 / Engineering Proofs</span>
+        <h2 class="section-title">System Architecture &amp; Pipeline Specs</h2>
+        <p class="section-description">Implementation snippets illustrating asynchronous processing and schema validation.</p>
+
+        <!-- Snippet 1 -->
+        <div class="code-block">
+          <span class="code-header"># celery_tasks.py — Asynchronous Task Queue for Medi Backend</span>
+          <pre><code>from celery import shared_task
+from .ml_models import predict_heart_disease
+from .report_parser import parse_clinical_report
+
+@shared_task(bind=True, max_retries=3)
+def process_patient_lab_report(self, report_id: int, raw_text: str):
+    """
+    Dispatches asynchronous diagnostic parsing via OpenAI API 
     and updates database record in PostgreSQL.
-    """</span>
-    <span class="kw">try</span>:
+    """
+    try:
         parsed_data = parse_clinical_report(raw_text)
         risk_score = predict_heart_disease(parsed_data)
         
-        <span class="cm"># Atomically update DB record</span>
+        # Atomically update DB record
         update_lab_record(report_id, parsed_data, risk_score)
-        <span class="kw">return</span> {<span class="str">"status"</span>: <span class="str">"SUCCESS"</span>, <span class="str">"report_id"</span>: report_id, <span class="str">"risk"</span>: risk_score}
-    <span class="kw">except</span> Exception <span class="kw">as</span> exc:
-        self.retry(exc=exc, countdown=<span class="kw">10</span>)
-      </div>
-    </div>
+        return {"status": "SUCCESS", "report_id": report_id, "risk": risk_score}
+    except Exception as exc:
+        self.retry(exc=exc, countdown=10)</code></pre>
+        </div>
 
-    <!-- Tab 2: Gemini Report Parser -->
-    <div class="tab-content d-none" id="tab-gemini">
-      <div class="code-block">
-<span class="cm"># report_parser.py — Structured JSON Extraction via Gemini API</span>
-<span class="kw">import</span> google.generativeai <span class="kw">as</span> genai
-<span class="kw">import</span> json
+        <!-- Snippet 2 -->
+        <div class="code-block">
+          <span class="code-header"># report_parser.py — Structured JSON Extraction via OpenAI API</span>
+          <pre><code>import openai
+import json
 
-<span class="kw">def</span> <span class="fn">parse_clinical_report</span>(raw_report_text: <span class="kw">str</span>) -> <span class="kw">dict</span>:
-    model = genai.GenerativeModel(<span class="str">'gemini-1.5-flash'</span>)
-    prompt = <span class="str">f"""
-    Extract structured medical diagnostic markers from the input clinical report.
-    Return ONLY valid JSON matching this schema:
-    {{
-      "cholesterol": float, "systolic_bp": int, "chest_pain_type": int, "glucose": float
-    }}
-    Input Report: {raw_report_text}
-    """</span>
-    response = model.generate_content(prompt)
-    <span class="kw">return</span> json.loads(response.text)
-      </div>
-    </div>
+def parse_clinical_report(raw_report_text: str) -> dict:
+    """
+    Parses unstructured clinical report text into a validated JSON schema
+    using OpenAI API structured outputs.
+    """
+    client = openai.OpenAI()
+    system_prompt = (
+        "You are a medical data extraction engine. Extract clinical markers "
+        "and return ONLY valid JSON with keys: cholesterol, systolic_bp, "
+        "chest_pain_type, and glucose."
+    )
+    
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        response_format={"type": "json_object"},
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": raw_report_text}
+        ],
+        temperature=0.1
+    )
+    return json.loads(response.choices[0].message.content)</code></pre>
+        </div>
 
-    <!-- Tab 3: Recommendation Engine -->
-    <div class="tab-content d-none" id="tab-recommendation">
-      <div class="code-block">
-<span class="cm"># recommender.py — Readkin Hybrid Recommendation Pipeline</span>
-<span class="kw">import</span> numpy <span class="kw">as</span> np
-<span class="kw">from</span> sklearn.metrics.pairwise <span class="kw">import</span> cosine_similarity
+        <!-- Snippet 3 -->
+        <div class="code-block">
+          <span class="code-header"># recommender.py — Readkin Hybrid Recommendation Pipeline</span>
+          <pre><code>import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
-<span class="kw">def</span> <span class="fn">generate_hybrid_recommendations</span>(user_id: <span class="kw">int</span>, top_n: <span class="kw">int</span> = <span class="kw">10</span>):
-    <span class="str">"""
+def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
+    """
     Combines Collaborative Filtering interaction matrix with 
     Gemini API book embedding vector similarity.
-    """</span>
+    """
     cf_scores = compute_user_collaborative_scores(user_id)
     vector_scores = compute_embedding_similarity_scores(user_id)
     
-    <span class="cm"># Weighted hybrid score synthesis</span>
-    hybrid_score = <span class="kw">0.6</span> * cf_scores + <span class="kw">0.4</span> * vector_scores
-    top_indices = np.argsort(hybrid_score)[::-<span class="kw">1</span>][:top_n]
-    <span class="kw">return</span> get_book_metadata_by_indices(top_indices)
-      </div>
-    </div>
-  </div>
-</section>
+    # Weighted hybrid score synthesis
+    hybrid_score = 0.6 * cf_scores + 0.4 * vector_scores
+    top_indices = np.argsort(hybrid_score)[::-1][:top_n]
+    return get_book_metadata_by_indices(top_indices)</code></pre>
+        </div>
+      </section>
 
-<!-- LEADERSHIP & EDUCATION -->
-<section id="experience" class="section">
-  <div class="container">
-    <div class="row g-5">
-      <!-- Education Column -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-header" style="margin-bottom:1.5rem;">
-          <span class="eyebrow">04 / Education</span>
-          <h2>Academic Credentials</h2>
-        </div>
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="entry-title">Tribhuvan University</span>
-            <span class="entry-date">EXPECTED FEB 2027</span>
+      <!-- Sections 04 & 05: Education & Experience -->
+      <section id="experience" class="section">
+        <div class="timeline-grid">
+          <!-- Education -->
+          <div>
+            <span class="section-subtitle">04 / Education</span>
+            <h2 class="section-title">Academic Credentials</h2>
+            
+            <div class="timeline-item" style="margin-top: 1.5rem;">
+              <div class="timeline-meta">
+                <span>Tribhuvan University</span>
+                <span>EXPECTED FEB 2027</span>
+              </div>
+              <div class="timeline-title">Bachelor of Information Technology (BIT)</div>
+              <div class="timeline-desc">
+                Academic Performance: GPA 3.54 / 4.0.<br>
+                Merit Scholarship Recipient — 5th &amp; 6th Semester Topper.
+              </div>
+            </div>
           </div>
-          <div class="entry-sub">Bachelor of Information Technology (BIT)</div>
-          <p class="entry-desc">
-            Academic Performance: GPA 3.54 / 4.0.<br>
-            Merit Scholarship Recipient — 5th Semester Topper &amp; 6th Semester Topper.
-          </p>
-        </div>
-      </div>
 
-      <!-- Leadership & Experience Column -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
-        <div class="section-header" style="margin-bottom:1.5rem;">
-          <span class="eyebrow">05 / Leadership</span>
-          <h2>Industry &amp; Community Roles</h2>
-        </div>
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="entry-title">Illuminati Organization</span>
-            <span class="entry-date">JULY 2026 — PRESENT</span>
-          </div>
-          <div class="entry-sub">Full-Stack Developer &amp; Tech Lead</div>
-          <p class="entry-desc">
-            Engineered full-stack features for web platforms such as Question Nepal. Managed research data pipelines and regional tech operations in Sudurpaschim Province.
-          </p>
-        </div>
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="entry-title">Microsoft Learn Student Ambassadors</span>
-            <span class="entry-date">OCT 2024 — PRESENT</span>
-          </div>
-          <div class="entry-sub">Student Ambassador</div>
-          <p class="entry-desc">
-            Organized technical workshops on AI/ML and software engineering. Collaborated with GitHub to host GitHub Copilot Developer Sessions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          <!-- Experience -->
+          <div>
+            <span class="section-subtitle">05 / Leadership</span>
+            <h2 class="section-title">Industry &amp; Roles</h2>
 
-<!-- CONTACT SECTION -->
-<section id="contact" class="section">
-  <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-header" style="margin-bottom:1.5rem;">
-          <span class="eyebrow">06 / Contact</span>
-          <h2>Get in Touch</h2>
-          <p>Open for full-stack engineering, async systems development, and ML integration roles.</p>
-        </div>
-        <div style="font-size:0.9rem;color:var(--text-muted);">
-          <p class="mb-2"><strong style="color:var(--text);">Email:</strong> sarajoshi33@gmail.com</p>
-          <p class="mb-2"><strong style="color:var(--text);">Phone:</strong> +977 9844161220</p>
-          <p class="mb-4"><strong style="color:var(--text);">Location:</strong> Kathmandu, Nepal</p>
-          <div class="d-flex gap-3">
-            <a href="https://github.com/sara3302" target="_blank" class="btn-secondary-v"><i class="bi bi-github me-1"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/sara-joshi-ab40882ab/" target="_blank" class="btn-secondary-v"><i class="bi bi-linkedin me-1"></i> LinkedIn</a>
+            <div class="timeline-item" style="margin-top: 1.5rem;">
+              <div class="timeline-meta">
+                <span>Illuminati Organization</span>
+                <span>JULY 2026 — PRESENT</span>
+              </div>
+              <div class="timeline-title">Full-Stack Developer &amp; Tech Lead</div>
+              <div class="timeline-desc">
+                Architected scalable RESTful API endpoints and backend databases for regional web platforms (e.g., Question Nepal). Engineered asynchronous data processing pipelines to handle research data ingestion in Sudurpaschim Province.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-meta">
+                <span>Microsoft Learn Student Ambassadors</span>
+                <span>OCT 2024 — PRESENT</span>
+              </div>
+              <div class="timeline-title">Student Ambassador</div>
+              <div class="timeline-desc">
+                Organized technical workshops on AI/ML and software engineering. Collaborated with GitHub to host developer sessions on AI tooling.
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="150">
-        <form action="https://formsubmit.co/sarajoshi33@gmail.com" method="POST" id="contactForm" class="row g-3">
-          <input type="hidden" name="_subject" value="New Portfolio Message from SaraJoshi.dev">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="col-md-6">
-            <input type="text" class="form-control-v w-100" placeholder="Your Name" name="name" required>
-          </div>
-          <div class="col-md-6">
-            <input type="email" class="form-control-v w-100" placeholder="Your Email" name="email" required>
-          </div>
-          <div class="col-12">
-            <input type="text" class="form-control-v w-100" placeholder="Subject" name="subject" required>
-          </div>
-          <div class="col-12">
-            <textarea class="form-control-v w-100" rows="5" placeholder="Your Message" name="message" required></textarea>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn-primary-v" id="submitBtn"><i class="bi bi-send me-1"></i> Send Message</button>
-            <div id="form-status" style="margin-top:1rem;display:none;font-size:0.85rem;font-weight:500;"></div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container text-center">
-    <p class="mb-0">&copy; 2026 Sara Joshi. Built with clean HTML5 &amp; Vanilla CSS. Hosted on Vercel.</p>
-  </div>
-</footer>
-</main>
-
-<a href="#hero" id="scroll-top"><i class="bi bi-arrow-up"></i></a>
-
-<!-- DEMO MODAL -->
-<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content v-modal">
-      <div class="modal-header d-flex align-items-center justify-content-between">
-        <h5 class="modal-title d-flex align-items-center gap-2" id="demoModalLabel" style="font-size:1.05rem;">
-          <i class="bi bi-play-circle text-primary"></i> <span id="modalProjectTitle">Project Video Demo</span>
-        </h5>
-        <button type="button" class="btn-close-v" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-      </div>
-      <div class="modal-body">
-        <div id="modalVideoContainer" class="ratio ratio-16x9 rounded overflow-hidden mb-3" style="background:var(--code-bg);border:1px solid var(--border);">
-          <!-- Dynamic demo media / placeholder injected via JS -->
-        </div>
-        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2" style="border-top:1px solid var(--border);">
-          <span class="mono" style="font-size:0.8rem;color:var(--text-muted);">Interactive Video Showcase</span>
-          <a href="#" id="modalGithubBtn" target="_blank" class="btn-secondary-v">
-            <i class="bi bi-github me-1"></i> View Repository
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Vendor JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
-
-<script>
-  AOS.init({ duration: 600, once: true, offset: 50 });
-  const lightbox = GLightbox({ selector: '.glightbox' });
-
-  // Header scroll & scroll-top button
-  const header = document.getElementById('header');
-  const scrollTopBtn = document.getElementById('scroll-top');
-  window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('show', window.scrollY > 400);
-  });
-
-  // Mobile nav toggle
-  const navmenu = document.getElementById('navmenu');
-  const navToggle = document.getElementById('navToggle');
-  navToggle.addEventListener('click', () => {
-    navmenu.classList.toggle('show');
-    navToggle.classList.toggle('bi-list');
-    navToggle.classList.toggle('bi-x-lg');
-  });
-  navmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navmenu.classList.remove('show');
-    navToggle.classList.add('bi-list');
-    navToggle.classList.remove('bi-x-lg');
-  }));
-
-  // Active nav link on scroll
-  const sections = document.querySelectorAll('section[id], #hero');
-  const navLinks = document.querySelectorAll('.navmenu .nav-link');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(sec => {
-      const top = sec.offsetTop - 120;
-      if (window.scrollY >= top) current = sec.getAttribute('id');
-    });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
-  });
-
-  // Architecture Tabs Handler
-  const tabBtns = document.querySelectorAll('.arch-tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(c => c.classList.add('d-none'));
-      btn.classList.add('active');
-      const targetTab = document.getElementById(btn.dataset.tab);
-      if (targetTab) targetTab.classList.remove('d-none');
-    });
-  });
-
-  // Contact form submission
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const status = document.getElementById('form-status');
-      const submitBtn = document.getElementById('submitBtn');
-      
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Sending...';
-      status.style.display = 'block';
-      status.style.color = 'var(--accent)';
-      status.textContent = 'Sending message...';
-
-      const formData = new FormData(this);
-      
-      fetch('https://formsubmit.co/ajax/sarajoshi33@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(Object.fromEntries(formData))
-      })
-      .then(response => response.json())
-      .then(data => {
-        status.style.color = '#10B981';
-        status.textContent = 'Thank you! Your message has been sent successfully.';
-        contactForm.reset();
-      })
-      .catch(error => {
-        status.style.color = '#EF4444';
-        status.textContent = 'Issue sending message. Please email directly at sarajoshi33@gmail.com.';
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="bi bi-send me-1"></i> Send Message';
-      });
-    });
-  }
-
-  // Demo Modal Handler
-  const demoModal = document.getElementById('demoModal');
-  if (demoModal) {
-    demoModal.addEventListener('show.bs.modal', function (event) {
-      const button = event.relatedTarget;
-      const title = button.getAttribute('data-title') || 'Project Showcase';
-      const videoSrc = button.getAttribute('data-video') || '';
-      const githubUrl = button.getAttribute('data-github') || '#';
-
-      document.getElementById('modalProjectTitle').textContent = title;
-      document.getElementById('modalGithubBtn').setAttribute('href', githubUrl);
-
-      const videoContainer = document.getElementById('modalVideoContainer');
-      
-      if (videoSrc) {
-        if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
-          videoContainer.innerHTML = `<iframe src="${videoSrc}?autoplay=1" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>`;
-        } else {
-          videoContainer.innerHTML = `<video controls autoplay style="width:100%;height:100%;object-fit:cover;"><source src="${videoSrc}" type="video/mp4"></video>`;
-        }
-      } else {
-        videoContainer.innerHTML = `
-          <div class="d-flex flex-column align-items-center justify-content-center p-4 text-center" style="background:var(--surface);height:100%;">
-            <div class="mb-3" style="font-size:2rem;color:var(--accent);"><i class="bi bi-play-circle"></i></div>
-            <h4 class="mb-2" style="font-size:1.1rem;font-weight:600;color:var(--text);">${title}</h4>
-            <p class="text-muted mb-3" style="max-width:440px;font-size:0.86rem;">
-              Interactive video walkthrough &amp; live staging preview. You can review the complete architecture and backend repository directly on GitHub.
+      <!-- Section 06: Contact -->
+      <section id="contact" class="section">
+        <div class="contact-box">
+          <div>
+            <span class="section-subtitle">06 / Contact</span>
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-description" style="margin-bottom: 0;">
+              Open for backend engineering, asynchronous systems architecture, and applied AI/ML integration roles.
             </p>
-            <a href="${githubUrl}" target="_blank" class="btn-primary-v">
-              <i class="bi bi-github me-1"></i> Explore Repository on GitHub
-            </a>
           </div>
-        `;
-      }
-    });
 
-    demoModal.addEventListener('hidden.bs.modal', function () {
-      document.getElementById('modalVideoContainer').innerHTML = '';
-    });
-  }
+          <div>
+            <p><strong>Email:</strong> sarajoshi33@gmail.com</p>
+            <p><strong>Phone:</strong> +977 9844161220</p>
+            <p><strong>Location:</strong> Kathmandu, Nepal</p>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <a href="https://github.com/sara3302" target="_blank" class="btn btn-secondary"><i class="bi bi-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/sara-joshi-ab40882ab/" target="_blank" class="btn btn-secondary"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  // Intro Screen Overlay sequence
-  window.addEventListener('DOMContentLoaded', () => {
-    const introScreen = document.getElementById('intro-screen');
-    const mainContent = document.getElementById('main-content');
-    const greetingText = document.getElementById('greetingText');
+    </main>
 
-    if (introScreen && mainContent) {
-      const greetings = ["Hello.", "Namaste.", "Welcome.", "Sara Joshi."];
-      let gIndex = 0;
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Sara Joshi &mdash; Backend &amp; Applied AI/ML Engineer. Hosted on Vercel.</p>
+      </div>
+    </footer>
 
-      const interval = setInterval(() => {
-        gIndex++;
-        if (gIndex < greetings.length) {
-          if (greetingText) greetingText.innerHTML = greetings[gIndex].replace('.', '<span>.</span>');
-        } else {
-          clearInterval(interval);
-        }
-      }, 400);
+  </div>
 
-      // Hold the greeting for 1.8 seconds, then transition
+  <!-- Script for Intro Overlay -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
-        introScreen.classList.add('slide-up');
-        mainContent.classList.add('visible');
-        setTimeout(() => {
-          introScreen.style.display = 'none';
-        }, 800);
+        document.getElementById('intro-screen').classList.add('slide-up');
+        document.getElementById('main-content').classList.add('visible');
       }, 1800);
-    }
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
