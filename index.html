@@ -890,31 +890,34 @@
   }
 
   // Intro Screen Overlay sequence
-  const introScreen = document.getElementById('intro-screen');
-  const mainContent = document.getElementById('main-content');
-  const greetingText = document.getElementById('greetingText');
+  window.addEventListener('DOMContentLoaded', () => {
+    const introScreen = document.getElementById('intro-screen');
+    const mainContent = document.getElementById('main-content');
+    const greetingText = document.getElementById('greetingText');
 
-  if (introScreen && mainContent) {
-    const greetings = ["Hello.", "Namaste.", "Welcome.", "Sara Joshi."];
-    let gIndex = 0;
+    if (introScreen && mainContent) {
+      const greetings = ["Hello.", "Namaste.", "Welcome.", "Sara Joshi."];
+      let gIndex = 0;
 
-    const interval = setInterval(() => {
-      gIndex++;
-      if (gIndex < greetings.length) {
-        greetingText.innerHTML = greetings[gIndex].replace('.', '<span>.</span>');
-      } else {
-        clearInterval(interval);
-      }
-    }, 320);
+      const interval = setInterval(() => {
+        gIndex++;
+        if (gIndex < greetings.length) {
+          if (greetingText) greetingText.innerHTML = greetings[gIndex].replace('.', '<span>.</span>');
+        } else {
+          clearInterval(interval);
+        }
+      }, 400);
 
-    setTimeout(() => {
-      introScreen.classList.add('slide-up');
-      mainContent.classList.add('visible');
+      // Hold the greeting for 1.8 seconds, then transition
       setTimeout(() => {
-        introScreen.style.display = 'none';
-      }, 800);
-    }, 1400);
-  }
+        introScreen.classList.add('slide-up');
+        mainContent.classList.add('visible');
+        setTimeout(() => {
+          introScreen.style.display = 'none';
+        }, 800);
+      }, 1800);
+    }
+  });
 </script>
 </body>
 </html>
