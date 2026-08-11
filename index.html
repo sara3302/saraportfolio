@@ -931,15 +931,16 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
         } else {
           clearInterval(interval);
         }
-      }, 420);
+      }, 700);
 
+      // Hold the intro overlay longer so visitors can read each greeting fully
       setTimeout(() => {
         if (introScreen) introScreen.classList.add('slide-up');
         if (mainContent) mainContent.classList.add('visible');
         setTimeout(() => {
           if (introScreen) introScreen.style.display = 'none';
         }, 800);
-      }, 2000);
+      }, 3400);
     });
   </script>
 </body>
