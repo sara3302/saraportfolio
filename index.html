@@ -1575,64 +1575,97 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
         </div>
       </section>
 
-      <!-- Section 05: Leadership & Community (Clean Minimalist Layout) -->
+      <!-- Section 05: Leadership & Community (Photo Card Layout) -->
       <section id="leadership" class="section">
         <div class="container">
           <span class="section-subtitle">05 / Impact &amp; Community</span>
           <h2 class="section-title">Leadership &amp; Community</h2>
           <p class="section-description">Mentorship, student leadership, community outreach, and event management roles.</p>
 
-          <!-- 2x2 Grid of Clean White Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-            
+          <div class="leadership-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
             <!-- Card 1 -->
-            <div class="bg-white p-6 rounded-2xl border border-[#FCE7F3] hover:border-[#FF007F] transition-all" style="background: #ffffff; padding: 1.5rem; border-radius: 1rem; border: 1px solid #FCE7F3; transition: all 0.2s ease;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                <h3 style="color: #FF007F; font-size: 1.15rem; font-weight: 700; margin: 0;">Microsoft Learn Student Ambassador</h3>
-                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B; background: #FFF0F5; padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 600;">Oct 2024 &ndash; Present</span>
+            <div class="leadership-card">
+              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
+                <img src="assets/img/portfolio/mlsa_certificate.jpg" alt="Microsoft Learn Student Ambassador" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <p style="color: #475569; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem;">Microsoft &amp; GitHub</p>
-              <p style="color: #334155; font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                Facilitated interactive AI/ML workshops for 150+ students and co-led the hands-on GitHub Copilot Dev Days session.
-              </p>
+              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
+                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">Oct 2024 &ndash; Present</span>
+                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Microsoft Learn Student Ambassador</h3>
+                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Microsoft &amp; GitHub</p>
+                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
+                  Facilitated interactive technical workshops on AI/ML concepts for 150+ students. Partnered directly with GitHub to lead and coordinate the GitHub Copilot Dev Days hands-on workshop for 30 attendees.
+                </p>
+                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
+                  <span class="pill-tag">AI/ML Mentorship</span>
+                  <span class="pill-tag">Workshop Facilitation</span>
+                  <span class="pill-tag">GitHub Copilot</span>
+                  <span class="pill-tag">Technical Leadership</span>
+                </div>
+              </div>
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-white p-6 rounded-2xl border border-[#FCE7F3] hover:border-[#FF007F] transition-all" style="background: #ffffff; padding: 1.5rem; border-radius: 1rem; border: 1px solid #FCE7F3; transition: all 0.2s ease;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                <h3 style="color: #FF007F; font-size: 1.15rem; font-weight: 700; margin: 0;">YALC Lead</h3>
-                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B; background: #FFF0F5; padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 600;">Mar 2024 &ndash; Apr 2025</span>
+            <div class="leadership-card">
+              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
+                <img src="assets/img/portfolio/yuwa_leadership.jpg" alt="Youth Advisory Leadership Council Lead" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <p style="color: #475569; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem;">YUWA</p>
-              <p style="color: #334155; font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                Facilitated Comprehensive Sexuality Education across 5 regional secondary schools over 8 months and led partner outreach with American Corner.
-              </p>
+              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
+                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">Mar 2024 &ndash; Apr 2025</span>
+                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Youth Advisory Leadership Council (YALC) Lead</h3>
+                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">YUWA</p>
+                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
+                  Spearheaded localized Comprehensive Sexuality Education (CSE) sessions across 5 regional secondary schools over an 8-month period. Managed partner outreach with key stakeholders, including American Corner, to host youth leadership programs.
+                </p>
+                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
+                  <span class="pill-tag">Youth Leadership</span>
+                  <span class="pill-tag">Community Outreach</span>
+                  <span class="pill-tag">Program Management</span>
+                  <span class="pill-tag">Event Facilitation</span>
+                </div>
+              </div>
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-white p-6 rounded-2xl border border-[#FCE7F3] hover:border-[#FF007F] transition-all" style="background: #ffffff; padding: 1.5rem; border-radius: 1rem; border: 1px solid #FCE7F3; transition: all 0.2s ease;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                <h3 style="color: #FF007F; font-size: 1.15rem; font-weight: 700; margin: 0;">Country Student Ambassador</h3>
-                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B; background: #FFF0F5; padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 600;">Jan 2024 &ndash; Jan 2025</span>
+            <div class="leadership-card">
+              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
+                <img src="assets/img/portfolio/youth_opportunities_ambassador.jpg" alt="Country Student Ambassador" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <p style="color: #475569; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem;">Youth Opportunities</p>
-              <p style="color: #334155; font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                Expanded access to global student opportunities by executing targeted digital campaigns and designing social media graphics.
-              </p>
+              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
+                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">Jan 2024 &ndash; Jan 2025</span>
+                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Country Student Ambassador</h3>
+                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Youth Opportunities</p>
+                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
+                  Expanded student access to global professional and educational opportunities through regional digital campaigns. Designed custom social content and digital graphics that boosted organic platform reach and audience engagement.
+                </p>
+                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
+                  <span class="pill-tag">Digital Strategy</span>
+                  <span class="pill-tag">Content Creation</span>
+                  <span class="pill-tag">Community Engagement</span>
+                  <span class="pill-tag">Graphic Design</span>
+                </div>
+              </div>
             </div>
 
             <!-- Card 4 -->
-            <div class="bg-white p-6 rounded-2xl border border-[#FCE7F3] hover:border-[#FF007F] transition-all" style="background: #ffffff; padding: 1.5rem; border-radius: 1rem; border: 1px solid #FCE7F3; transition: all 0.2s ease;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                <h3 style="color: #FF007F; font-size: 1.15rem; font-weight: 700; margin: 0;">Organizing Team Member</h3>
-                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B; background: #FFF0F5; padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 600;">2023 &ndash; 2024</span>
+            <div class="leadership-card">
+              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
+                <img src="assets/img/techconlave.jpg" alt="Tech Conclave Organizing Team" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
-              <p style="color: #475569; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem;">Code for Change</p>
-              <p style="color: #334155; font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                Co-organized a national tech conclave featuring industry speakers from eSewa; managed venue logistics and participant workflows.
-              </p>
+              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
+                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">2023 &ndash; 2024</span>
+                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Tech Conclave Organizing Team</h3>
+                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Code for Change</p>
+                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
+                  Co-organized a national tech conclave bringing together ecosystem partners and key industry leaders, including executive speakers from eSewa. Directed participant onboarding, venue logistics, and event-day operational workflows.
+                </p>
+                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
+                  <span class="pill-tag">Event Logistics</span>
+                  <span class="pill-tag">Operations Management</span>
+                  <span class="pill-tag">Stakeholder Coordination</span>
+                  <span class="pill-tag">Tech Ecosystem</span>
+                </div>
+              </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -1702,6 +1735,8 @@ def generate_hybrid_recommendations(user_id: int, top_n: int = 10):
             <!-- Left Side: Avatar & Socials -->
             <div class="contact-avatar-side">
               <div class="avatar-wrapper-relative">
+                <!-- Floating Sticker Bubble -->
+                <div class="sticker-bubble-namaste">नमस्ते</div>
                 <!-- Circular Profile Image Container -->
                 <img src="assets/sara.jpg" alt="Sara Joshi" class="avatar-circle-img" />
               </div>
