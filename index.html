@@ -459,6 +459,92 @@
       border-radius: 9999px;
     }
 
+    /* Skills Section Styling */
+    .skills-section {
+      padding: 4.5rem 1.5rem;
+      background-color: var(--bg-main, #FAF8F5);
+    }
+
+    .skills-container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .skills-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .skills-title {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0F172A;
+      margin: 0 0 0.5rem 0;
+      text-transform: uppercase;
+    }
+
+    .skills-subtitle {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.85rem;
+      color: #FF007F;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category-card {
+      background: #FFFFFF;
+      border: 1px solid #FCE7F3;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-category-card:hover {
+      border-color: #FF007F;
+      box-shadow: 0 8px 25px rgba(255, 0, 127, 0.06);
+    }
+
+    .skill-category-name {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #FFF0F5;
+    }
+
+    .skill-tags-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag-badge {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
+      background: #FAF8F5;
+      border: 1px solid #FCE7F3;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .skill-category-card:hover .skill-tag-badge {
+      border-color: rgba(255, 0, 127, 0.3);
+    }
+
     .hero-portrait-img {
       width: 100%;
       max-width: 340px;
@@ -1639,11 +1725,11 @@
         <a href="#hero" class="brand-logo">Sara J.</a>
         
         <nav class="nav-menu">
-          <a href="#about">About</a>
-          <a href="#stack">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#leadership">Leadership</a>
+          <a href="#projects">Work</a>
           <a href="#experience">Experience</a>
+          <a href="#stack">Skills</a>
+          <a href="#about">About</a>
+          <a href="#leadership">Leadership</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -1843,74 +1929,6 @@
         </div>
       </section>
 
-      <!-- Section 01: About Me -->
-      <section id="about" class="section">
-        <div class="container">
-
-          <!-- Section Header -->
-          <div style="margin-bottom: 2.5rem;">
-            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-subtle); margin-bottom: 0.5rem;">
-              // about_me
-            </p>
-
-            <h2 style="font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em;">
-              A little about me.
-            </h2>
-          </div>
-
-          <div class="about-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
-
-            <!-- Main Introduction -->
-            <div class="about-main-text">
-              <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.5rem;">
-                Hi, I’m <strong>Sara Joshi</strong>, a Bachelor of Information Technology (BIT) student at <strong>Tribhuvan University</strong>.
-              </p>
-
-              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
-                I’m interested in <strong>Python, machine learning, and software development</strong>. I enjoy exploring new technologies, experimenting with ideas, and turning what I learn into practical projects.
-              </p>
-
-              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
-                Beyond technology, I enjoy participating in <strong>clubs, events, and workshops</strong>. I like meeting new people, sharing ideas, and being part of communities where I can learn and grow.
-              </p>
-
-              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
-                When I’m away from my laptop, I’m usually reading books, watching dramas, or cleaning and organizing things. Apparently, organizing my surroundings is also my way of <strong>organizing my brain.</strong> :)
-              </p>
-            </div>
-
-            <!-- Quick Info -->
-            <div class="about-sidebar" style="display: flex; flex-direction: column; gap: 1.5rem;">
-
-              <div class="about-card">
-                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1rem;">
-                  currently_exploring
-                </p>
-
-                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                  <span class="tag">Python</span>
-                  <span class="tag">Machine Learning</span>
-                  <span class="tag">AI</span>
-                  <span class="tag">Software Development</span>
-                </div>
-              </div>
-
-              <div class="about-card">
-                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1rem;">
-                  beyond_code
-                </p>
-
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">
-                  <li>Reading books</li>
-                  <li>Watching dramas</li>
-                  <li>Clubs &amp; events</li>
-                  <li>Organizing things</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-        </div>
       <!-- Section 02: Work Experience -->
       <section id="experience" class="section">
         <div class="container">
@@ -2001,69 +2019,139 @@
         </div>
       </section>
 
-      <!-- Section 03: Technical Skills -->
-      <section id="stack" class="section">
-        <div class="container">
-          <span class="section-subtitle">03 / Tech Stack</span>
-          <h2 class="section-title">Technical Skills</h2>
-          <p class="section-description">Core programming languages, frameworks, AI/ML tools, databases, and DevOps infrastructure.</p>
+      <!-- Section: Technical Skills (Placed before About) -->
+      <section id="stack" class="skills-section">
+        <div class="skills-container">
+          <div class="skills-header">
+            <span class="skills-subtitle">// TECHNICAL CAPABILITIES</span>
+            <h2 class="skills-title">TECHNICAL SKILLS</h2>
+          </div>
 
-          <div class="stack-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div class="skills-grid">
+            
             <!-- Category 1: Languages -->
-            <div class="stack-card">
-              <h3><i class="bi bi-code-slash" style="color: var(--accent-color);"></i> Languages</h3>
-              <div class="stack-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                <span class="pill-tag">Python</span>
-                <span class="pill-tag">JavaScript</span>
-                <span class="pill-tag">SQL</span>
+            <div class="skill-category-card">
+              <h3 class="skill-category-name">Languages</h3>
+              <div class="skill-tags-wrapper">
+                <span class="skill-tag-badge">Python</span>
+                <span class="skill-tag-badge">JavaScript</span>
+                <span class="skill-tag-badge">SQL</span>
               </div>
             </div>
 
-            <!-- Category 2: Web & Frameworks -->
-            <div class="stack-card">
-              <h3><i class="bi bi-window-stack" style="color: var(--accent-color);"></i> Web &amp; Frameworks</h3>
-              <div class="stack-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                <span class="pill-tag">Django</span>
-                <span class="pill-tag">Django REST Framework</span>
-                <span class="pill-tag">React</span>
-                <span class="pill-tag">Next.js</span>
-                <span class="pill-tag">Tailwind CSS</span>
+            <!-- Category 2: Backend -->
+            <div class="skill-category-card">
+              <h3 class="skill-category-name">Backend</h3>
+              <div class="skill-tags-wrapper">
+                <span class="skill-tag-badge">Django</span>
+                <span class="skill-tag-badge">Django REST Framework</span>
+                <span class="skill-tag-badge">Celery</span>
+                <span class="skill-tag-badge">Redis</span>
               </div>
             </div>
 
-            <!-- Category 3: AI / Machine Learning -->
-            <div class="stack-card">
-              <h3><i class="bi bi-cpu" style="color: var(--accent-color);"></i> AI / Machine Learning</h3>
-              <div class="stack-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                <span class="pill-tag">Scikit-learn</span>
-                <span class="pill-tag">Pandas</span>
-                <span class="pill-tag">NLP</span>
-                <span class="pill-tag">Decision Trees</span>
-                <span class="pill-tag">Recommendation Systems</span>
-                <span class="pill-tag">LLM APIs (OpenAI, Gemini)</span>
+            <!-- Category 3: Frontend -->
+            <div class="skill-category-card">
+              <h3 class="skill-category-name">Frontend</h3>
+              <div class="skill-tags-wrapper">
+                <span class="skill-tag-badge">React</span>
+                <span class="skill-tag-badge">Next.js</span>
+                <span class="skill-tag-badge">Tailwind CSS</span>
               </div>
             </div>
 
-            <!-- Category 4: Databases -->
-            <div class="stack-card">
-              <h3><i class="bi bi-database" style="color: var(--accent-color);"></i> Databases</h3>
-              <div class="stack-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                <span class="pill-tag">PostgreSQL</span>
-                <span class="pill-tag">SQLite</span>
+            <!-- Category 4: Data & AI -->
+            <div class="skill-category-card">
+              <h3 class="skill-category-name">Data &amp; AI</h3>
+              <div class="skill-tags-wrapper">
+                <span class="skill-tag-badge">Pandas</span>
+                <span class="skill-tag-badge">Scikit-learn</span>
+                <span class="skill-tag-badge">NLP</span>
+                <span class="skill-tag-badge">LLM APIs</span>
               </div>
             </div>
 
-            <!-- Category 5: Backend & DevOps -->
-            <div class="stack-card">
-              <h3><i class="bi bi-diagram-3" style="color: var(--accent-color);"></i> Backend &amp; DevOps</h3>
-              <div class="stack-tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                <span class="pill-tag">Celery</span>
-                <span class="pill-tag">Redis</span>
-                <span class="pill-tag">Docker</span>
-                <span class="pill-tag">Git</span>
-                <span class="pill-tag">GitHub</span>
-                <span class="pill-tag">Vercel</span>
+            <!-- Category 5: Databases & Tools -->
+            <div class="skill-category-card">
+              <h3 class="skill-category-name">Databases &amp; Tools</h3>
+              <div class="skill-tags-wrapper">
+                <span class="skill-tag-badge">PostgreSQL</span>
+                <span class="skill-tag-badge">SQLite</span>
+                <span class="skill-tag-badge">Docker</span>
+                <span class="skill-tag-badge">Git</span>
+                <span class="skill-tag-badge">GitHub</span>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 01: About Me -->
+      <section id="about" class="section">
+        <div class="container">
+
+          <!-- Section Header -->
+          <div style="margin-bottom: 2.5rem;">
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-subtle); margin-bottom: 0.5rem;">
+              // about_me
+            </p>
+
+            <h2 style="font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em;">
+              A little about me.
+            </h2>
+          </div>
+
+          <div class="about-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+
+            <!-- Main Introduction -->
+            <div class="about-main-text">
+              <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.5rem;">
+                Hi, I’m <strong>Sara Joshi</strong>, a Bachelor of Information Technology (BIT) student at <strong>Tribhuvan University</strong>.
+              </p>
+
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+                I’m interested in <strong>Python, machine learning, and software development</strong>. I enjoy exploring new technologies, experimenting with ideas, and turning what I learn into practical projects.
+              </p>
+
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+                Beyond technology, I enjoy participating in <strong>clubs, events, and workshops</strong>. I like meeting new people, sharing ideas, and being part of communities where I can learn and grow.
+              </p>
+
+              <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">
+                When I’m away from my laptop, I’m usually reading books, watching dramas, or cleaning and organizing things. Apparently, organizing my surroundings is also my way of <strong>organizing my brain.</strong> :)
+              </p>
+            </div>
+
+            <!-- Quick Info -->
+            <div class="about-sidebar" style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+              <div class="about-card">
+                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1rem;">
+                  currently_exploring
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                  <span class="tag">Python</span>
+                  <span class="tag">Machine Learning</span>
+                  <span class="tag">AI</span>
+                  <span class="tag">Software Development</span>
+                </div>
+              </div>
+
+              <div class="about-card">
+                <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1rem;">
+                  beyond_code
+                </p>
+
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted);">
+                  <li>Reading books</li>
+                  <li>Watching dramas</li>
+                  <li>Clubs &amp; events</li>
+                  <li>Organizing things</li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
