@@ -187,76 +187,206 @@
       color: var(--accent-color);
     }
 
-    /* Hero Section Styling */
-    .hero-section {
-      min-height: calc(100vh - 100px);
+    /* ==========================================================================
+       Redesigned Hero Section — Serious Developer Editorial Design System
+       ========================================================================== */
+    .hero-redesign-section {
+      min-height: 80vh;
       display: flex;
       align-items: center;
-      padding: 2rem;
-      background-color: #FAF8F5;
+      padding: 4rem 1.5rem;
+      background-color: var(--bg-main, #FAF8F5);
+      position: relative;
     }
 
-    .hero-container {
-      max-width: 1100px;
+    .hero-redesign-container {
+      max-width: 1140px;
       margin: 0 auto;
       width: 100%;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 968px) {
+      .hero-redesign-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: left;
+      }
+    }
+
+    /* 1. Eyebrow */
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-eyebrow-text {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FF007F;
+      background: #FFF0F5;
+      border: 1px solid #FCE7F3;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+    }
+
+    /* 2. Headline */
+    .hero-headline {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text-main, #0F172A);
+      margin: 0 0 1.25rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-headline {
+        font-size: 2.4rem;
+      }
+    }
+
+    .headline-highlight {
+      color: #FF007F;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* 3. Short Description */
+    .hero-description {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: #475569;
+      max-width: 580px;
+      margin: 0 0 2rem 0;
+      font-weight: 450;
+    }
+
+    /* 4. Calls to Action */
+    .hero-cta-actions {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .hero-content {
-      flex: 1;
-    }
-
-    .greeting {
-      font-size: 1.1rem;
-      color: #475569;
-      font-weight: 500;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-name {
-      font-family: var(--font-serif);
-      font-size: 3.25rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
-      letter-spacing: -0.02em;
-      color: #0F172A;
-    }
-
-    .hero-role {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #FF007F;
-      margin: 0 0 0.5rem;
-    }
-
-    .hero-location {
-      font-size: 1rem;
-      color: #64748B;
-      margin: 0;
-    }
-
-    /* Editorial Hero Stack Pills */
-    .hero-stack-pills {
-      display: flex;
-      gap: 0.5rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .hero-stack-pills span {
-      font-family: var(--font-mono, monospace);
-      font-size: 0.8rem;
-      color: #334155;
-      background: #ffffff;
-      border: 1px solid #FCE7F3;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
+    .hero-btn-primary {
+      background-color: #FF007F;
+      color: #FFFFFF;
+      font-family: var(--font-sans, system-ui, sans-serif);
       font-weight: 600;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      font-size: 0.95rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(255, 0, 127, 0.25);
+    }
+
+    .hero-btn-primary:hover {
+      background-color: #E00070;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 0, 127, 0.35);
+      color: #FFFFFF;
+    }
+
+    .hero-btn-secondary {
+      background-color: #FFFFFF;
+      color: #1E293B;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      border: 1px solid #E2E8F0;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-btn-secondary:hover {
+      background-color: #FFF0F5;
+      border-color: #FCE7F3;
+      color: #FF007F;
+      transform: translateY(-2px);
+    }
+
+    /* 5. Small Supporting Information */
+    .hero-supporting-info {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.83rem;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    .location-dot-pulse {
+      position: relative;
+      display: inline-flex;
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+
+    .pulse-ring {
+      animation: ping 1.75s cubic-bezier(0, 0, 0.2, 1) infinite;
+      position: absolute;
+      display: inline-flex;
+      height: 100%;
+      width: 100%;
+      border-radius: 9999px;
+      background-color: #10B981;
+      opacity: 0.75;
+    }
+
+    .pulse-dot {
+      position: relative;
+      display: inline-flex;
+      border-radius: 9999px;
+      height: 0.5rem;
+      width: 0.5rem;
+      background-color: #10B981;
+    }
+
+    /* Hero Right Portrait Media */
+    .hero-redesign-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      max-width: 380px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-portrait-img {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
     }
 
     /* Force all main sections to stack vertically */
@@ -1212,34 +1342,55 @@
 
     <main class="container">
       
-      <!-- Hero Section (Warm Off-White Editorial Luxe Aesthetic) -->
-      <section id="hero" class="hero-section">
-        <div class="hero-container">
-          <div class="hero-content">
-            <span class="greeting">Hello,</span>
-            <h1 class="hero-name">I'm Sara Joshi</h1>
-            <p class="hero-role">Backend &amp; Applied AI/ML Engineer</p>
-            <p class="hero-location">From Kathmandu, Nepal</p>
-
-            <!-- Clean, minimal tech tags -->
-            <div class="hero-stack-pills">
-              <span>Python</span>
-              <span>Django REST</span>
-              <span>PostgreSQL</span>
-              <span>Celery</span>
-              <span>Scikit-learn</span>
+      <!-- Redesigned Hero Section (Serious Developer Editorial Aesthetic) -->
+      <section id="hero" class="hero-redesign-section">
+        <div class="hero-redesign-container">
+          <!-- Left Column: Primary Identity & Copy -->
+          <div class="hero-redesign-content">
+            
+            <!-- 1. Eyebrow Identity -->
+            <div class="hero-eyebrow">
+              <span class="hero-eyebrow-text">SARA JOSHI &middot; PYTHON / DJANGO DEVELOPER</span>
             </div>
 
-            <div class="hero-cta-group" style="margin-top: 1.75rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="#projects" class="btn btn-primary"><i class="bi bi-terminal"></i> Case Studies</a>
-              <a href="https://www.youtube.com/watch?v=uEGEBaP-J48&amp;list=PLdBjxZNtD5YE&amp;index=1" target="_blank" class="btn btn-youtube"><i class="bi bi-youtube"></i> Video Demos</a>
+            <!-- 2. Main Headline -->
+            <h1 class="hero-headline">
+              Building practical software with <span class="headline-highlight">Python &amp; AI</span>.
+            </h1>
+
+            <!-- 3. Short Description -->
+            <p class="hero-description">
+              BIT student and developer focused on backend engineering, APIs, and applied AI/ML. I build full-stack applications that solve real problems.
+            </p>
+
+            <!-- 4. Calls to Action -->
+            <div class="hero-cta-actions">
+              <a href="#projects" class="hero-btn-primary">
+                View My Work <i class="bi bi-arrow-right-short" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="https://github.com/Sara3302" target="_blank" rel="noreferrer" class="hero-btn-secondary">
+                <i class="bi bi-github"></i> GitHub
+              </a>
+            </div>
+
+            <!-- 5. Small Supporting Information -->
+            <div class="hero-supporting-info">
+              <span class="location-dot-pulse">
+                <span class="pulse-ring"></span>
+                <span class="pulse-dot"></span>
+              </span>
+              <span>Kathmandu, Nepal &middot; Available for opportunities</span>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Editorial Portrait Frame -->
+          <div class="hero-redesign-media">
+            <div class="hero-image-frame">
+              <img src="assets/sara-cutout.png" alt="Sara Joshi — Python &amp; Django Developer" class="hero-portrait-img" />
             </div>
           </div>
 
-          <!-- Clean Cutout Image -->
-          <div class="hero-image-wrapper">
-            <img src="assets/sara-cutout.png" alt="Sara Joshi" class="hero-cutout-img" />
-          </div>
         </div>
       </section>
       <!-- Section 01: About Me -->
