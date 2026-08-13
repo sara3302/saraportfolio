@@ -679,6 +679,123 @@
       border-color: #FF007F;
     }
 
+    /* Refined Education Section Styling */
+    .education-section {
+      padding: 4.5rem 1.5rem;
+      background-color: var(--bg-main, #FAF8F5);
+    }
+
+    .education-container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .education-header {
+      margin-bottom: 2rem;
+    }
+
+    .education-title {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0F172A;
+      margin: 0 0 0.5rem 0;
+      text-transform: uppercase;
+    }
+
+    .education-subtitle {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.85rem;
+      color: #FF007F;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .education-card {
+      background: #FFFFFF;
+      border: 1px solid #FCE7F3;
+      border-radius: 1.25rem;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      max-width: 1140px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .education-card:hover {
+      border-color: #FF007F;
+      box-shadow: 0 8px 25px rgba(255, 0, 127, 0.06);
+    }
+
+    .education-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .education-degree {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 0.25rem 0;
+      line-height: 1.25;
+    }
+
+    .education-institution {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FF007F;
+      margin: 0;
+    }
+
+    .education-date-badge {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #64748B;
+      background: #FAF8F5;
+      border: 1px solid #E2E8F0;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .education-meta-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #FCE7F3;
+    }
+
+    .education-stat-item {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .education-stat-item strong {
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    .education-topper-detail {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      color: #64748B;
+      background: #FAF8F5;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px dashed #CBD5E1;
+    }
+
     .leadership-tags-row {
       display: flex;
       flex-wrap: wrap;
@@ -2454,25 +2571,32 @@
 
 
 
-      <!-- Section 05: Education (Placed after About) -->
-      <section id="education" class="section">
-        <div class="container">
-          <span class="section-subtitle">// ACADEMICS</span>
-          <h2 class="section-title">Education</h2>
-          
-          <div class="exp-card" style="margin-top: 1.5rem; max-width: 1140px;">
-            <div class="exp-header-row">
+      <!-- Section 05: Education (Placed after About, before Leadership) -->
+      <section id="education" class="education-section">
+        <div class="education-container">
+          <div class="education-header">
+            <span class="education-subtitle">// ACADEMICS</span>
+            <h2 class="education-title">EDUCATION</h2>
+          </div>
+
+          <div class="education-card">
+            <div class="education-header-row">
               <div>
-                <h3 class="exp-role-title">Bachelor of Information Technology (BIT)</h3>
-                <span class="exp-company-name">Tribhuvan University</span>
+                <h3 class="education-degree">Bachelor of Information Technology (BIT)</h3>
+                <p class="education-institution">Tribhuvan University</p>
               </div>
-              <span class="exp-timeline-badge">Expected Feb 2027</span>
+              <span class="education-date-badge">Expected 2027</span>
             </div>
 
-            <p class="exp-bullets" style="padding-left: 0; list-style: none; margin-bottom: 0;">
-              Academic Performance: GPA 3.54 / 4.0.<br>
-              Merit Scholarship Recipient — 5th &amp; 6th Semester Topper.
-            </p>
+            <div class="education-meta-row">
+              <div class="education-stat-item">
+                <strong>GPA:</strong> 3.54
+              </div>
+              <div class="education-stat-item">
+                <strong>Merit Scholarship Recipient</strong>
+              </div>
+              <span class="education-topper-detail">5th &amp; 6th Semester Topper</span>
+            </div>
           </div>
         </div>
       </section>
