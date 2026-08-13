@@ -358,7 +358,7 @@
     }
 
     /* ==========================================================================
-       Redesigned Selected Work (Projects) Section Styling
+       Refined Visual Selected Work (Projects) Section Styling
        ========================================================================== */
     .selected-work-section {
       padding: 5rem 1.5rem;
@@ -404,7 +404,7 @@
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.35fr 1fr;
       gap: 0;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
@@ -419,7 +419,7 @@
       box-shadow: 0 8px 30px rgba(255, 0, 127, 0.06);
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 968px) {
       .project-editorial-card {
         grid-template-columns: 1fr;
       }
@@ -432,17 +432,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 280px;
-      padding: 1.5rem;
+      min-height: 320px;
+      padding: 1.75rem;
     }
 
     .project-visual-img {
       width: 100%;
       height: 100%;
-      max-height: 320px;
+      max-height: 340px;
       object-fit: cover;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      border-radius: 0.85rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease;
     }
 
@@ -451,7 +451,7 @@
     }
 
     .project-content-body {
-      padding: 2.5rem 2.25rem;
+      padding: 2.25rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -460,7 +460,7 @@
     .project-badge-tag {
       display: inline-block;
       font-family: var(--font-mono, monospace);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: #FF007F;
       background: #FFF0F5;
@@ -472,7 +472,7 @@
 
     .project-title-text {
       font-family: var(--font-sans, system-ui, sans-serif);
-      font-size: 1.65rem;
+      font-size: 1.75rem;
       font-weight: 800;
       color: #0F172A;
       margin: 0 0 0.25rem 0;
@@ -481,68 +481,118 @@
 
     .project-subtitle-text {
       font-family: var(--font-sans, system-ui, sans-serif);
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #FF007F;
-      margin: 0 0 1rem 0;
+      margin: 0 0 0.85rem 0;
     }
 
     .project-desc-paragraph {
       font-family: var(--font-sans, system-ui, sans-serif);
-      font-size: 0.98rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.55;
       color: #475569;
-      margin: 0 0 1.5rem 0;
+      margin: 0 0 1rem 0;
+    }
+
+    /* Key Technical Bullet Points (Visually Secondary) */
+    .project-highlights-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .project-highlights-list li {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.88rem;
+      color: #64748B;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      line-height: 1.4;
+    }
+
+    .project-highlights-list li::before {
+      content: "•";
+      color: #FF007F;
+      font-weight: bold;
+      font-size: 1rem;
+      line-height: 1;
     }
 
     .project-tech-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 1.75rem;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
     }
 
     .project-tech-pill {
       font-family: var(--font-mono, monospace);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: #334155;
       background: #FAF8F5;
       border: 1px solid #FCE7F3;
-      padding: 0.25rem 0.65rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 9999px;
     }
 
-    .project-links-row {
+    /* Prominent Obvious Action Buttons */
+    .project-actions-group {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
       margin-top: auto;
     }
 
-    .project-link-btn {
+    .btn-action-primary {
+      background-color: #FF007F;
+      color: #FFFFFF;
       font-family: var(--font-sans, system-ui, sans-serif);
-      font-size: 0.9rem;
       font-weight: 600;
-      color: #0F172A;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 0.65rem;
       text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      transition: color 0.15s ease;
+      box-shadow: 0 2px 10px rgba(255, 0, 127, 0.25);
     }
 
-    .project-link-btn:hover {
+    .btn-action-primary:hover {
+      background-color: #E00070;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .btn-action-secondary {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 1px solid #E2E8F0;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 0.65rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-action-secondary:hover {
+      background-color: #FFF0F5;
+      border-color: #FCE7F3;
       color: #FF007F;
-    }
-
-    .project-link-btn.btn-accent {
-      color: #FF007F;
-    }
-
-    .project-link-btn.btn-accent:hover {
-      color: #E00070;
+      transform: translateY(-1px);
     }
 
     /* Force all main sections to stack vertically */
@@ -1562,7 +1612,7 @@
 
         <div class="selected-work-grid">
           
-          <!-- Project 1: Medi (Featured First with Visual Emphasis) -->
+          <!-- Project 1: Medi -->
           <div class="project-editorial-card featured-card">
             <div class="project-visual-wrapper">
               <img src="assets/img/portfolio/medimind_landing.png" alt="Medi AI Hospital Management System" class="project-visual-img" />
@@ -1573,9 +1623,16 @@
               <p class="project-subtitle-text">AI-powered Hospital Management System</p>
               
               <p class="project-desc-paragraph">
-                Multi-tenant hospital management platform built with Django REST and Next.js, featuring automated patient queueing, Decision Tree clinical risk prediction (97% accuracy), and Celery/Redis asynchronous task processing.
+                Multi-tenant hospital management platform with automated patient queueing, Django REST backend, and AI clinical report analysis.
               </p>
 
+              <!-- Secondary Technical Information -->
+              <ul class="project-highlights-list">
+                <li>Decision Tree clinical risk prediction model achieving 97% diagnostic accuracy</li>
+                <li>Asynchronous report parsing &amp; task processing via Celery and Redis worker queues</li>
+              </ul>
+
+              <!-- Compact Tech Stack Tags -->
               <div class="project-tech-row">
                 <span class="project-tech-pill">Python</span>
                 <span class="project-tech-pill">Django</span>
@@ -1586,21 +1643,19 @@
                 <span class="project-tech-pill">Scikit-learn</span>
               </div>
 
-              <div class="project-links-row">
-                <a href="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" target="_blank" rel="noreferrer" class="project-link-btn">
-                  View Project <i class="bi bi-arrow-up-right"></i>
+              <!-- Obvious Actions -->
+              <div class="project-actions-group">
+                <a href="https://www.youtube.com/watch?v=uEGEBaP-J48&amp;list=PLdBjxZNtD5YE&amp;index=1" target="_blank" rel="noreferrer" class="btn-action-primary">
+                  <i class="bi bi-play-circle-fill"></i> Watch Demo
                 </a>
-                <a href="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" target="_blank" rel="noreferrer" class="project-link-btn">
+                <a href="https://github.com/sara3302/Medi-AI-Powered-Hospital-Management-System" target="_blank" rel="noreferrer" class="btn-action-secondary">
                   <i class="bi bi-github"></i> GitHub
-                </a>
-                <a href="https://www.youtube.com/watch?v=uEGEBaP-J48&amp;list=PLdBjxZNtD5YE&amp;index=1" target="_blank" rel="noreferrer" class="project-link-btn btn-accent">
-                  <i class="bi bi-youtube"></i> Watch Demo
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Project 2: Readkin (Lit Connect) -->
+          <!-- Project 2: Readkin -->
           <div class="project-editorial-card">
             <div class="project-visual-wrapper">
               <img src="assets/img/portfolio/litconnect_preview.png" alt="Readkin AI Social Book Tracker" class="project-visual-img" style="object-fit: contain; padding: 1rem;" />
@@ -1610,9 +1665,16 @@
               <p class="project-subtitle-text">AI-powered Social Book Tracker</p>
               
               <p class="project-desc-paragraph">
-                Social reading platform featuring hybrid recommendation engines combining collaborative filtering with LLM semantic vector matching and Google Books API integration.
+                Social reading platform featuring hybrid recommendation engines and automated book metadata retrieval.
               </p>
 
+              <!-- Secondary Technical Information -->
+              <ul class="project-highlights-list">
+                <li>Hybrid recommendation engine combining collaborative filtering with LLM semantic vector matching</li>
+                <li>Google Books API integration for batch metadata retrieval and activity feed normalization</li>
+              </ul>
+
+              <!-- Compact Tech Stack Tags -->
               <div class="project-tech-row">
                 <span class="project-tech-pill">Python</span>
                 <span class="project-tech-pill">Django</span>
@@ -1622,11 +1684,9 @@
                 <span class="project-tech-pill">OpenAI API</span>
               </div>
 
-              <div class="project-links-row">
-                <a href="https://github.com/sara3302/readkin" target="_blank" rel="noreferrer" class="project-link-btn">
-                  View Project <i class="bi bi-arrow-up-right"></i>
-                </a>
-                <a href="https://github.com/sara3302/readkin" target="_blank" rel="noreferrer" class="project-link-btn">
+              <!-- Obvious Actions -->
+              <div class="project-actions-group">
+                <a href="https://github.com/sara3302/readkin" target="_blank" rel="noreferrer" class="btn-action-primary">
                   <i class="bi bi-github"></i> GitHub
                 </a>
               </div>
@@ -1643,9 +1703,16 @@
               <p class="project-subtitle-text">Full-Stack Streaming Platform Clone</p>
               
               <p class="project-desc-paragraph">
-                Full-stack media streaming clone built with Python and Django, featuring user account authentication, video playback streaming, movie catalog management, and PostgreSQL database integration.
+                Full-stack media streaming web application built with Python and Django.
               </p>
 
+              <!-- Secondary Technical Information -->
+              <ul class="project-highlights-list">
+                <li>User account authentication, profile session state management, and video catalog playback streaming</li>
+                <li>Relational database schema in PostgreSQL for video metadata and user watch history persistence</li>
+              </ul>
+
+              <!-- Compact Tech Stack Tags -->
               <div class="project-tech-row">
                 <span class="project-tech-pill">Python</span>
                 <span class="project-tech-pill">Django</span>
@@ -1654,11 +1721,9 @@
                 <span class="project-tech-pill">HTML/CSS</span>
               </div>
 
-              <div class="project-links-row">
-                <a href="https://github.com/sara3302/netflix-nepal" target="_blank" rel="noreferrer" class="project-link-btn">
-                  View Project <i class="bi bi-arrow-up-right"></i>
-                </a>
-                <a href="https://github.com/sara3302/netflix-nepal" target="_blank" rel="noreferrer" class="project-link-btn">
+              <!-- Obvious Actions -->
+              <div class="project-actions-group">
+                <a href="https://github.com/sara3302/netflix-nepal" target="_blank" rel="noreferrer" class="btn-action-primary">
                   <i class="bi bi-github"></i> GitHub
                 </a>
               </div>
