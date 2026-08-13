@@ -63,11 +63,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Intro Splash Overlay - Warm Off-White Cyber-Barbie Aesthetic */
+    /* Intro Splash Overlay - Sleek Dark Background with High Contrast Typography */
     #intro-screen {
       position: fixed;
       inset: 0;
-      background-color: #FAF8F5;
+      background-color: #09090b;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -80,44 +80,34 @@
       transform: translateY(-100%);
     }
 
-    .intro-badge-card {
-      background: #FFFFFF;
-      border: 2px solid #FF007F;
-      padding: 2.25rem 3.5rem;
-      border-radius: 2rem;
-      box-shadow: 0 14px 40px rgba(255, 0, 127, 0.2), 0 4px 12px rgba(0, 0, 0, 0.04);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
     .greeting-title {
-      font-size: 3.75rem;
+      font-size: 4rem;
       font-weight: 800;
-      color: #0F172A;
+      color: #FFFFFF;
       font-family: var(--font-mono);
       letter-spacing: -0.03em;
       margin: 0;
       line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
     .greeting-title span {
       color: #FF007F;
+      font-weight: 900;
     }
 
     .greeting-sub {
-      color: #475569;
+      color: #CBD5E1;
       font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-top: 0.25rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-top: 0.75rem;
+      letter-spacing: -0.01em;
     }
 
     .greeting-sub span {
       color: #FF007F;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     #main-content {
@@ -1189,12 +1179,10 @@
 </head>
 <body>
 
-  <!-- Intro Screen (High-Contrast Editorial Luxe Badge) -->
+  <!-- Intro Screen (Sleek Dark Overlay with Crisp Contrast) -->
   <div id="intro-screen">
-    <div class="intro-badge-card">
-      <h1 class="greeting-title">Hello<span>.</span></h1>
-      <div class="greeting-sub">Sara Joshi &mdash; <span>Backend &amp; Applied AI/ML Engineer</span></div>
-    </div>
+    <h1 class="greeting-title">Hello<span>.</span></h1>
+    <div class="greeting-sub">Sara Joshi &mdash; <span>Backend &amp; Applied AI/ML Engineer</span></div>
   </div>
 
   <!-- Main Website Content -->
