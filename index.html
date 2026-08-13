@@ -545,6 +545,140 @@
       border-color: rgba(255, 0, 127, 0.3);
     }
 
+    /* Leadership Section Styling */
+    .leadership-section {
+      padding: 4.5rem 1.5rem;
+      background-color: var(--bg-main, #FAF8F5);
+    }
+
+    .leadership-container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .leadership-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .leadership-title {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0F172A;
+      margin: 0 0 0.5rem 0;
+      text-transform: uppercase;
+    }
+
+    .leadership-subtitle {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.85rem;
+      color: #FF007F;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .leadership-compact-card {
+      background: #FFFFFF;
+      border: 1px solid #FCE7F3;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .leadership-compact-card:hover {
+      border-color: #FF007F;
+      box-shadow: 0 8px 25px rgba(255, 0, 127, 0.06);
+    }
+
+    .leadership-proof-thumb {
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+      background: #FAF8F5;
+      position: relative;
+    }
+
+    .leadership-proof-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .leadership-compact-card:hover .leadership-proof-img {
+      transform: scale(1.03);
+    }
+
+    .leadership-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .leadership-role-name {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 0.2rem 0;
+      line-height: 1.3;
+    }
+
+    .leadership-org-name {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FF007F;
+      margin-bottom: 0.4rem;
+    }
+
+    .leadership-date-badge {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #64748B;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .leadership-desc-text {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+
+    .leadership-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .leadership-tag-pill {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #334155;
+      background: #FAF8F5;
+      border: 1px solid #FCE7F3;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+    }
+
     .hero-portrait-img {
       width: 100%;
       max-width: 340px;
@@ -1729,6 +1863,7 @@
           <a href="#experience">Experience</a>
           <a href="#stack">Skills</a>
           <a href="#about">About</a>
+          <a href="#education">Education</a>
           <a href="#leadership">Leadership</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -2161,148 +2296,117 @@
 
 
 
-      <!-- Section 05: Leadership & Community (Photo Card Layout) -->
-      <section id="leadership" class="section">
+      <!-- Section 05: Education (Placed after About) -->
+      <section id="education" class="section">
         <div class="container">
-          <span class="section-subtitle">05 / Impact &amp; Community</span>
-          <h2 class="section-title">Leadership &amp; Community</h2>
-          <p class="section-description">Mentorship, student leadership, community outreach, and event management roles.</p>
-
-          <div class="leadership-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-            <!-- Card 1 -->
-            <div class="leadership-card">
-              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
-                <img src="assets/img/portfolio/mlsa_certificate.jpg" alt="Microsoft Learn Student Ambassador" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
+          <span class="section-subtitle">// ACADEMICS</span>
+          <h2 class="section-title">Education</h2>
+          
+          <div class="exp-card" style="margin-top: 1.5rem; max-width: 1140px;">
+            <div class="exp-header-row">
+              <div>
+                <h3 class="exp-role-title">Bachelor of Information Technology (BIT)</h3>
+                <span class="exp-company-name">Tribhuvan University</span>
               </div>
-              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
-                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">Oct 2024 &ndash; Present</span>
-                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Microsoft Learn Student Ambassador</h3>
-                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Microsoft &amp; GitHub</p>
-                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
-                  Facilitated interactive technical workshops on AI/ML concepts for 150+ students. Partnered directly with GitHub to lead and coordinate the GitHub Copilot Dev Days hands-on workshop for 30 attendees.
-                </p>
-                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
-                  <span class="pill-tag">AI/ML Mentorship</span>
-                  <span class="pill-tag">Workshop Facilitation</span>
-                  <span class="pill-tag">GitHub Copilot</span>
-                  <span class="pill-tag">Technical Leadership</span>
-                </div>
-              </div>
+              <span class="exp-timeline-badge">Expected Feb 2027</span>
             </div>
 
-            <!-- Card 2 -->
-            <div class="leadership-card">
-              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
-                <img src="assets/img/portfolio/yuwa_leadership.jpg" alt="Youth Advisory Leadership Council Lead" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
-              </div>
-              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
-                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">Mar 2024 &ndash; Apr 2025</span>
-                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Youth Advisory Leadership Council (YALC) Lead</h3>
-                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">YUWA</p>
-                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
-                  Spearheaded localized Comprehensive Sexuality Education (CSE) sessions across 5 regional secondary schools over an 8-month period. Managed partner outreach with key stakeholders, including American Corner, to host youth leadership programs.
-                </p>
-                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
-                  <span class="pill-tag">Youth Leadership</span>
-                  <span class="pill-tag">Community Outreach</span>
-                  <span class="pill-tag">Program Management</span>
-                  <span class="pill-tag">Event Facilitation</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="leadership-card">
-              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
-                <img src="assets/img/portfolio/youth_opportunities_ambassador.jpg" alt="Country Student Ambassador" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
-              </div>
-              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
-                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">Jan 2024 &ndash; Jan 2025</span>
-                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Country Student Ambassador</h3>
-                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Youth Opportunities</p>
-                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
-                  Expanded student access to global professional and educational opportunities through regional digital campaigns. Designed custom social content and digital graphics that boosted organic platform reach and audience engagement.
-                </p>
-                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
-                  <span class="pill-tag">Digital Strategy</span>
-                  <span class="pill-tag">Content Creation</span>
-                  <span class="pill-tag">Community Engagement</span>
-                  <span class="pill-tag">Graphic Design</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="leadership-card">
-              <div class="leadership-img-container" style="height: 12rem; overflow: hidden; position: relative;">
-                <img src="assets/img/techconlave.jpg" alt="Tech Conclave Organizing Team" class="leadership-img" style="width: 100%; height: 100%; object-fit: cover;" />
-              </div>
-              <div class="leadership-body" style="padding: 1.5rem; display: flex; flex-direction: column;">
-                <span class="leadership-timeline" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-color); font-weight: 600; margin-bottom: 0.25rem;">2023 &ndash; 2024</span>
-                <h3 class="leadership-title" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Tech Conclave Organizing Team</h3>
-                <p class="leadership-org" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem;">Code for Change</p>
-                <p class="leadership-desc" style="font-size: 0.9rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
-                  Co-organized a national tech conclave bringing together ecosystem partners and key industry leaders, including executive speakers from eSewa. Directed participant onboarding, venue logistics, and event-day operational workflows.
-                </p>
-                <div class="leadership-tags" style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
-                  <span class="pill-tag">Event Logistics</span>
-                  <span class="pill-tag">Operations Management</span>
-                  <span class="pill-tag">Stakeholder Coordination</span>
-                  <span class="pill-tag">Tech Ecosystem</span>
-                </div>
-              </div>
-            </div>
+            <p class="exp-bullets" style="padding-left: 0; list-style: none; margin-bottom: 0;">
+              Academic Performance: GPA 3.54 / 4.0.<br>
+              Merit Scholarship Recipient — 5th &amp; 6th Semester Topper.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Section 06: Education & Academic Credentials -->
-      <section id="education" class="section">
-        <div class="timeline-grid">
-          <!-- Education -->
-          <div>
-            <span class="section-subtitle">06 / Education</span>
-            <h2 class="section-title">Academic Credentials</h2>
-            
-            <div class="timeline-item" style="margin-top: 1.5rem;">
-              <div class="timeline-meta">
-                <span>Tribhuvan University</span>
-                <span>EXPECTED FEB 2027</span>
-              </div>
-              <div class="timeline-title">Bachelor of Information Technology (BIT)</div>
-              <div class="timeline-desc">
-                Academic Performance: GPA 3.54 / 4.0.<br>
-                Merit Scholarship Recipient — 5th &amp; 6th Semester Topper.
-              </div>
-            </div>
+      <!-- Section 06: Leadership & Community (Placed after Education, before Contact) -->
+      <section id="leadership" class="leadership-section">
+        <div class="leadership-container">
+          <div class="leadership-header">
+            <span class="leadership-subtitle">// COMMUNITY IMPACT</span>
+            <h2 class="leadership-title">LEADERSHIP &amp; COMMUNITY</h2>
           </div>
 
-          <!-- Experience -->
-          <div>
-            <span class="section-subtitle">05 / Leadership</span>
-            <h2 class="section-title">Industry &amp; Roles</h2>
-
-            <div class="timeline-item" style="margin-top: 1.5rem;">
-              <div class="timeline-meta">
-                <span>Illuminati Organization</span>
-                <span>JULY 2026 — PRESENT</span>
+          <div class="leadership-grid">
+            
+            <!-- Card 1: MLSA -->
+            <div class="leadership-compact-card">
+              <div class="leadership-proof-thumb">
+                <img src="assets/img/portfolio/mlsa_certificate.jpg" alt="Microsoft Learn Student Ambassador Certificate" class="leadership-proof-img" />
               </div>
-              <div class="timeline-title">Full-Stack Developer &amp; Tech Lead</div>
-              <div class="timeline-desc">
-                Architected scalable RESTful API endpoints and backend databases for regional web platforms (e.g., Question Nepal). Engineered asynchronous data processing pipelines to handle research data ingestion in Sudurpaschim Province.
+              <div class="leadership-card-body">
+                <h3 class="leadership-role-name">Microsoft Learn Student Ambassador</h3>
+                <span class="leadership-org-name">Microsoft &amp; GitHub</span>
+                <span class="leadership-date-badge">Oct 2024 &ndash; Present</span>
+                <p class="leadership-desc-text">
+                  Facilitated interactive technical workshops on AI/ML concepts for 150+ students. Partnered with GitHub to lead the GitHub Copilot Dev Days hands-on workshop for 30 attendees.
+                </p>
+                <div class="leadership-tags-row">
+                  <span class="leadership-tag-pill">AI/ML Mentorship</span>
+                  <span class="leadership-tag-pill">Workshop Facilitation</span>
+                  <span class="leadership-tag-pill">GitHub Copilot</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: YALC Lead -->
+            <div class="leadership-compact-card">
+              <div class="leadership-proof-thumb">
+                <img src="assets/img/portfolio/yuwa_leadership.jpg" alt="Youth Advisory Leadership Council" class="leadership-proof-img" />
+              </div>
+              <div class="leadership-card-body">
+                <h3 class="leadership-role-name">Youth Advisory Leadership Council Lead</h3>
+                <span class="leadership-org-name">YUWA</span>
+                <span class="leadership-date-badge">Mar 2024 &ndash; Apr 2025</span>
+                <p class="leadership-desc-text">
+                  Spearheaded localized Comprehensive Sexuality Education (CSE) sessions across 5 regional secondary schools over an 8-month period. Managed partner outreach with key stakeholders including American Corner.
+                </p>
+                <div class="leadership-tags-row">
+                  <span class="leadership-tag-pill">Youth Leadership</span>
+                  <span class="leadership-tag-pill">Community Outreach</span>
+                  <span class="leadership-tag-pill">Program Management</span>
+                </div>
               </div>
             </div>
 
-            <div class="timeline-item">
-              <div class="timeline-meta">
-                <span>Microsoft Learn Student Ambassadors</span>
-                <span>OCT 2024 — PRESENT</span>
+            <!-- Card 3: Youth Opportunities -->
+            <div class="leadership-compact-card">
+              <div class="leadership-proof-thumb">
+                <img src="assets/img/portfolio/youth_opportunities_ambassador.jpg" alt="Country Student Ambassador" class="leadership-proof-img" />
               </div>
-              <div class="timeline-title">Student Ambassador</div>
-              <div class="timeline-desc">
-                Organized technical workshops on AI/ML and software engineering. Collaborated with GitHub to host developer sessions on AI tooling.
+              <div class="leadership-card-body">
+                <h3 class="leadership-role-name">Country Student Ambassador</h3>
+                <span class="leadership-org-name">Youth Opportunities</span>
+                <span class="leadership-date-badge">Jan 2024 &ndash; Jan 2025</span>
+                <p class="leadership-desc-text">
+                  Expanded student access to global professional and educational opportunities through regional digital campaigns and custom media design.
+                </p>
+                <div class="leadership-tags-row">
+                  <span class="leadership-tag-pill">Digital Strategy</span>
+                  <span class="leadership-tag-pill">Community Engagement</span>
+                </div>
               </div>
             </div>
+
+            <!-- Card 4: Tech Conclave -->
+            <div class="leadership-compact-card">
+              <div class="leadership-proof-thumb">
+                <img src="assets/img/techconlave.jpg" alt="Tech Conclave Organizing Team" class="leadership-proof-img" />
+              </div>
+              <div class="leadership-card-body">
+                <h3 class="leadership-role-name">Tech Conclave Organizing Team</h3>
+                <span class="leadership-org-name">Code for Change</span>
+                <span class="leadership-date-badge">2023 &ndash; 2024</span>
+                <p class="leadership-desc-text">
+                  Co-organized a national tech conclave bringing together ecosystem partners and key industry leaders. Directed venue logistics and event-day operational workflows.
+                </p>
+                <div class="leadership-tags-row">
+                  <span class="leadership-tag-pill">Event Logistics</span>
+                  <span class="leadership-tag-pill">Operations Management</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
