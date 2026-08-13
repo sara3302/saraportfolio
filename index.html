@@ -589,7 +589,7 @@
       background: #FFFFFF;
       border: 1px solid #FCE7F3;
       border-radius: 1.25rem;
-      overflow: hidden;
+      padding: 1.75rem;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
       display: flex;
       flex-direction: column;
@@ -599,32 +599,6 @@
     .leadership-compact-card:hover {
       border-color: #FF007F;
       box-shadow: 0 8px 25px rgba(255, 0, 127, 0.06);
-    }
-
-    .leadership-proof-thumb {
-      width: 100%;
-      height: 140px;
-      overflow: hidden;
-      background: #FAF8F5;
-      position: relative;
-    }
-
-    .leadership-proof-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .leadership-compact-card:hover .leadership-proof-img {
-      transform: scale(1.03);
-    }
-
-    .leadership-card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
     }
 
     .leadership-role-name {
@@ -641,7 +615,7 @@
       font-size: 0.9rem;
       font-weight: 700;
       color: #FF007F;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     .leadership-date-badge {
@@ -661,6 +635,50 @@
       margin-bottom: 1rem;
     }
 
+    .leadership-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .view-photos-action-btn {
+      background-color: #FFF0F5;
+      color: #FF007F;
+      border: 1px solid #FCE7F3;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .view-photos-action-btn:hover {
+      background-color: #FF007F;
+      color: #FFFFFF;
+      border-color: #FF007F;
+    }
+
+    .leadership-mini-thumb {
+      width: 42px;
+      height: 42px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      border: 1px solid #FCE7F3;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .leadership-mini-thumb:hover {
+      transform: scale(1.08);
+      border-color: #FF007F;
+    }
+
     .leadership-tags-row {
       display: flex;
       flex-wrap: wrap;
@@ -677,6 +695,146 @@
       border: 1px solid #FCE7F3;
       padding: 0.2rem 0.6rem;
       border-radius: 9999px;
+    }
+
+    /* Lightbox Modal Overlay Styling */
+    .leadership-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .leadership-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .leadership-modal-container {
+      background: #FFFFFF;
+      border-radius: 1.25rem;
+      max-width: 850px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .leadership-modal-header {
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .leadership-modal-title-text {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0;
+    }
+
+    .leadership-modal-close-btn {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 50%;
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 1.25rem;
+      color: #64748B;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      line-height: 1;
+    }
+
+    .leadership-modal-close-btn:hover {
+      background: #FFF0F5;
+      color: #FF007F;
+      border-color: #FCE7F3;
+    }
+
+    .leadership-modal-body {
+      position: relative;
+      background: #0F172A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 350px;
+      max-height: 65vh;
+      overflow: hidden;
+      padding: 1.5rem;
+    }
+
+    .leadership-modal-active-img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .leadership-modal-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+      border: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      font-size: 1.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      z-index: 10;
+    }
+
+    .leadership-modal-nav-btn:hover {
+      background: rgba(255, 0, 127, 0.85);
+    }
+
+    .leadership-modal-nav-btn.prev {
+      left: 1.25rem;
+    }
+
+    .leadership-modal-nav-btn.next {
+      right: 1.25rem;
+    }
+
+    .leadership-modal-footer {
+      padding: 0.85rem 1.75rem;
+      background: #FAF8F5;
+      text-align: center;
+      border-top: 1px solid #F1F5F9;
+    }
+
+    .leadership-modal-counter-text {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.82rem;
+      color: #64748B;
+      font-weight: 600;
     }
 
     .hero-portrait-img {
@@ -2331,79 +2489,96 @@
             
             <!-- Card 1: MLSA -->
             <div class="leadership-compact-card">
-              <div class="leadership-proof-thumb">
-                <img src="assets/img/portfolio/mlsa_certificate.jpg" alt="Microsoft Learn Student Ambassador Certificate" class="leadership-proof-img" />
+              <h3 class="leadership-role-name">Microsoft Learn Student Ambassador</h3>
+              <span class="leadership-org-name">Microsoft &amp; GitHub</span>
+              <span class="leadership-date-badge">Oct 2024 &ndash; Present</span>
+              <p class="leadership-desc-text">
+                Facilitated interactive technical workshops on AI/ML concepts for 150+ students. Partnered with GitHub to lead the GitHub Copilot Dev Days hands-on workshop for 30 attendees.
+              </p>
+
+              <!-- Optional Proof Image Action with Mini Thumbnail -->
+              <div class="leadership-actions-row">
+                <button type="button" class="view-photos-action-btn" onclick="openLeadershipModal(['assets/img/portfolio/mlsa_certificate.jpg'], 'Microsoft Learn Student Ambassador — Certificate &amp; Credentials')">
+                  <i class="bi bi-images"></i> View Certificate
+                </button>
+                <img src="assets/img/portfolio/mlsa_certificate.jpg" alt="MLSA Certificate Preview" class="leadership-mini-thumb" onclick="openLeadershipModal(['assets/img/portfolio/mlsa_certificate.jpg'], 'Microsoft Learn Student Ambassador — Certificate &amp; Credentials')" />
               </div>
-              <div class="leadership-card-body">
-                <h3 class="leadership-role-name">Microsoft Learn Student Ambassador</h3>
-                <span class="leadership-org-name">Microsoft &amp; GitHub</span>
-                <span class="leadership-date-badge">Oct 2024 &ndash; Present</span>
-                <p class="leadership-desc-text">
-                  Facilitated interactive technical workshops on AI/ML concepts for 150+ students. Partnered with GitHub to lead the GitHub Copilot Dev Days hands-on workshop for 30 attendees.
-                </p>
-                <div class="leadership-tags-row">
-                  <span class="leadership-tag-pill">AI/ML Mentorship</span>
-                  <span class="leadership-tag-pill">Workshop Facilitation</span>
-                  <span class="leadership-tag-pill">GitHub Copilot</span>
-                </div>
+
+              <div class="leadership-tags-row">
+                <span class="leadership-tag-pill">AI/ML Mentorship</span>
+                <span class="leadership-tag-pill">Workshop Facilitation</span>
+                <span class="leadership-tag-pill">GitHub Copilot</span>
               </div>
             </div>
 
             <!-- Card 2: YALC Lead -->
             <div class="leadership-compact-card">
-              <div class="leadership-proof-thumb">
-                <img src="assets/img/portfolio/yuwa_leadership.jpg" alt="Youth Advisory Leadership Council" class="leadership-proof-img" />
+              <h3 class="leadership-role-name">Youth Advisory Leadership Council Lead</h3>
+              <span class="leadership-org-name">YUWA</span>
+              <span class="leadership-date-badge">Mar 2024 &ndash; Apr 2025</span>
+              <p class="leadership-desc-text">
+                Spearheaded localized Comprehensive Sexuality Education (CSE) sessions across 5 regional secondary schools over an 8-month period. Managed partner outreach with key stakeholders including American Corner.
+              </p>
+
+              <!-- Optional Proof Image Action with Mini Thumbnails (Multiple Photos) -->
+              <div class="leadership-actions-row">
+                <button type="button" class="view-photos-action-btn" onclick="openLeadershipModal(['assets/img/portfolio/yuwa_leadership.jpg', 'assets/img/portfolio/yalc_2024_team.jpg'], 'Youth Advisory Leadership Council — Workshop &amp; Team Highlights')">
+                  <i class="bi bi-images"></i> View Photos (2)
+                </button>
+                <img src="assets/img/portfolio/yuwa_leadership.jpg" alt="YUWA Leadership Preview" class="leadership-mini-thumb" onclick="openLeadershipModal(['assets/img/portfolio/yuwa_leadership.jpg', 'assets/img/portfolio/yalc_2024_team.jpg'], 'Youth Advisory Leadership Council — Workshop &amp; Team Highlights')" />
+                <img src="assets/img/portfolio/yalc_2024_team.jpg" alt="YALC Team Preview" class="leadership-mini-thumb" onclick="openLeadershipModal(['assets/img/portfolio/yuwa_leadership.jpg', 'assets/img/portfolio/yalc_2024_team.jpg'], 'Youth Advisory Leadership Council — Workshop &amp; Team Highlights')" />
               </div>
-              <div class="leadership-card-body">
-                <h3 class="leadership-role-name">Youth Advisory Leadership Council Lead</h3>
-                <span class="leadership-org-name">YUWA</span>
-                <span class="leadership-date-badge">Mar 2024 &ndash; Apr 2025</span>
-                <p class="leadership-desc-text">
-                  Spearheaded localized Comprehensive Sexuality Education (CSE) sessions across 5 regional secondary schools over an 8-month period. Managed partner outreach with key stakeholders including American Corner.
-                </p>
-                <div class="leadership-tags-row">
-                  <span class="leadership-tag-pill">Youth Leadership</span>
-                  <span class="leadership-tag-pill">Community Outreach</span>
-                  <span class="leadership-tag-pill">Program Management</span>
-                </div>
+
+              <div class="leadership-tags-row">
+                <span class="leadership-tag-pill">Youth Leadership</span>
+                <span class="leadership-tag-pill">Community Outreach</span>
+                <span class="leadership-tag-pill">Program Management</span>
               </div>
             </div>
 
             <!-- Card 3: Youth Opportunities -->
             <div class="leadership-compact-card">
-              <div class="leadership-proof-thumb">
-                <img src="assets/img/portfolio/youth_opportunities_ambassador.jpg" alt="Country Student Ambassador" class="leadership-proof-img" />
+              <h3 class="leadership-role-name">Country Student Ambassador</h3>
+              <span class="leadership-org-name">Youth Opportunities</span>
+              <span class="leadership-date-badge">Jan 2024 &ndash; Jan 2025</span>
+              <p class="leadership-desc-text">
+                Expanded student access to global professional and educational opportunities through regional digital campaigns and custom media design.
+              </p>
+
+              <!-- Optional Proof Image Action with Mini Thumbnail -->
+              <div class="leadership-actions-row">
+                <button type="button" class="view-photos-action-btn" onclick="openLeadershipModal(['assets/img/portfolio/youth_opportunities_ambassador.jpg'], 'Country Student Ambassador — Credential Highlight')">
+                  <i class="bi bi-images"></i> View Certificate
+                </button>
+                <img src="assets/img/portfolio/youth_opportunities_ambassador.jpg" alt="Youth Opportunities Preview" class="leadership-mini-thumb" onclick="openLeadershipModal(['assets/img/portfolio/youth_opportunities_ambassador.jpg'], 'Country Student Ambassador — Credential Highlight')" />
               </div>
-              <div class="leadership-card-body">
-                <h3 class="leadership-role-name">Country Student Ambassador</h3>
-                <span class="leadership-org-name">Youth Opportunities</span>
-                <span class="leadership-date-badge">Jan 2024 &ndash; Jan 2025</span>
-                <p class="leadership-desc-text">
-                  Expanded student access to global professional and educational opportunities through regional digital campaigns and custom media design.
-                </p>
-                <div class="leadership-tags-row">
-                  <span class="leadership-tag-pill">Digital Strategy</span>
-                  <span class="leadership-tag-pill">Community Engagement</span>
-                </div>
+
+              <div class="leadership-tags-row">
+                <span class="leadership-tag-pill">Digital Strategy</span>
+                <span class="leadership-tag-pill">Community Engagement</span>
               </div>
             </div>
 
             <!-- Card 4: Tech Conclave -->
             <div class="leadership-compact-card">
-              <div class="leadership-proof-thumb">
-                <img src="assets/img/techconlave.jpg" alt="Tech Conclave Organizing Team" class="leadership-proof-img" />
+              <h3 class="leadership-role-name">Tech Conclave Organizing Team</h3>
+              <span class="leadership-org-name">Code for Change</span>
+              <span class="leadership-date-badge">2023 &ndash; 2024</span>
+              <p class="leadership-desc-text">
+                Co-organized a national tech conclave bringing together ecosystem partners and key industry leaders. Directed venue logistics and event-day operational workflows.
+              </p>
+
+              <!-- Optional Proof Image Action with Mini Thumbnail -->
+              <div class="leadership-actions-row">
+                <button type="button" class="view-photos-action-btn" onclick="openLeadershipModal(['assets/img/techconlave.jpg'], 'Tech Conclave Organizing Team — Event Photo')">
+                  <i class="bi bi-images"></i> View Photo
+                </button>
+                <img src="assets/img/techconlave.jpg" alt="Tech Conclave Preview" class="leadership-mini-thumb" onclick="openLeadershipModal(['assets/img/techconlave.jpg'], 'Tech Conclave Organizing Team — Event Photo')" />
               </div>
-              <div class="leadership-card-body">
-                <h3 class="leadership-role-name">Tech Conclave Organizing Team</h3>
-                <span class="leadership-org-name">Code for Change</span>
-                <span class="leadership-date-badge">2023 &ndash; 2024</span>
-                <p class="leadership-desc-text">
-                  Co-organized a national tech conclave bringing together ecosystem partners and key industry leaders. Directed venue logistics and event-day operational workflows.
-                </p>
-                <div class="leadership-tags-row">
-                  <span class="leadership-tag-pill">Event Logistics</span>
-                  <span class="leadership-tag-pill">Operations Management</span>
-                </div>
+
+              <div class="leadership-tags-row">
+                <span class="leadership-tag-pill">Event Logistics</span>
+                <span class="leadership-tag-pill">Operations Management</span>
               </div>
             </div>
 
@@ -2485,7 +2660,27 @@
 
   </div>
 
-  <!-- Script for Intro Overlay -->
+  <!-- Lightbox Modal Overlay for Leadership Photos & Certificates -->
+  <div id="leadership-modal" class="leadership-modal-overlay" onclick="closeLeadershipModalOnBackdrop(event)">
+    <div class="leadership-modal-container">
+      <div class="leadership-modal-header">
+        <h4 id="leadership-modal-title" class="leadership-modal-title-text">Leadership Photo</h4>
+        <button type="button" class="leadership-modal-close-btn" onclick="closeLeadershipModal()" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="leadership-modal-body">
+        <button type="button" id="leadership-modal-prev-btn" class="leadership-modal-nav-btn prev" onclick="navigateLeadershipModal(-1)" aria-label="Previous image">&lsaquo;</button>
+        <img id="leadership-modal-img" src="" alt="Leadership Evidence" class="leadership-modal-active-img" />
+        <button type="button" id="leadership-modal-next-btn" class="leadership-modal-nav-btn next" onclick="navigateLeadershipModal(1)" aria-label="Next image">&rsaquo;</button>
+      </div>
+
+      <div class="leadership-modal-footer">
+        <span id="leadership-modal-counter" class="leadership-modal-counter-text">1 of 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script for Intro Overlay & Leadership Lightbox Modal -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const introScreen = document.getElementById('intro-screen');
@@ -2514,6 +2709,81 @@
           if (introScreen) introScreen.style.display = 'none';
         }, 800);
       }, 3400);
+    });
+
+    /* Leadership Lightbox Modal Functionality */
+    let currentModalImages = [];
+    let currentModalIndex = 0;
+
+    function openLeadershipModal(images, title) {
+      currentModalImages = images;
+      currentModalIndex = 0;
+
+      const modal = document.getElementById('leadership-modal');
+      const titleElem = document.getElementById('leadership-modal-title');
+      
+      if (titleElem) titleElem.textContent = title;
+
+      updateLeadershipModalImage();
+      if (modal) modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLeadershipModal() {
+      const modal = document.getElementById('leadership-modal');
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeLeadershipModalOnBackdrop(e) {
+      if (e.target.id === 'leadership-modal') {
+        closeLeadershipModal();
+      }
+    }
+
+    function navigateLeadershipModal(direction) {
+      if (currentModalImages.length <= 1) return;
+      currentModalIndex = (currentModalIndex + direction + currentModalImages.length) % currentModalImages.length;
+      updateLeadershipModalImage();
+    }
+
+    function updateLeadershipModalImage() {
+      const imgElem = document.getElementById('leadership-modal-img');
+      const counterElem = document.getElementById('leadership-modal-counter');
+      const prevBtn = document.getElementById('leadership-modal-prev-btn');
+      const nextBtn = document.getElementById('leadership-modal-next-btn');
+
+      if (currentModalImages.length > 0 && imgElem) {
+        imgElem.src = currentModalImages[currentModalIndex];
+      }
+
+      if (counterElem) {
+        counterElem.textContent = `${currentModalIndex + 1} of ${currentModalImages.length}`;
+      }
+
+      if (prevBtn && nextBtn) {
+        if (currentModalImages.length <= 1) {
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+        } else {
+          prevBtn.style.display = 'flex';
+          nextBtn.style.display = 'flex';
+        }
+      }
+    }
+
+    // Keyboard listener for Escape & Arrow Keys
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('leadership-modal');
+      if (modal && modal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLeadershipModal();
+        } else if (e.key === 'ArrowLeft') {
+          navigateLeadershipModal(-1);
+        } else if (e.key === 'ArrowRight') {
+          navigateLeadershipModal(1);
+        }
+      }
     });
   </script>
 </body>
