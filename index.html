@@ -357,6 +357,194 @@
       filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
     }
 
+    /* ==========================================================================
+       Redesigned Selected Work (Projects) Section Styling
+       ========================================================================== */
+    .selected-work-section {
+      padding: 5rem 1.5rem;
+      background-color: var(--bg-main, #FAF8F5);
+    }
+
+    .selected-work-header {
+      max-width: 1140px;
+      margin: 0 auto 3rem;
+    }
+
+    .selected-work-title {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0F172A;
+      margin: 0 0 0.5rem 0;
+      text-transform: uppercase;
+    }
+
+    .selected-work-subtitle {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.85rem;
+      color: #FF007F;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .selected-work-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .project-editorial-card {
+      background: #FFFFFF;
+      border: 1px solid #FCE7F3;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-editorial-card:hover {
+      border-color: #FF007F;
+      box-shadow: 0 10px 30px rgba(255, 0, 127, 0.08);
+    }
+
+    .project-editorial-card.featured-card {
+      border: 1.5px solid #FF007F;
+      box-shadow: 0 8px 30px rgba(255, 0, 127, 0.06);
+    }
+
+    @media (max-width: 900px) {
+      .project-editorial-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-visual-wrapper {
+      position: relative;
+      background: #FAF8F5;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      padding: 1.5rem;
+    }
+
+    .project-visual-img {
+      width: 100%;
+      height: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .project-editorial-card:hover .project-visual-img {
+      transform: scale(1.02);
+    }
+
+    .project-content-body {
+      padding: 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-badge-tag {
+      display: inline-block;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #FF007F;
+      background: #FFF0F5;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      margin-bottom: 0.85rem;
+      align-self: flex-start;
+    }
+
+    .project-title-text {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 0.25rem 0;
+      line-height: 1.2;
+    }
+
+    .project-subtitle-text {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #FF007F;
+      margin: 0 0 1rem 0;
+    }
+
+    .project-desc-paragraph {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #475569;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .project-tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .project-tech-pill {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #334155;
+      background: #FAF8F5;
+      border: 1px solid #FCE7F3;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+    }
+
+    .project-links-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .project-link-btn {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0F172A;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.15s ease;
+    }
+
+    .project-link-btn:hover {
+      color: #FF007F;
+    }
+
+    .project-link-btn.btn-accent {
+      color: #FF007F;
+    }
+
+    .project-link-btn.btn-accent:hover {
+      color: #E00070;
+    }
+
     /* Force all main sections to stack vertically */
     section, 
     .section, 
@@ -1364,6 +1552,90 @@
 
         </div>
       </section>
+
+      <!-- Section: Selected Work (Projects) -->
+      <section id="projects" class="selected-work-section">
+        <div class="selected-work-header">
+          <span class="selected-work-subtitle">// PORTFOLIO</span>
+          <h2 class="selected-work-title">SELECTED WORK</h2>
+        </div>
+
+        <div class="selected-work-grid">
+          
+          <!-- Project 1: Medi (Featured First with Visual Emphasis) -->
+          <div class="project-editorial-card featured-card">
+            <div class="project-visual-wrapper">
+              <img src="assets/img/portfolio/medimind_landing.png" alt="Medi AI Hospital Management System" class="project-visual-img" />
+            </div>
+            <div class="project-content-body">
+              <span class="project-badge-tag">FEATURED SYSTEM</span>
+              <h3 class="project-title-text">Medi</h3>
+              <p class="project-subtitle-text">AI-powered Hospital Management System</p>
+              
+              <p class="project-desc-paragraph">
+                Multi-tenant hospital management platform built with Django REST and Next.js, featuring automated patient queueing, Decision Tree clinical risk prediction (97% accuracy), and Celery/Redis asynchronous task processing.
+              </p>
+
+              <div class="project-tech-row">
+                <span class="project-tech-pill">Python</span>
+                <span class="project-tech-pill">Django</span>
+                <span class="project-tech-pill">DRF</span>
+                <span class="project-tech-pill">PostgreSQL</span>
+                <span class="project-tech-pill">Celery</span>
+                <span class="project-tech-pill">Redis</span>
+                <span class="project-tech-pill">Scikit-learn</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://github.com/Sara3302/Medi" target="_blank" rel="noreferrer" class="project-link-btn">
+                  View Project <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Sara3302/Medi" target="_blank" rel="noreferrer" class="project-link-btn">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+                <a href="https://www.youtube.com/watch?v=uEGEBaP-J48&amp;list=PLdBjxZNtD5YE&amp;index=1" target="_blank" rel="noreferrer" class="project-link-btn btn-accent">
+                  <i class="bi bi-youtube"></i> Watch Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Readkin (Lit Connect) -->
+          <div class="project-editorial-card">
+            <div class="project-visual-wrapper">
+              <img src="assets/img/portfolio/litconnect_preview.png" alt="Readkin AI Social Book Tracker" class="project-visual-img" style="object-fit: contain; padding: 1rem;" />
+            </div>
+            <div class="project-content-body">
+              <h3 class="project-title-text">Readkin</h3>
+              <p class="project-subtitle-text">AI-powered Social Book Tracker</p>
+              
+              <p class="project-desc-paragraph">
+                Social reading platform featuring hybrid recommendation engines combining collaborative filtering with LLM semantic vector matching and Google Books API integration.
+              </p>
+
+              <div class="project-tech-row">
+                <span class="project-tech-pill">Python</span>
+                <span class="project-tech-pill">Django</span>
+                <span class="project-tech-pill">PostgreSQL</span>
+                <span class="project-tech-pill">Scikit-learn</span>
+                <span class="project-tech-pill">Gemini API</span>
+                <span class="project-tech-pill">OpenAI API</span>
+              </div>
+
+              <div class="project-links-row">
+                <a href="https://github.com/Sara3302/LitConnect" target="_blank" rel="noreferrer" class="project-link-btn">
+                  View Project <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/Sara3302/LitConnect" target="_blank" rel="noreferrer" class="project-link-btn">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- Section 01: About Me -->
       <section id="about" class="section">
         <div class="container">
@@ -1573,82 +1845,7 @@
         </div>
       </section>
 
-      <!-- Section 04: Featured Projects -->
-      <section id="projects" class="section">
-        <div class="container">
-          <span class="section-subtitle">04 / Featured Projects</span>
-          <h2 class="section-title">Projects</h2>
-          <p class="section-description">AI-driven platforms, full-stack systems, and asynchronous backend engines.</p>
 
-          <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-            
-            <!-- Project 1: Medi -->
-            <div class="leadership-card" style="border-radius: 1rem;">
-              <div class="leadership-img-container" style="height: 14rem;">
-                <img src="assets/img/portfolio/medimind_landing.png" alt="Medi AI Hospital OS" class="leadership-img" />
-              </div>
-              <div class="leadership-body" style="padding: 1.75rem;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
-                  <h3 class="leadership-title" style="font-size: 1.3rem;">Medi — AI Hospital System</h3>
-                  <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">2026</span>
-                </div>
-                <p class="leadership-org" style="margin-bottom: 1rem;">Django, DRF, Next.js, Scikit-learn, Celery, Redis</p>
-
-                <ul class="exp-bullets" style="margin-bottom: 1.5rem; padding-left: 1.25rem;">
-                  <li>Architected role-based patient/doctor management with strict access control middleware.</li>
-                  <li>Trained Decision Tree classification model achieving 97% accuracy in heart disease prediction.</li>
-                  <li>Integrated LLM API for clinical diagnostic report analysis and Celery/Redis worker queues for async task execution.</li>
-                </ul>
-
-                <div class="leadership-tags" style="margin-bottom: 1.5rem;">
-                  <span class="pill-tag">Django</span>
-                  <span class="pill-tag">DRF</span>
-                  <span class="pill-tag">Next.js</span>
-                  <span class="pill-tag">Scikit-learn</span>
-                  <span class="pill-tag">Celery</span>
-                  <span class="pill-tag">Redis</span>
-                </div>
-
-                <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
-                  <a href="https://www.youtube.com/watch?v=uEGEBaP-J48&amp;list=PLdBjxZNtD5YE&amp;index=1" target="_blank" style="color: var(--accent-color); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem;">
-                    <i class="bi bi-youtube" style="font-size: 1.2rem;"></i> Watch Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project 2: Lit Connect (Readkin) -->
-            <div class="leadership-card" style="border-radius: 1rem;">
-              <div class="leadership-img-container" style="height: 14rem; background-color: #f8fafc;">
-                <img src="assets/img/portfolio/litconnect_preview.png" alt="Lit Connect Book Tracker" class="leadership-img" style="object-fit: contain; padding: 1rem;" />
-              </div>
-              <div class="leadership-body" style="padding: 1.75rem;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
-                  <h3 class="leadership-title" style="font-size: 1.3rem;">Lit Connect — AI Social Book Tracker</h3>
-                  <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">2026</span>
-                </div>
-                <p class="leadership-org" style="margin-bottom: 1rem;">Python, Django, PostgreSQL, Scikit-learn, Gemini API, OpenAI API</p>
-
-                <ul class="exp-bullets" style="margin-bottom: 1.5rem; padding-left: 1.25rem;">
-                  <li>Developing a social reading platform featuring hybrid recommendation engines combining collaborative filtering with LLM semantic vector matching.</li>
-                  <li>Integrated Google Books API to process and normalize user reading metrics and batch metadata retrieval.</li>
-                  <li>Optimized PostgreSQL relational schemas for high-concurrency feed activity queries and vector similarity searches.</li>
-                </ul>
-
-                <div class="leadership-tags">
-                  <span class="pill-tag">Python</span>
-                  <span class="pill-tag">Django</span>
-                  <span class="pill-tag">PostgreSQL</span>
-                  <span class="pill-tag">Scikit-learn</span>
-                  <span class="pill-tag">Gemini API</span>
-                  <span class="pill-tag">OpenAI API</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
 
 
