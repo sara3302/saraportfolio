@@ -177,295 +177,96 @@
       transition: color 0.15s ease;
     }
 
-    /* Modern Engineering Dark Slate Hero & Navbar Styling */
-    .site-header-dark {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: rgba(10, 12, 16, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.85rem 0;
+    .nav-menu a:hover {
+      color: var(--accent-color);
     }
 
-    .brand-logo-mono {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: #FFFFFF;
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-logo-mono span {
-      color: #FF2D55;
-    }
-
-    .nav-link-item {
-      color: #94A3B8;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .nav-link-item:hover {
-      color: #FFFFFF;
-    }
-
-    .status-badge-pulse {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #34D399;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-    }
-
-    .dot-pulse {
-      position: relative;
+    .nav-socials {
       display: flex;
-      height: 0.5rem;
-      width: 0.5rem;
-    }
-
-    .dot-pulse-ping {
-      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-      position: absolute;
-      display: inline-flex;
-      height: 100%;
-      width: 100%;
-      border-radius: 9999px;
-      background-color: #34D399;
-      opacity: 0.75;
-    }
-
-    .dot-pulse-solid {
-      position: relative;
-      display: inline-flex;
-      border-radius: 9999px;
-      height: 0.5rem;
-      width: 0.5rem;
-      background-color: #10B981;
-    }
-
-    @keyframes ping {
-      75%, 100% {
-        transform: scale(2);
-        opacity: 0;
-      }
-    }
-
-    /* Dark Charcoal Grid Pattern Hero */
-    .hero-dark-wrapper {
-      min-height: calc(100vh - 70px);
-      background-color: #0A0C10;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 1.5rem 6rem;
-    }
-
-    /* Background Grid Overlay */
-    .hero-bg-grid {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-    }
-
-    /* Muted Radial Glow Behind Card */
-    .hero-radial-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 45, 85, 0.12) 0%, rgba(10, 12, 16, 0) 70%);
-      pointer-events: none;
-      border-radius: 9999px;
-    }
-
-    /* Glassmorphism Hero Card */
-    .hero-glass-card {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 760px;
-      background: rgba(15, 23, 42, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 1.75rem;
-      padding: 3.5rem 3rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 45, 85, 0.08);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    @media (max-width: 640px) {
-      .hero-glass-card {
-        padding: 2.25rem 1.5rem;
-      }
-    }
-
-    .hero-heading-namaste {
-      font-size: 4.25rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.03em;
-      margin: 0 0 1rem 0;
-      line-height: 1.1;
-    }
-
-    @media (max-width: 640px) {
-      .hero-heading-namaste {
-        font-size: 3.25rem;
-      }
-    }
-
-    .hero-heading-namaste span {
-      color: #FF2D55;
-    }
-
-    .hero-subtitle-contrast {
-      font-size: 1.2rem;
-      color: #CBD5E1;
-      font-weight: 500;
-      max-width: 580px;
-      margin-bottom: 1.75rem;
-      line-height: 1.6;
-    }
-
-    /* Dark Tech Badges */
-    .tech-tags-dark-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 2.25rem;
-    }
-
-    .tech-badge-dark {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: #94A3B8;
-      background: rgba(30, 41, 59, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.3rem 0.8rem;
-      border-radius: 9999px;
-      font-weight: 500;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .tech-badge-dark:hover {
-      border-color: rgba(255, 45, 85, 0.4);
-      color: #FFFFFF;
-    }
-
-    /* Minimal Action Buttons */
-    .hero-actions-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       gap: 1rem;
-      flex-wrap: wrap;
-      width: 100%;
     }
 
-    .btn-pink-primary {
-      background-color: #FF2D55;
-      color: #FFFFFF;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.8rem 1.85rem;
-      border-radius: 0.85rem;
-      text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 18px rgba(255, 45, 85, 0.35);
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-pink-primary:hover {
-      background-color: #E02447;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255, 45, 85, 0.45);
-    }
-
-    .btn-outline-subtle {
-      background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #FFFFFF;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.8rem 1.85rem;
-      border-radius: 0.85rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-outline-subtle:hover {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Bouncing Scroll Indicator */
-    .scroll-anchor-bottom {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-      color: #64748B;
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      transition: color 0.2s ease;
-      z-index: 10;
-    }
-
-    .scroll-anchor-bottom:hover {
-      color: #FF2D55;
-    }
-
-    .bounce-arrow {
-      animation: bounce 2s infinite;
+    .nav-socials a {
+      color: var(--text-main);
       font-size: 1.1rem;
+      transition: color 0.15s ease;
+      text-decoration: none;
     }
 
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(6px);
-      }
-      60% {
-        transform: translateY(3px);
-      }
+    .nav-socials a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hero Section Styling */
+    .hero-section {
+      min-height: calc(100vh - 100px);
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      background-color: #FAF8F5;
+    }
+
+    .hero-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .greeting {
+      font-size: 1.1rem;
+      color: #475569;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: 3.25rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+      color: #0F172A;
+    }
+
+    .hero-role {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #FF007F;
+      margin: 0 0 0.5rem;
+    }
+
+    .hero-location {
+      font-size: 1rem;
+      color: #64748B;
+      margin: 0;
+    }
+
+    /* Editorial Hero Stack Pills */
+    .hero-stack-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .hero-stack-pills span {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.8rem;
+      color: #334155;
+      background: #ffffff;
+      border: 1px solid #FCE7F3;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     }
 
     /* Force all main sections to stack vertically */
@@ -1399,61 +1200,61 @@
   <!-- Main Website Content -->
   <div id="main-content">
     
-    <!-- Sleek Minimal Top Navbar -->
-    <header class="site-header-dark">
-      <div class="container" style="display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
-        <a href="#hero" class="brand-logo-mono">sara.joshi<span>.</span></a>
+    <!-- Navigation Header -->
+    <header class="site-header">
+      <div class="nav-container">
+        <a href="#hero" class="brand-logo">Sara J.</a>
         
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-          <nav style="display: flex; align-items: center; gap: 1.25rem;">
-            <a href="https://github.com/Sara3302" target="_blank" class="nav-link-item">GitHub</a>
-            <a href="https://www.linkedin.com/in/sara-joshi-ab40882ab/" target="_blank" class="nav-link-item">LinkedIn</a>
-            <a href="mailto:sarajoshi33@gmail.com" class="nav-link-item">Resume</a>
-          </nav>
+        <nav class="nav-menu">
+          <a href="#about">About</a>
+          <a href="#stack">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-          <!-- Pulsing Opportunity Status Badge -->
-          <div class="status-badge-pulse">
-            <span class="dot-pulse">
-              <span class="dot-pulse-ping"></span>
-              <span class="dot-pulse-solid"></span>
-            </span>
-            Available for opportunities
-          </div>
+        <div class="nav-socials">
+          <a href="https://www.youtube.com/watch?v=EpMJcw9_01Q&amp;list=PLdBjxZNtD5YE" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/sara-joshi-ab40882ab/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/sara3302" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="mailto:sarajoshi33@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
         </div>
       </div>
     </header>
 
-    <!-- Deep Slate Engineering Glassmorphism Hero Section -->
-    <section id="hero" class="hero-dark-wrapper">
-      <div class="hero-bg-grid"></div>
-      <div class="hero-radial-glow"></div>
+    <main class="container">
+      
+      <!-- Hero Section (Warm Off-White Editorial Luxe Aesthetic) -->
+      <section id="hero" class="hero-section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <span class="greeting">Hello,</span>
+            <h1 class="hero-name">I'm Sara Joshi</h1>
+            <p class="hero-role">Backend &amp; Applied AI/ML Engineer</p>
+            <p class="hero-location">From Kathmandu, Nepal</p>
 
-      <div class="hero-glass-card">
-        <h1 class="hero-heading-namaste">नमस्ते<span>.</span></h1>
-        <p class="hero-subtitle-contrast">Sara Joshi &mdash; Backend &amp; Applied AI/ML Engineer</p>
+            <!-- Clean, minimal tech tags -->
+            <div class="hero-stack-pills">
+              <span>Python</span>
+              <span>Django REST</span>
+              <span>PostgreSQL</span>
+              <span>Celery</span>
+              <span>Scikit-learn</span>
+            </div>
 
-        <!-- Small Dark Tech Badges -->
-        <div class="tech-tags-dark-row">
-          <span class="tech-badge-dark">Python</span>
-          <span class="tech-badge-dark">PyTorch</span>
-          <span class="tech-badge-dark">FastAPI</span>
-          <span class="tech-badge-dark">PostgreSQL</span>
-          <span class="tech-badge-dark">Docker</span>
+            <div class="hero-cta-group" style="margin-top: 1.75rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#projects" class="btn btn-primary"><i class="bi bi-terminal"></i> Case Studies</a>
+              <a href="https://www.youtube.com/watch?v=uEGEBaP-J48&amp;list=PLdBjxZNtD5YE&amp;index=1" target="_blank" class="btn btn-youtube"><i class="bi bi-youtube"></i> Video Demos</a>
+            </div>
+          </div>
+
+          <!-- Clean Cutout Image -->
+          <div class="hero-image-wrapper">
+            <img src="assets/sara-cutout.png" alt="Sara Joshi" class="hero-cutout-img" />
+          </div>
         </div>
-
-        <!-- Action Buttons -->
-        <div class="hero-actions-row">
-          <a href="#projects" class="btn-pink-primary"><i class="bi bi-code-square"></i> View Projects</a>
-          <a href="#contact" class="btn-outline-subtle"><i class="bi bi-envelope"></i> Contact</a>
-        </div>
-      </div>
-
-      <!-- Bouncing Scroll Anchor -->
-      <a href="#about" class="scroll-anchor-bottom" aria-label="Scroll to About section">
-        <span>SCROLL</span>
-        <i class="bi bi-chevron-down bounce-arrow"></i>
-      </a>
-    </section>
+      </section>
       <!-- Section 01: About Me -->
       <section id="about" class="section">
         <div class="container">
