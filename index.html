@@ -2823,8 +2823,8 @@
           <p class="contact-closing-subtitle">Have a project, opportunity, or just want to connect?</p>
 
           <div class="contact-actions-row">
-            <!-- Primary Action -->
-            <a href="mailto:sarajoshi33@gmail.com" class="btn-email-primary">
+            <!-- Primary Action (Mailto + Webmail Redirection) -->
+            <a href="mailto:sarajoshi33@gmail.com" onclick="handleEmailClick(event)" class="btn-email-primary">
               <i class="bi bi-envelope-fill"></i> Email Me
             </a>
 
@@ -2836,6 +2836,11 @@
               <i class="bi bi-linkedin"></i> LinkedIn
             </a>
           </div>
+
+          <!-- Direct Email Address Text Display & Copy Hint -->
+          <p class="contact-email-text-display" style="font-family: var(--font-mono); font-size: 0.95rem; color: #64748B; margin-top: 1.5rem;">
+            <i class="bi bi-envelope-check-fill" style="color: #FF007F; margin-right: 0.35rem;"></i> Direct Email: <a href="mailto:sarajoshi33@gmail.com" onclick="handleEmailClick(event)" style="color: #0F172A; font-weight: 700; text-decoration: underline;">sarajoshi33@gmail.com</a>
+          </p>
         </div>
       </section>
 
@@ -2975,6 +2980,25 @@
         }
       }
     });
+
+    /* Universal Email Redirection & Clipboard Helper */
+    function handleEmailClick(e) {
+      if (e) e.preventDefault();
+      const email = 'sarajoshi33@gmail.com';
+      
+      // Copy to clipboard
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email);
+      }
+
+      // 1. Try opening native mailto client
+      window.location.href = `mailto:${email}`;
+
+      // 2. Fallback to Gmail Webmail Compose window directly in a new tab
+      setTimeout(() => {
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
+      }, 350);
+    }
   </script>
 </body>
 </html>
