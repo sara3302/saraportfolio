@@ -335,18 +335,128 @@
       font-weight: 500;
     }
 
-    .hero-redesign-media {
+    /* Experience Section Styling */
+    .experience-stack {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      gap: 1.75rem;
+      max-width: 1140px;
+      margin: 0 auto;
     }
 
-    .hero-image-frame {
+    .exp-card {
+      background: #FFFFFF;
+      border: 1px solid #FCE7F3;
+      border-radius: 1.25rem;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
       position: relative;
-      max-width: 380px;
-      width: 100%;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .exp-card:hover {
+      border-color: #FF007F;
+      box-shadow: 0 8px 25px rgba(255, 0, 127, 0.06);
+    }
+
+    /* Strongest Visual Emphasis for Human Rights Defenders Forum */
+    .exp-card.featured-exp {
+      border: 1.5px solid #FF007F;
+      border-left: 5px solid #FF007F;
+      background: #FFFFFF;
+      box-shadow: 0 8px 30px rgba(255, 0, 127, 0.08);
+    }
+
+    /* Visually Secondary Entry Styling */
+    .exp-card.secondary-exp {
+      opacity: 0.92;
+      border: 1px dashed #E2E8F0;
+      background: #FAF8F5;
+      box-shadow: none;
+    }
+
+    .exp-header-row {
       display: flex;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-role-title {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 0.2rem 0;
+      line-height: 1.2;
+    }
+
+    .exp-company-name {
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FF007F;
+      display: inline-block;
+    }
+
+    .exp-timeline-badge {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #64748B;
+      background: #FAF8F5;
+      border: 1px solid #E2E8F0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .exp-bullets {
+      margin: 0 0 1.25rem 0;
+      padding-left: 1.25rem;
+      color: #475569;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li {
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-skills-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #FCE7F3;
+    }
+
+    .exp-skills-label {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #64748B;
+      margin-right: 0.25rem;
+    }
+
+    .exp-skill-pill {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #334155;
+      background: #FAF8F5;
+      border: 1px solid #FCE7F3;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
     }
 
     .hero-portrait-img {
@@ -1806,25 +1916,46 @@
         <div class="container">
           <span class="section-subtitle">02 / Work Experience</span>
           <h2 class="section-title">Professional Experience</h2>
-          <p class="section-description">Software engineering, full-stack development, data processing, and technical research roles.</p>
+          <p class="section-description">Software engineering, full-stack development, backend data processing, and research roles.</p>
 
           <div class="experience-stack">
 
-            <!-- Experience Item 1 -->
-            <div class="exp-card">
+            <!-- Experience Item 1: Human Rights Defenders Forum (First & Most Prominent Entry) -->
+            <div class="exp-card featured-exp">
               <div class="exp-header-row">
-                <div class="exp-logo-circle">
-                  <i class="bi bi-code-slash"></i>
+                <div>
+                  <h3 class="exp-role-title">Freelance Full-Stack Developer</h3>
+                  <span class="exp-company-name">Human Rights Defenders Forum</span>
                 </div>
-                <div class="exp-header-meta">
-                  <h3 class="exp-role-title">
-                    Full Stack Developer &amp; Researcher <span style="font-weight: 400; font-size: 0.92rem; color: var(--text-muted);">(Sudurpaschim Province Handler)</span>
-                  </h3>
-                  <span class="exp-company-name">Illuminati Organization</span>
-                </div>
+                <span class="exp-timeline-badge">2026 | Remote</span>
               </div>
 
-              <span class="exp-timeline">2026 | Remote</span>
+              <ul class="exp-bullets">
+                <li>Developed the organization's website using Django, Python, React, JavaScript, HTML, and CSS.</li>
+                <li>Translated stakeholder requirements into functional website features.</li>
+                <li>Built responsive interfaces and refined functionality based on stakeholder feedback.</li>
+              </ul>
+
+              <div class="exp-skills-row">
+                <span class="exp-skills-label">Skills:</span>
+                <span class="exp-skill-pill">Django</span>
+                <span class="exp-skill-pill">Python</span>
+                <span class="exp-skill-pill">React</span>
+                <span class="exp-skill-pill">JavaScript</span>
+                <span class="exp-skill-pill">HTML/CSS</span>
+                <span class="exp-skill-pill">Full-Stack Development</span>
+              </div>
+            </div>
+
+            <!-- Experience Item 2: Illuminati Organization -->
+            <div class="exp-card">
+              <div class="exp-header-row">
+                <div>
+                  <h3 class="exp-role-title">Full Stack Developer &amp; Researcher <span style="font-weight: 400; font-size: 0.9rem; color: var(--text-subtle);">(Sudurpaschim Province Handler)</span></h3>
+                  <span class="exp-company-name">Illuminati Organization</span>
+                </div>
+                <span class="exp-timeline-badge">2026 | Remote</span>
+              </div>
 
               <ul class="exp-bullets">
                 <li>Engineered interactive UI features using React and built Python scripts for backend data processing for web applications like Question Nepal.</li>
@@ -1834,27 +1965,23 @@
 
               <div class="exp-skills-row">
                 <span class="exp-skills-label">Skills:</span>
-                <span class="pill-tag">React</span>
-                <span class="pill-tag">Python</span>
-                <span class="pill-tag">Full Stack Development</span>
-                <span class="pill-tag">Data Processing</span>
-                <span class="pill-tag">Research</span>
+                <span class="exp-skill-pill">React</span>
+                <span class="exp-skill-pill">Python</span>
+                <span class="exp-skill-pill">Full Stack Development</span>
+                <span class="exp-skill-pill">Data Processing</span>
+                <span class="exp-skill-pill">Research</span>
               </div>
             </div>
 
-            <!-- Experience Item 2 -->
-            <div class="exp-card">
+            <!-- Experience Item 3: AI Language Data Contributor (Visually Secondary Entry) -->
+            <div class="exp-card secondary-exp">
               <div class="exp-header-row">
-                <div class="exp-logo-circle">
-                  <i class="bi bi-cpu"></i>
-                </div>
-                <div class="exp-header-meta">
+                <div>
                   <h3 class="exp-role-title">AI Language Data Contributor &amp; Proofreader</h3>
                   <span class="exp-company-name">Freelance</span>
                 </div>
+                <span class="exp-timeline-badge">2024 | Remote</span>
               </div>
-
-              <span class="exp-timeline">2024 | Remote</span>
 
               <ul class="exp-bullets">
                 <li>Completed 50+ language data tasks in Nepali and English involving audio recording, transcription, and proofreading with a 98% accuracy rate.</li>
@@ -1863,10 +1990,10 @@
 
               <div class="exp-skills-row">
                 <span class="exp-skills-label">Skills:</span>
-                <span class="pill-tag">NLP Data</span>
-                <span class="pill-tag">Transcription</span>
-                <span class="pill-tag">Proofreading</span>
-                <span class="pill-tag">Quality Assurance</span>
+                <span class="exp-skill-pill">NLP Data</span>
+                <span class="exp-skill-pill">Transcription</span>
+                <span class="exp-skill-pill">Proofreading</span>
+                <span class="exp-skill-pill">Quality Assurance</span>
               </div>
             </div>
 
